@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Karras
+  description: Manages my workstations.
+  company: none
+  role_name: workstation
+  license: GPL-3.0-only
+  min_ansible_version: 2.12
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - workstation
+    - laptop
+    - archlinux
+
+dependencies: []
