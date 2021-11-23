@@ -1,0 +1,6 @@
+---
+
+- name: configure local timezone and hwclock
+  community.general.timezone:
+    name: '{{ workstation_timezone }}'
+    hwclock: '{{ workstation_timezone_hwclock }}'

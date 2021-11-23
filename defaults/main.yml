@@ -1,3 +1,4 @@
 ---
 
-# defaults file for workstation
+workstation_timezone: Europe/Zurich
+workstation_timezone_hwclock: UTC
