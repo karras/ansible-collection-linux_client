@@ -4,3 +4,18 @@
   community.general.timezone:
     name: '{{ workstation_timezone }}'
     hwclock: '{{ workstation_timezone_hwclock }}'
+
+- name: configure systemd-timesyncd
+  ansible.builtin.template:
+    src: etc/systemd/timesyncd.conf.j2
+    dest: /etc/systemd/timesyncd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart systemd-timesyncd
+
+- name: activate systemd-timesyncd
+  ansible.builtin.service:
+    name: systemd-timesyncd
+    enabled: yes
+    state: started
