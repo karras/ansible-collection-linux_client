@@ -25,6 +25,9 @@
     path: /etc/locale.gen
     regexp: '#{{ item }}'
     replace: '{{ item }}'
+    owner: root
+    group: root
+    mode: 0644
   loop: '{{ os_baseline_locales }}'
   notify: generate locales
 
