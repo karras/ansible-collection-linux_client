@@ -1,11 +1,20 @@
 ---
 
+# Timezone to configure
 os_baseline_timezone: Europe/Zurich
+
+# Whether the hardware clock is in UTC or local timezone
+# Valid values are 'local' or 'UTC'
 os_baseline_timezone_hwclock: UTC
 
+# Configuration for systemd-timesyncd (see `man timesyncd.conf`)
 os_baseline_timesyncd_config:
   ntp:
   fallback_ntp: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
   root_distance_max_sec: 5
   poll_interval_min_sec: 32
   poll_interval_max_sec: 2048
+
+# List of mirrors to activate
+os_baseline_mirrors:
+  - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'

@@ -19,3 +19,11 @@
     name: systemd-timesyncd
     enabled: yes
     state: started
+
+- name: configure pacman mirrorlist
+  ansible.builtin.template:
+    src: etc/pacman.d/mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    owner: root
+    group: root
+    mode: 0644

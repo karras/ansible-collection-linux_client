@@ -1,0 +1,8 @@
+## {{ ansible_managed }}
+##
+## Arch Linux repository mirrorlist
+##
+
+{% for mirror in os_baseline_mirrors %}
+Server = {{ mirror }}
+{% endfor %}
