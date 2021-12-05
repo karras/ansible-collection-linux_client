@@ -1,4 +1,0 @@
----
-
-- name: include os tasks
-  ansible.builtin.import_tasks: os.yml

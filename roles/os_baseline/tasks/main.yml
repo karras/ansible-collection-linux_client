@@ -2,8 +2,8 @@
 
 - name: configure local timezone and hwclock
   community.general.timezone:
-    name: '{{ workstation_timezone }}'
-    hwclock: '{{ workstation_timezone_hwclock }}'
+    name: '{{ os_baseline_timezone }}'
+    hwclock: '{{ os_baseline_timezone_hwclock }}'
 
 - name: configure systemd-timesyncd
   ansible.builtin.template:

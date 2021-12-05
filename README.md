@@ -1,27 +1,15 @@
-# Ansible Role - Workstation
+# Ansible Collection - karras.workstation
 
-Manages my workstations.
+A collection of roles to manage Linux-based development workstations.
 
-## Example Playbook
+## Compatibility
 
-TODO
+Currently only supports Archlinux.
 
-## Role Variables
-
-TODO
-
-## Requirements
-
-TODO
-
-## Dependencies
+## Usage
 
 TODO
 
 ## License
 
 See [LICENSE](./LICENSE)
-
-## Author Information
-
-n/a

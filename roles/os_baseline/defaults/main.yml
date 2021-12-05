@@ -1,10 +1,10 @@
 ---
 
-workstation_timezone: Europe/Zurich
-workstation_timezone_hwclock: UTC
+os_baseline_timezone: Europe/Zurich
+os_baseline_timezone_hwclock: UTC
 
-workstation_timesyncd_config:
-  ntp: '0.ch.pool.ntp.org 1.ch.pool.ntp.org 2.ch.pool.ntp.org 3.ch.pool.ntp.org'
+os_baseline_timesyncd_config:
+  ntp:
   fallback_ntp: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
   root_distance_max_sec: 5
   poll_interval_min_sec: 32

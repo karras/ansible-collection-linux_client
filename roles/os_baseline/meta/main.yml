@@ -1,8 +1,8 @@
 galaxy_info:
   author: Karras
-  description: Manages my workstations.
+  description: Manages OS related basic configs for workstations.
   company: none
-  role_name: workstation
+  role_name: os_baseline
   license: GPL-3.0-only
   min_ansible_version: 2.12
 
@@ -14,6 +14,7 @@ galaxy_info:
   galaxy_tags:
     - workstation
     - laptop
+    - desktop
     - archlinux
 
 dependencies: []

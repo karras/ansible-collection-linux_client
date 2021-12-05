@@ -1,0 +1,20 @@
+---
+namespace: karras
+name: workstation
+version: 0.0.0
+readme: README.md
+authors:
+- Michael Hofer <@karras>
+description: A collection of roles to manage Archlinux based development workstations.
+license_file: LICENSE
+tags:
+  - workstation
+  - laptop
+  - desktop
+  - archlinux
+dependencies: {}
+repository: https://github.com/karras/ansible-collection-workstation
+documentation: https://github.com/karras/ansible-collection-workstation
+homepage: https://github.com/karras/ansible-collection-workstation
+issues: https://github.com/karras/ansible-collection-workstation/issues
+build_ignore: []
