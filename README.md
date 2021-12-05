@@ -4,7 +4,7 @@ A collection of roles to manage Linux-based development workstations.
 
 ## Compatibility
 
-Currently only supports Archlinux.
+Currently only supports Arch Linux.
 
 ## Usage
 
