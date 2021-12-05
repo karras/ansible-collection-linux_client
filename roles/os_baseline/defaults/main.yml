@@ -18,3 +18,20 @@ os_baseline_timesyncd_config:
 # List of mirrors to activate
 os_baseline_mirrors:
   - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'
+
+# List of locales to activate
+os_baseline_locales:
+  - 'de_CH.UTF-8 UTF-8'
+  - 'de_CH ISO-8859-1'
+  - 'en_US.UTF-8 UTF-8'
+  - 'en_US ISO-8859-1'
+
+# List of baseline packages to install
+os_baseline_packages:
+  - base
+  - dhclient
+  - intel-ucode
+  - linux
+  - linux-firmware
+  - lvm2
+  - vi

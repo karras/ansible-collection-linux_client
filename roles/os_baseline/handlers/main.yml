@@ -4,3 +4,7 @@
   ansible.builtin.service:
     name: systemd-timesyncd
     state: restarted
+
+- name: generate locales
+  ansible.builtin.command:
+    locale-gen
