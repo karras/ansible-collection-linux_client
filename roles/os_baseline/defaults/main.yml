@@ -1,11 +1,11 @@
 ---
 
 # Timezone to configure
-os_baseline_timezone: Europe/Zurich
+os_baseline_timezone: Etc/UTC
 
 # Whether the hardware clock is in UTC or local timezone
-# Valid values are 'local' or 'UTC'
-os_baseline_timezone_hwclock: UTC
+# Valid values are 0 ('UTC') and 1 ('local')
+os_baseline_timezone_hwclock: 0
 
 # Configuration for systemd-timesyncd (see `man timesyncd.conf`)
 os_baseline_timesyncd_config:
