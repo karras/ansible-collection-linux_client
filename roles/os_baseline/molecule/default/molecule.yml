@@ -8,7 +8,7 @@ driver:
 
 platforms:
   - name: instance
-    image: archlinux:latest
+    image: ghcr.io/karras/archlinux-ansible-testing:latest
     pre_build_image: true
 
 provisioner:
