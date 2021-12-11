@@ -8,6 +8,14 @@ A collection of roles to manage Linux-based development workstations.
 
 Currently only supports Arch Linux.
 
+## Roles
+
+The following roles are part of this collection:
+
+| Role                                | Purpose                     |
+| ----------------------------------- | --------------------------- |
+| [os\_baseline](./roles/os_baseline) | OS baseline configuration   |
+
 ## Dependencies
 
 Whenever possible only Ansible builtin modules are leveraged, which can lead to
