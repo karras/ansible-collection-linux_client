@@ -5,7 +5,7 @@ version: 0.0.0
 readme: README.md
 authors:
   - Michael Hofer <@karras>
-description: A collection of roles to manage Archlinux based development workstations.
+description: A collection of roles to manage Linux-based development workstations.
 license_file: LICENSE
 tags:
   - workstation
