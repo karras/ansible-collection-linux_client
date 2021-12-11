@@ -8,6 +8,11 @@ A collection of roles to manage Linux-based development workstations.
 
 Currently only supports Arch Linux.
 
+## Dependencies
+
+Whenever possible only Ansible builtin modules are leveraged, which can lead to
+some more complex tasks structures though.
+
 ## Usage
 
 TODO
