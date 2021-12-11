@@ -1,0 +1,8 @@
+---
+
+- name: Converge
+  hosts: all
+  tasks:
+    - name: run os_baseline role
+      include_role:
+        name: os_baseline

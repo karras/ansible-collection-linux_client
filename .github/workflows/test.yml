@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
@@ -21,8 +21,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install -r requirements.txt
 
-      - name: Lint with ansible-lint
+      - name: Lint with ansible-lint including yamllint
         run: |
           ansible-lint
+
+      - name: Test with molecule
+        run: |
+          cd ./roles/os_baseline && molecule test
