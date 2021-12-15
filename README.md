@@ -12,11 +12,9 @@ Currently only supports Arch Linux.
 
 The following roles are part of this collection:
 
-| Role                                | Purpose                     |
-| ----------------------------------- | --------------------------- |
-| [os\_baseline](./roles/os_baseline) | OS baseline configuration   |
-
-## Dependencies
+| Role                                | Purpose                     | Dependencies |
+| ----------------------------------- | --------------------------- | ------------ |
+| [os\_baseline](./roles/os_baseline) | OS baseline configuration   | n/a          |
 
 Whenever possible only Ansible builtin modules are leveraged, which can lead to
 some more complex tasks structures though.
