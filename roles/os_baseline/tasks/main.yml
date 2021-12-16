@@ -29,11 +29,16 @@
     mode: 0644
   notify: restart systemd-timesyncd
 
+# timesyncd does not like to be ran in a container
+# (`ConditionVirtualization=!container`) thus we need to skip this
+# task during the molecule idempotence test
 - name: activate systemd-timesyncd
   ansible.builtin.service:
     name: systemd-timesyncd
     enabled: yes
     state: started
+  tags:
+    - molecule-idempotence-notest
 
 - name: activate and generate locales
   ansible.builtin.replace:
