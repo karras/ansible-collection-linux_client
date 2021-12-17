@@ -1,0 +1,14 @@
+---
+
+- name: Prepare
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  # Required because /etc/locale.gen in the Arch Linux container only contains
+  # en_US.UTF-8
+  - name: ensure test swiss french locale is available in /etc/locale.gen
+    ansible.builtin.lineinfile:
+      path: /etc/locale.gen
+      line: '#fr_CH.UTF-8 UTF-8'
+      state: present
