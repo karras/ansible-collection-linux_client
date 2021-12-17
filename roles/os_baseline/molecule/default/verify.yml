@@ -5,6 +5,18 @@
   gather_facts: no
 
   tasks:
-  - name: example assertion
-    assert:
-      that: true
+  - name: verify if timezone is set to Europe/Busingen
+    ansible.builtin.command:
+      timedatectl show -p Timezone --value
+    register: this
+    changed_when: no
+    failed_when:
+      - "'Europe/Busingen' not in this.stdout"
+
+  - name: verify if locale fr_CH.UTF-8 is active
+    ansible.builtin.command:
+      localectl list-locales
+    register: this
+    changed_when: no
+    failed_when:
+      - "'fr_CH.UTF-8' not in this.stdout"

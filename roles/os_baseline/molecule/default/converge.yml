@@ -7,4 +7,6 @@
 
   roles:
     - role: os_baseline
-
+      os_baseline_timezone: Europe/Busingen
+      os_baseline_locales:
+        - 'fr_CH.UTF-8 UTF-8'
