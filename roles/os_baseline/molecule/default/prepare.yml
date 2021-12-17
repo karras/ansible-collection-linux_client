@@ -7,8 +7,8 @@
   tasks:
   # Required because /etc/locale.gen in the Arch Linux container only contains
   # en_US.UTF-8
-  - name: ensure test swiss french locale is available in /etc/locale.gen
+  - name: ensure test en_gb locale is available in /etc/locale.gen
     ansible.builtin.lineinfile:
       path: /etc/locale.gen
-      line: '#fr_CH.UTF-8 UTF-8'
+      line: '#en_GB.UTF-8 UTF-8'
       state: present

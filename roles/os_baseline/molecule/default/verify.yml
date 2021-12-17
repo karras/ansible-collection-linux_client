@@ -21,10 +21,10 @@
     failed_when:
       - "'Europe/Busingen' not in this.stdout"
 
-  - name: verify if swiss french locale is active
+  - name: verify if en_gb locale is active
     ansible.builtin.command:
       localectl list-locales
     register: this
     changed_when: no
     failed_when:
-      - "'fr_CH.UTF-8' not in this.stdout"
+      - "'en_GB.UTF-8' not in this.stdout"
