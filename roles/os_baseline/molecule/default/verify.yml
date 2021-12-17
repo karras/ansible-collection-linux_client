@@ -5,7 +5,15 @@
   gather_facts: no
 
   tasks:
-  - name: verify if timezone is set to Europe/Busingen
+  - name: verify if hwclock is set to utc
+    ansible.builtin.command:
+      timedatectl show -p LocalRTC --value
+    register: this
+    changed_when: no
+    failed_when:
+      - "'no' not in this.stdout"
+
+  - name: verify if timezone is set to europe/busingen
     ansible.builtin.command:
       timedatectl show -p Timezone --value
     register: this
@@ -13,7 +21,7 @@
     failed_when:
       - "'Europe/Busingen' not in this.stdout"
 
-  - name: verify if locale fr_CH.UTF-8 is active
+  - name: verify if swiss french locale is active
     ansible.builtin.command:
       localectl list-locales
     register: this
