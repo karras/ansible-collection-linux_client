@@ -2,7 +2,9 @@
 
 - name: Converge
   hosts: all
-  tasks:
-    - name: run os_baseline role
-      include_role:
-        name: os_baseline
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: os_baseline
+

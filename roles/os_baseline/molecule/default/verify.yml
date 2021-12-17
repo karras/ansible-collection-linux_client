@@ -2,7 +2,8 @@
 
 - name: Verify
   hosts: all
-  gather_facts: false
+  gather_facts: no
+
   tasks:
   - name: example assertion
     assert:
