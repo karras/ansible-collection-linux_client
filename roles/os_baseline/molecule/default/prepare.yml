@@ -2,7 +2,7 @@
 
 - name: Prepare
   hosts: all
-  gather_facts: no
+  gather_facts: yes
 
   tasks:
   # Required because /etc/locale.gen in the Arch Linux container only contains
@@ -12,3 +12,9 @@
       path: /etc/locale.gen
       line: '#en_GB.UTF-8 UTF-8'
       state: present
+
+  # Update the pacman cache as it's potentialy outdated in the container
+  - name: update pacman cache
+    ansible.builtin.command:
+      pacman -Sy
+    when: ansible_distribution == 'Archlinux'
