@@ -13,13 +13,13 @@
     failed_when:
       - "'no' not in this.stdout"
 
-  - name: verify if timezone is set to europe/busingen
+  - name: verify if timezone is set to utc
     ansible.builtin.command:
       timedatectl show -p Timezone --value
     register: this
     changed_when: no
     failed_when:
-      - "'Europe/Busingen' not in this.stdout"
+      - "'UTC' not in this.stdout"
 
   - name: verify if en_gb locale is active
     ansible.builtin.command:
