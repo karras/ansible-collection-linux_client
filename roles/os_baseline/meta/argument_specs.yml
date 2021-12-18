@@ -1,0 +1,56 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages OS related basic configs
+    options:
+      os_baseline_locales:
+        type: 'list'
+        elements: 'str'
+        required: no
+        default:
+          - 'en_US.UTF-8 UTF-8'
+          - 'en_US ISO-8859-1'
+        description: List of locales to activate
+      os_baseline_mirrors:
+        type: 'list'
+        elements: 'str'
+        required: no
+        default:
+          - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'
+        description: List of mirrors to activate
+      os_baseline_packages:
+        type: 'list'
+        elements: 'str'
+        required: no
+        default:
+          - base
+          - dhclient
+          - intel-ucode
+          - linux
+          - linux-firmware
+          - lvm2
+          - vi
+        description: List of baseline packages to install
+      os_baseline_timesyncd_config:
+        type: 'dict'
+        required: no
+        default:
+          ntp:
+          fallback_ntp: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
+          root_distance_max_sec: 5
+          poll_interval_min_sec: 32
+          poll_interval_max_sec: 2048
+        description: Configuration for systemd-timesyncd (see `man timesyncd.conf`)
+      os_baseline_timezone:
+        type: 'str'
+        required: no
+        default: Etc/UTC
+        description: Timezone to configure
+      os_baseline_timezone_hwclock:
+        type: 'bool'
+        required: no
+        default: 0
+        description: |
+          Whether the hardware clock is in UTC or local timezone
+          Valid values are 0 ('UTC') and 1 ('local')
