@@ -1,5 +1,18 @@
 ---
 
+- name: configure pacman mirrorlist
+  ansible.builtin.template:
+    src: etc/pacman.d/mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    owner: root
+    group: root
+    mode: 0644
+
+- name: install baseline packages
+  ansible.builtin.package:
+    name: '{{ os_baseline_packages }}'
+    state: present
+
 - name: read current hwclock timezone settings
   ansible.builtin.command:
     timedatectl show -p LocalRTC --value
@@ -50,16 +63,3 @@
     mode: 0644
   loop: '{{ os_baseline_locales }}'
   notify: generate locales
-
-- name: configure pacman mirrorlist
-  ansible.builtin.template:
-    src: etc/pacman.d/mirrorlist.j2
-    dest: /etc/pacman.d/mirrorlist
-    owner: root
-    group: root
-    mode: 0644
-
-- name: install baseline packages
-  ansible.builtin.package:
-    name: '{{ os_baseline_packages }}'
-    state: present
