@@ -54,10 +54,12 @@ argument_specs:
         required: no
         default:
           - base
+          - binutils
           - dhclient
           - intel-ucode
           - linux
           - linux-firmware
+          - man-db
           - lvm2
           - vi
         description: List of baseline packages to install

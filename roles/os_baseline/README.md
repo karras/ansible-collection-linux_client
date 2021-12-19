@@ -76,10 +76,12 @@ os_baseline_mirrors:
 # List of baseline packages to install
 os_baseline_packages:
   - base
+  - binutils
   - dhclient
   - intel-ucode
   - linux
   - linux-firmware
+  - man-db
   - lvm2
   - vi
 
