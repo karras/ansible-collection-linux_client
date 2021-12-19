@@ -50,3 +50,6 @@ os_baseline_timezone: Etc/UTC
 # Whether the hardware clock is in UTC or local timezone
 # Valid values are 0 ('UTC') and 1 ('local')
 os_baseline_timezone_hwclock: 0
+
+# Keymap to configure for the virtual consoles (see `man vconsole.conf`)
+os_baseline_vconsole_keymap: us

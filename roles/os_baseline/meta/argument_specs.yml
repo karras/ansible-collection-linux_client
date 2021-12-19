@@ -73,3 +73,8 @@ argument_specs:
         description: |
           Whether the hardware clock is in UTC or local timezone
           Valid values are 0 ('UTC') and 1 ('local')
+      os_baseline_vconsole_keymap:
+        type: 'str'
+        required: no
+        default: us
+        description: Keymap to configure for the virtual consoles (see `man vconsole.conf`)

@@ -71,3 +71,11 @@
     owner: root
     group: root
     mode: 0644
+
+- name: configure vconsole settings
+  ansible.builtin.template:
+    src: etc/vconsole.conf.j2
+    dest: /etc/vconsole.conf
+    owner: root
+    group: root
+    mode: 0644

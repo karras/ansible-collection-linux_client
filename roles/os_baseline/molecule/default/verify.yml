@@ -36,3 +36,11 @@
     changed_when: no
     failed_when:
       - '"UTC" not in this.stdout'
+
+  - name: verify if vconsole keymap is set to de
+    ansible.builtin.lineinfile:
+      path: /etc/vconsole.conf
+      line: 'KEYMAP=de'
+    register: this
+    failed_when:
+      - this is changed

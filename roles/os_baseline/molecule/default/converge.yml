@@ -25,3 +25,4 @@
         lc_time: en_US.UTF-8
       os_baseline_timezone_hwclock: 0
       os_baseline_timezone: Etc/UTC
+      os_baseline_vconsole_keymap: de
