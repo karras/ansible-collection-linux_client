@@ -3,6 +3,7 @@
 # List of hardware related packages to install
 hardware_packages:
   - intel-ucode
+  - sof-firmware
 
 # List of hardware related services to activate
 hardware_service_activation:

@@ -10,6 +10,7 @@ argument_specs:
         required: no
         default:
           - intel-ucode
+          - sof-firmware
         description: List of hardware related packages to install
       hardware_service_activation:
         type: 'list'
