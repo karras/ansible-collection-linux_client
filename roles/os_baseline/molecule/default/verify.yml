@@ -5,13 +5,29 @@
   gather_facts: no
 
   tasks:
+  - name: verify if en_gb locale is active
+    ansible.builtin.command:
+      localectl list-locales
+    register: this
+    changed_when: no
+    failed_when:
+      - '"en_GB.UTF-8" not in this.stdout'
+
+  - name: verify if locale lc_paper is set to en_gb
+    ansible.builtin.lineinfile:
+      path: /etc/locale.conf
+      line: 'LC_PAPER=en_GB.UTF-8'
+    register: this
+    failed_when:
+      - this is changed
+
   - name: verify if hwclock is set to utc
     ansible.builtin.command:
       timedatectl show -p LocalRTC --value
     register: this
     changed_when: no
     failed_when:
-      - "'no' not in this.stdout"
+      - '"no" not in this.stdout'
 
   - name: verify if timezone is set to utc
     ansible.builtin.command:
@@ -19,12 +35,4 @@
     register: this
     changed_when: no
     failed_when:
-      - "'UTC' not in this.stdout"
-
-  - name: verify if en_gb locale is active
-    ansible.builtin.command:
-      localectl list-locales
-    register: this
-    changed_when: no
-    failed_when:
-      - "'en_GB.UTF-8' not in this.stdout"
+      - '"UTC" not in this.stdout'

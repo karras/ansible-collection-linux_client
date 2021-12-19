@@ -30,6 +30,23 @@ os_baseline_locales:
   - 'en_US.UTF-8 UTF-8'
   - 'en_US ISO-8859-1'
 
+# Configuration of the system-wide locales
+os_baseline_locales_config:
+  lang: en_US.UTF-8
+  language: en_US.UTF-8
+  lc_address: en_US.UTF-8
+  lc_collate: en_US.UTF-8
+  lc_ctype: en_US.UTF-8
+  lc_identification: en_US.UTF-8
+  lc_measurement: en_US.UTF-8
+  lc_messages: en_US.UTF-8
+  lc_monetary: en_US.UTF-8
+  lc_name: en_US.UTF-8
+  lc_numeric: en_US.UTF-8
+  lc_paper: en_US.UTF-8
+  lc_telephone: en_US.UTF-8
+  lc_time: en_US.UTF-8
+
 # List of mirrors to activate
 os_baseline_mirrors:
   - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'

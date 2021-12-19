@@ -63,3 +63,11 @@
     mode: 0644
   loop: '{{ os_baseline_locales }}'
   notify: generate locales
+
+- name: configure systemd-wide locales
+  ansible.builtin.template:
+    src: etc/locale.conf.j2
+    dest: /etc/locale.conf
+    owner: root
+    group: root
+    mode: 0644
