@@ -1,0 +1,20 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages hardware related settings
+    options:
+      hardware_packages:
+        type: 'list'
+        elements: 'str'
+        required: no
+        default:
+          - intel-ucode
+        description: List of hardware related packages to install
+      hardware_service_activation:
+        type: 'list'
+        elements: 'str'
+        required: no
+        default:
+          - fstrim.timer
+        description: List of hardware related services to activate

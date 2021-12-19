@@ -1,0 +1,9 @@
+---
+
+# List of hardware related packages to install
+hardware_packages:
+  - intel-ucode
+
+# List of hardware related services to activate
+hardware_service_activation:
+  - fstrim.timer

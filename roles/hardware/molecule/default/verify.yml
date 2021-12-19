@@ -1,0 +1,10 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  # What actual tests would make sense?
+  - name: check if system is still alive
+    ansible.builtin.ping:

@@ -1,0 +1,16 @@
+---
+
+- name: install hardware packages
+  ansible.builtin.package:
+    name: '{{ hardware_packages }}'
+    state: present
+
+# Service related tasks do not work well in molecule idempotence tests
+- name: enable hardware system services
+  ansible.builtin.service:
+    name: '{{ item }}'
+    enabled: yes
+    state: started
+  loop: '{{ hardware_service_activation }}'
+  tags:
+    - molecule-idempotence-notest
