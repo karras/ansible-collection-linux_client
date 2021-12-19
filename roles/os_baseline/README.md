@@ -78,16 +78,11 @@ os_baseline_packages:
   - base
   - binutils
   - dhclient
-  - intel-ucode
   - linux
   - linux-firmware
   - man-db
   - lvm2
   - vi
-
-# List of additional system services to activate
-os_baseline_service_activation:
-  - fstrim.timer
 
 # Configuration for systemd-timesyncd (see `man timesyncd.conf`)
 os_baseline_timesyncd_config:

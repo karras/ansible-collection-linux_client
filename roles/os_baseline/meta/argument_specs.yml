@@ -56,20 +56,12 @@ argument_specs:
           - base
           - binutils
           - dhclient
-          - intel-ucode
           - linux
           - linux-firmware
           - man-db
           - lvm2
           - vi
         description: List of baseline packages to install
-      os_baseline_service_activation:
-        type: 'list'
-        elements: 'str'
-        required: no
-        default:
-          - fstrim.timer
-        description: List of additional system services to activate
       os_baseline_timesyncd_config:
         type: 'dict'
         required: no
