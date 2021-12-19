@@ -42,7 +42,7 @@
     mode: 0644
   notify: restart systemd-timesyncd
 
-# timesyncd does not like to be ran in a container
+# timesyncd does not like to be run in a container
 # (`ConditionVirtualization=!container`) thus we need to skip this
 # task during the molecule idempotence test
 - name: activate systemd-timesyncd
@@ -79,3 +79,14 @@
     owner: root
     group: root
     mode: 0644
+
+# Configuring the hostname does not work well in container-based molecule runs
+- name: configure system hostname
+  ansible.builtin.template:
+    src: etc/hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - molecule-notest

@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+127.0.0.1 localhost
+::1       localhost
+127.0.0.1 {{ os_baseline_hostname }}.{{ os_baseline_domain }}    {{ os_baseline_hostname }}

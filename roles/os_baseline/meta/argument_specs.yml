@@ -4,6 +4,16 @@ argument_specs:
   main:
     short_description: Manages OS related basic configs
     options:
+      os_baseline_domain:
+        type: 'str'
+        required: no
+        default: local
+        description: Domain of the system
+      os_baseline_hostname:
+        type: 'str'
+        required: no
+        default: '{{ ansible_hostname }}'
+        description: Hostname of the system
       os_baseline_locales:
         type: 'list'
         elements: 'str'
@@ -71,8 +81,7 @@ argument_specs:
         required: no
         default: 0
         description: |
-          Whether the hardware clock is in UTC or local timezone
-          Valid values are 0 ('UTC') and 1 ('local')
+          Whether the hardware clock is in UTC or local timezone, valid values are 0 ('UTC') and 1 ('local')
       os_baseline_vconsole_keymap:
         type: 'str'
         required: no

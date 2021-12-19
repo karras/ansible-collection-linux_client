@@ -4,8 +4,8 @@ Manages OS related basic configs for workstations.
 
 ## Example Playbook
 
-As this role is tested via Molecule one can use that playbook as a starting
-point:
+As this role is tested via Molecule one can use [that
+playbook](./molecule/default/converge.yml) as a starting point:
 
 ```yaml
 - name: Converge
@@ -16,8 +16,24 @@ point:
     - role: os_baseline
       os_baseline_locales:
         - 'en_GB.UTF-8 UTF-8'
+      os_baseline_locales_config:
+        lang: en_US.UTF-8
+        language: en_US.UTF-8
+        lc_address: en_US.UTF-8
+        lc_collate: en_US.UTF-8
+        lc_ctype: en_US.UTF-8
+        lc_identification: en_US.UTF-8
+        lc_measurement: en_US.UTF-8
+        lc_messages: en_US.UTF-8
+        lc_monetary: en_US.UTF-8
+        lc_name: en_US.UTF-8
+        lc_numeric: en_US.UTF-8
+        lc_paper: en_GB.UTF-8
+        lc_telephone: en_US.UTF-8
+        lc_time: en_US.UTF-8
       os_baseline_timezone_hwclock: 0
-      os_baseline_timezone: Europe/Busingen
+      os_baseline_timezone: Etc/UTC
+      os_baseline_vconsole_keymap: de
 ```
 
 ## Role Variables
@@ -25,6 +41,12 @@ point:
 The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 
 ```yaml
+# Domain of the system
+os_baseline_domain: local
+
+# Hostname of the system
+os_baseline_hostname: {{ ansible_hostname }}
+
 # List of locales to activate
 os_baseline_locales:
   - 'en_US.UTF-8 UTF-8'
@@ -75,6 +97,9 @@ os_baseline_timezone: Etc/UTC
 # Whether the hardware clock is in UTC or local timezone
 # Valid values are 0 ('UTC') and 1 ('local')
 os_baseline_timezone_hwclock: 0
+
+# Keymap to configure for the virtual consoles (see `man vconsole.conf`)
+os_baseline_vconsole_keymap: us
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

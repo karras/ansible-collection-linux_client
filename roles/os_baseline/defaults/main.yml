@@ -1,5 +1,11 @@
 ---
 
+# Domain of the system
+os_baseline_domain: local
+
+# Hostname of the system
+os_baseline_hostname: '{{ ansible_hostname }}'
+
 # List of locales to activate
 os_baseline_locales:
   - 'en_US.UTF-8 UTF-8'
