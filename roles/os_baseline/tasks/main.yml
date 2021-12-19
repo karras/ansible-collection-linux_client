@@ -90,3 +90,13 @@
     mode: 0644
   tags:
     - molecule-notest
+
+# Service related tasks do not work well in molecule idempotence tests
+- name: enable additional system services
+  ansible.builtin.service:
+    name: '{{ item }}'
+    enabled: yes
+    state: started
+  loop: '{{ os_baseline_service_activation }}'
+  tags:
+    - molecule-idempotence-notest

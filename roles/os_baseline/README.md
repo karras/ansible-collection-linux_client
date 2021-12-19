@@ -45,7 +45,7 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 os_baseline_domain: local
 
 # Hostname of the system
-os_baseline_hostname: {{ ansible_hostname }}
+os_baseline_hostname: '{{ ansible_hostname }}'
 
 # List of locales to activate
 os_baseline_locales:
@@ -82,6 +82,10 @@ os_baseline_packages:
   - linux-firmware
   - lvm2
   - vi
+
+# List of additional system services to activate
+os_baseline_service_activation:
+  - fstrim.timer
 
 # Configuration for systemd-timesyncd (see `man timesyncd.conf`)
 os_baseline_timesyncd_config:
