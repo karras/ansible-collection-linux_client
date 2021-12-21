@@ -1,0 +1,33 @@
+---
+
+- name: install user packages
+  ansible.builtin.package:
+    name: '{{ users_packages }}'
+    state: present
+
+- name: manage groups
+  ansible.builtin.group:
+    name: '{{ item.name }}'
+    gid: '{{ item.gid | default(omit) }}'
+    system: '{{ item.system | default(omit) }}'
+    state: '{{ item.state | default("present") }}'
+  loop: '{{ users_group_list }}'
+
+- name: manage users
+  ansible.builtin.user:
+    name: '{{ item.name }}'
+    append: '{{ item.append | default(omit) }}'
+    comment: '{{ item.comment | default(omit) }}'
+    create_home: '{{ item.create_home | default(omit) }}'
+    expires: '{{ item.expires | default(omit) }}'
+    group: '{{ item.group | default(omit) }}'
+    groups: '{{ item.groups | default(omit) }}'
+    home: '{{ item.home | default(omit) }}'
+    password: '{{ item.password | default(omit) }}'
+    remove: '{{ item.remove | default(omit) }}'
+    shell: '{{ item.shell | default(omit) }}'
+    system: '{{ item.system | default(omit) }}'
+    uid: '{{ item.uid | default(omit) }}'
+    update_password: '{{ item.update_password | default(omit) }}'
+    state: '{{ item.state | default("present") }}'
+  loop: '{{ users_user_list }}'

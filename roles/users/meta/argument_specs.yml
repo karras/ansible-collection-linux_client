@@ -1,0 +1,152 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages user accounts and groups.
+    options:
+      users_packages:
+        description:
+          - List of user packages to install.
+        type: list
+        elements: str
+        required: no
+        default:
+          - sudo
+          - zsh
+      users_group_list:
+        description:
+          - List of groups to manage.
+        type: list
+        elements: dict
+        required: no
+        default: []
+        options:
+          name:
+            description:
+              - Name of the group to manage.
+            type: str
+            required: yes
+          gid:
+            description:
+              - Optional GID to set.
+            type: int
+            required: no
+          system:
+            description:
+              - If the group should be a system group.
+            type: bool
+            required: no
+            default: no
+          state:
+            description:
+              - Whether the group should be present or not.
+            type: str
+            required: no
+            choices: [absent, present]
+            default: present
+      users_user_list:
+        description:
+          - List of users to manage.
+        type: list
+        elements: dict
+        required: no
+        default: []
+        options:
+          name:
+            description:
+              - Name of the user to manage.
+            type: str
+            required: yes
+          append:
+            description:
+              - If yes, add the user to the groups specified in 'groups'.
+              - If no, user will only be added to the groups specified in
+                'groups' removing them from all other groups.
+            type: bool
+            required: no
+            default: no
+          comment:
+            description:
+              - Optionally set the description of the user account.
+            type: str
+            required: no
+          create_home:
+            description:
+              - Unless set to 'no', a home directory will be created.
+            type: bool
+            required: no
+            default: yes
+          expires:
+            description:
+              - An expiry time for the user in epoch.
+              - Expiry time can be removed by specifying a negative value.
+            type: float
+            required: no
+            default: yes
+          group:
+            description:
+              - Optionally sets the user's primary group.
+            type: str
+            required: no
+          groups:
+            description:
+              - List of groups user will be added to.
+              - By default, the user is removed from all other groups.
+                Configure 'append' to modify this.
+              - When set to any empty string '' the user is removed from all
+                groups except the primary group.
+            type: list
+            elements: str
+            required: no
+          home:
+            description:
+              - Optionally sets the user's home directory.
+            type: str
+            required: no
+          password:
+            description:
+              - Optionally set the user's password to this crypted value.
+              - To create a disabled account on Linux systems, set this to '!'
+                or '*'.
+            type: str
+            required: no
+          remove:
+            description:
+              - This only affects ('state=absent'), it attempts to remove
+                directories associated with the user.
+            type: bool
+            required: no
+            default: no
+          shell:
+            description:
+              - Optionally set the user's shell.
+            type: str
+            required: no
+          system:
+            description:
+              - When creating an account ('state=present'), setting this to
+                'yes' makes the user a system account.
+              - This setting cannot be changed on existing users.
+            type: bool
+            required: no
+          uid:
+            description:
+              - Optionally sets the UID of the user.
+            type: int
+            required: no
+          update_password:
+            description:
+              - Using 'always' will update the passwords if they differ.
+              - Using 'on_create' will only set the password for newly created
+                users.
+            type: str
+            required: no
+            choices: [always, on_create]
+            default: always
+          state:
+            description:
+              - Whether the user should be present or not.
+            type: str
+            required: no
+            choices: [absent, present]
+            default: present

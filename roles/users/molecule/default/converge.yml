@@ -1,0 +1,34 @@
+---
+
+- name: Converge
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - role: users
+      users_group_list:
+        - name: clark
+          gid: 1000
+          system: no
+          state: present
+        - name: superheroes
+          gid: 2000
+          system: no
+          state: present
+      users_user_list:
+        - name: clark
+          append: no
+          comment: ''
+          create_home: yes
+          expires:
+          group: clark
+          groups:
+            - superheroes
+          home: '/home/clark'
+          password: 'schmetterling12'
+          remove: no
+          shell: /bin/zsh
+          system: no
+          uid: 1000
+          update_password: on_create
+          state: present

@@ -1,0 +1,36 @@
+---
+
+# List of user packages to install
+users_packages:
+  - sudo
+  - zsh
+
+# List of groups to manage
+users_group_list: []
+#  - name: clark
+#    gid: 1000
+#    system: no
+#    state: present
+#  - name: superheroes
+#    gid: 2000
+#    system: no
+#    state: present
+
+# List of users to manage
+users_user_list: []
+#  - name: clark
+#    append: no
+#    comment: ''
+#    create_home: yes
+#    expires:
+#    group: clark
+#    groups:
+#      - superheroes
+#    home: ''
+#    password: ''
+#    remove: no
+#    shell: /bin/zsh
+#    system: no
+#    uid: 1000
+#    update_password: on_create
+#    state: present
