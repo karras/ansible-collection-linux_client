@@ -5,5 +5,9 @@
   gather_facts: no
 
   tasks:
-  - name: pending actual tests
-    ansible.builtin.ping:
+  - name: check if /home/clark exists
+    ansible.builtin.stat:
+      path: /home/clark
+    register: this
+    failed_when:
+      - not this.stat.exists
