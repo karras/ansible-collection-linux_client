@@ -8,6 +8,8 @@ As this role is tested via Molecule one can use [that
 playbook](./molecule/default/converge.yml) as a starting point:
 
 ```yaml
+---
+
 - name: Converge
   hosts: all
   gather_facts: yes
