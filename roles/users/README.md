@@ -34,7 +34,7 @@ playbook](./molecule/default/converge.yml) as a starting point:
           group: clark
           groups:
             - superheroes
-          home: '/home/clark'
+          home: /home/clark
           password: 'schmetterling12'
           remove: no
           shell: /bin/zsh
@@ -75,7 +75,7 @@ users_user_list: []
 #    group: clark
 #    groups:
 #      - superheroes
-#    home: ''
+#    home: /home/clark
 #    password: ''
 #    remove: no
 #    shell: /bin/zsh
