@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: verify if en_gb locale is active
+  - name: check if en_gb locale is active
     ansible.builtin.command:
       localectl list-locales
     register: this
@@ -13,7 +13,7 @@
     failed_when:
       - '"en_GB.UTF-8" not in this.stdout'
 
-  - name: verify if locale lc_paper is set to en_gb
+  - name: check if locale lc_paper is set to en_gb
     ansible.builtin.lineinfile:
       path: /etc/locale.conf
       line: 'LC_PAPER=en_GB.UTF-8'
@@ -21,7 +21,7 @@
     failed_when:
       - this is changed
 
-  - name: verify if hwclock is set to utc
+  - name: check if hwclock is set to utc
     ansible.builtin.command:
       timedatectl show -p LocalRTC --value
     register: this
@@ -29,7 +29,7 @@
     failed_when:
       - '"no" not in this.stdout'
 
-  - name: verify if timezone is set to utc
+  - name: check if timezone is set to utc
     ansible.builtin.command:
       timedatectl show -p Timezone --value
     register: this
@@ -37,7 +37,7 @@
     failed_when:
       - '"UTC" not in this.stdout'
 
-  - name: verify if vconsole keymap is set to de
+  - name: check if vconsole keymap is set to de
     ansible.builtin.lineinfile:
       path: /etc/vconsole.conf
       line: 'KEYMAP=de'
