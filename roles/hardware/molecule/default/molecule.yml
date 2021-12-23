@@ -8,7 +8,7 @@ driver:
 
 platforms:
   - name: instance
-    image: ghcr.io/karras/archlinux-ansible-testing:latest
+    image: ghcr.io/karras/archlinux-ansible-test:latest
     pre_build_image: yes
     command: /sbin/init
     privileged: yes
