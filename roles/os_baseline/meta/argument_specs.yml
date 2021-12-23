@@ -2,27 +2,32 @@
 
 argument_specs:
   main:
-    short_description: Manages OS related basic configs
+    short_description: Manages OS related basic configs.
     options:
       os_baseline_domain:
-        type: 'str'
+        description:
+          - Domain of the system configure.
+        type: str
         required: no
         default: local
-        description: Domain of the system
       os_baseline_hostname:
-        type: 'str'
+        description:
+          - Hostname of the system to configure.
+        type: str
         required: no
         default: '{{ ansible_hostname }}'
-        description: Hostname of the system
       os_baseline_locales:
+        description:
+          - List of locales to activate.
         type: 'list'
         elements: 'str'
         required: no
         default:
           - 'en_US.UTF-8 UTF-8'
           - 'en_US ISO-8859-1'
-        description: List of locales to activate
       os_baseline_locales_config:
+        description:
+          - Configuration of the system-wide locales.
         type: 'dict'
         required: no
         default:
@@ -40,15 +45,102 @@ argument_specs:
           lc_paper: en_US.UTF-8
           lc_telephone: en_US.UTF-8
           lc_time: en_US.UTF-8
-        description: Configuration of the system-wide locales
+        options:
+          lang:
+            description:
+              - Sets the 'LANG' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          language:
+            description:
+              - Sets the 'LANGUAGE' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_address:
+            description:
+              - Sets the 'LC_ADDRESS' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_collate:
+            description:
+              - Sets the 'LC_COLLATE' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_ctype:
+            description:
+              - Sets the 'LC_CTYPE' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_identification:
+            description:
+              - Sets the 'LC_IDENTIFICATION' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_measurement:
+            description:
+              - Sets the 'LC_MEASUREMENT' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_messages:
+            description:
+              - Sets the 'LC_MESSAGES' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_monetary:
+            description:
+              - Sets the 'LC_MONETARY' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_name:
+            description:
+              - Sets the 'LC_NAME' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_numeric:
+            description:
+              - Sets the 'LC_NUMERIC' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_paper:
+            description:
+              - Sets the 'LC_PAPER' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_telephone:
+            description:
+              - Sets the 'LC_TELEPHONE' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
+          lc_time:
+            description:
+              - Sets the 'LC_TIME' locale variable.
+            type: str
+            required: no
+            default: en_US.UTF-8
       os_baseline_mirrors:
+        description:
+          - List of mirrors to activate.
         type: 'list'
         elements: 'str'
         required: no
         default:
           - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'
-        description: List of mirrors to activate
       os_baseline_packages:
+        description:
+          - List of baseline packages to install.
         type: 'list'
         elements: 'str'
         required: no
@@ -61,8 +153,9 @@ argument_specs:
           - man-db
           - lvm2
           - vi
-        description: List of baseline packages to install
       os_baseline_timesyncd_config:
+        description:
+          - Configuration for systemd-timesyncd (see `man timesyncd.conf`).
         type: 'dict'
         required: no
         default:
@@ -71,20 +164,55 @@ argument_specs:
           root_distance_max_sec: 5
           poll_interval_min_sec: 32
           poll_interval_max_sec: 2048
-        description: Configuration for systemd-timesyncd (see `man timesyncd.conf`)
+        options:
+          ntp:
+            description:
+              - Configuration of the NTP servers to use for time
+                synchronization.
+            type: str
+            required: no
+            default:
+          fallback_ntp:
+            description:
+              - Fallback NTP servers to configure.
+            type: str
+            required: no
+            default: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
+          root_distance_max_sec:
+            description:
+              - Sets the maximum acceptable root distance.
+            type: int
+            required: no
+            default: 5
+          poll_interval_min_sec:
+            description:
+              - Sets the minimum poll intervals for NTP messages.
+            type: int
+            required: no
+            default: 32
+          poll_interval_max_sec:
+            description:
+              - Sets the maximum poll intervals for NTP messages.
+            type: int
+            required: no
+            default: 2048
       os_baseline_timezone:
-        type: 'str'
+        description:
+          - Timezone to configure.
+        type: str
         required: no
         default: Etc/UTC
-        description: Timezone to configure
       os_baseline_timezone_hwclock:
-        type: 'bool'
+        description:
+          - Whether the hardware clock is in UTC or local timezone, valid
+            values are 0 ('UTC') and 1 ('local')
+        type: bool
         required: no
         default: 0
-        description: |
-          Whether the hardware clock is in UTC or local timezone, valid values are 0 ('UTC') and 1 ('local')
       os_baseline_vconsole_keymap:
-        type: 'str'
+        description:
+          - Keymap to configure for the virtual consoles (see `man
+            vconsole.conf`).
+        type: str
         required: no
         default: us
-        description: Keymap to configure for the virtual consoles (see `man vconsole.conf`)
