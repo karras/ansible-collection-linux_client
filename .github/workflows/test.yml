@@ -31,3 +31,4 @@ jobs:
         run: |
           cd ./roles/os_baseline && molecule test
           cd ../hardware && molecule test
+          cd ../users && molecule test
