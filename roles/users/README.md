@@ -30,7 +30,7 @@ playbook](./molecule/default/converge.yml) as a starting point:
           append: no
           comment: ''
           create_home: yes
-          expires:
+          expires: -1
           group: clark
           groups:
             - superheroes
@@ -71,7 +71,7 @@ users_user_list: []
 #    append: no
 #    comment: ''
 #    create_home: yes
-#    expires:
+#    expires: -1
 #    group: clark
 #    groups:
 #      - superheroes

@@ -82,7 +82,7 @@ argument_specs:
               - Expiry time can be removed by specifying a negative value.
             type: float
             required: no
-            default: yes
+            default: -1
           group:
             description:
               - Optionally sets the user's primary group.

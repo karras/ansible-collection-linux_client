@@ -20,7 +20,7 @@
           append: no
           comment: ''
           create_home: yes
-          expires:
+          expires: -1
           group: clark
           groups:
             - superheroes
