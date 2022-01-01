@@ -196,6 +196,12 @@ argument_specs:
             type: int
             required: no
             default: 2048
+          save_interval_sec:
+            description:
+              - Sets the interval at which the time is saved to disk.
+            type: int
+            required: no
+            default: 60
       os_baseline_timezone:
         description:
           - Timezone to configure.

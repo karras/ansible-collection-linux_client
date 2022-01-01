@@ -93,6 +93,7 @@ os_baseline_timesyncd_config:
   root_distance_max_sec: 5
   poll_interval_min_sec: 32
   poll_interval_max_sec: 2048
+  save_interval_sec: 60
 
 # Timezone to configure
 os_baseline_timezone: Etc/UTC
