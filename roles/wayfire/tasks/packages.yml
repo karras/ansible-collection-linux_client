@@ -1,0 +1,14 @@
+---
+
+- name: download {{ package.name }} package
+  ansible.builtin.get_url:
+    url: '{{ package.url }}/{{ package.name }}-{{ package.version }}{{ package.suffix }}'
+    dest: /tmp
+  when: package.name not in ansible_facts.packages or
+        package.version not in (ansible_facts.packages[package.name] | map(attribute='version') | list)
+
+- name: install {{ package.name }}
+  ansible.builtin.command:
+    pacman -U /tmp/{{ package.name }}-{{ package.version }}{{ package.suffix }} --noconfirm
+  when: package.name not in ansible_facts.packages or
+        package.version not in (ansible_facts.packages[package.name] | map(attribute='version') | list)

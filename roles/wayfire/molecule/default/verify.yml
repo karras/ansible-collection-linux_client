@@ -1,0 +1,13 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: check if wayfire was successfully installed
+    ansible.builtin.command:
+      wayfire -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0

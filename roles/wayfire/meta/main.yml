@@ -1,0 +1,23 @@
+---
+
+galaxy_info:
+  author: Michael Hofer <@karras>
+  description: Installs and configures the Wayfire compositor.
+  company: none
+  role_name: wayfire
+  namespace: karras
+  license: GPL-3.0-only
+  min_ansible_version: 2.12
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - workstation
+    - laptop
+    - desktop
+    - archlinux
+
+dependencies: []

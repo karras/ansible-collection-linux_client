@@ -1,0 +1,41 @@
+---
+
+- name: gather package facts
+  ansible.builtin.package_facts:
+    manager: auto
+  changed_when: no
+
+- name: install additional wayfire dependencies
+  ansible.builtin.package:
+    name: '{{ wayfire_dependencies }}'
+    state: present
+
+- name: check and install wayfire packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+  loop: '{{ wayfire_packages }}'
+  loop_control:
+    label: '{{ package.name }}'
+    loop_var: package
+  when:
+    - wayfire_packages is defined
+
+- name: create directory for greetd integration config
+  ansible.builtin.file:
+    path: /etc/greetd
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  when: (wayfire_greetd_config is defined) and
+        (wayfire_greetd_config|length > 0)
+
+- name: configure greetd integration config
+  ansible.builtin.template:
+    src: etc/greetd/wayfire.ini.j2
+    dest: /etc/greetd/wayfire.ini
+    owner: root
+    group: root
+    mode: 0644
+  when: (wayfire_greetd_config is defined) and
+        (wayfire_greetd_config|length > 0)
