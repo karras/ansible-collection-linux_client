@@ -2,6 +2,15 @@
 
 Manages OS related basic configs for workstations.
 
+The following components are managed by this role:
+
+* OS baseline packages
+* Time zone and synchronization (`systemd-timesyncd`)
+  - Including hwclock
+* Hostname and domain
+* System locales
+* System vconsole
+
 ## Example Playbook
 
 As this role is tested via Molecule one can use [that

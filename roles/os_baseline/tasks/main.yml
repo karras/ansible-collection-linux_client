@@ -45,7 +45,7 @@
 # timesyncd does not like to be run in a container
 # (`ConditionVirtualization=!container`) thus we need to skip this
 # task during the molecule idempotence test
-- name: activate systemd-timesyncd
+- name: enable systemd-timesyncd
   ansible.builtin.service:
     name: systemd-timesyncd
     enabled: yes
