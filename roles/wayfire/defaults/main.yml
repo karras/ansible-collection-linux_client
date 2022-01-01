@@ -4,7 +4,9 @@
 wayfire_dependencies:
   - polkit
 
-# Optional greetd integration config to deploy
+# Optional greetd integration config to deploy (multiline string)
+# This allows running a greetd-gtkgreet session via Wayfire, which in turn
+# spawns a proper Wayfire session after login
 wayfire_greetd_config: ''
 
 # List of wayfire related packages to install including their version
@@ -17,3 +19,9 @@ wayfire_packages:
     version: 0.7.2-1
     url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
     suffix: -x86_64.pkg.tar.zst
+
+# Optional wrapper script to deploy (multiline string)
+# It can be desired to run Wayfire via wrapper script, which takes care of
+# setting additional environment vars first (e.g. `XDG`) before starting
+# Wayfire
+wayfire_run_wrapper: ''

@@ -2,8 +2,10 @@
 
 Installs and configures the Wayfire compositor.
 
-The role also supports deploying an integration into greetd. Note the
-additional requirements described below though.
+The role also supports deploying an integration into greetd and a custom
+`wayfire-run` script that can be used to inject additional environment
+variables before launching Wayfire. Note the additional requirements described
+below though.
 
 ## Example Playbook
 
@@ -29,6 +31,19 @@ playbook](./molecule/default/converge.yml) as a starting point:
         vheight  = 1
         vwidth   = 1
         xwayland = false
+      wayfire_run_wrapper: |
+        export XDG_CONFIG_HOME="$HOME/.local/etc"
+        export XDG_CACHE_HOME="$HOME/.local/var/cache"
+        export XDG_DATA_HOME="$HOME/.local/share"
+        export XDG_STATE_HOME="$HOME/.local/var/lib"
+
+        systemctl --user set-environment XDG_CONFIG_HOME="$HOME/.local/etc"
+        systemctl --user set-environment WAYLAND_DISPLAY=wayland-1
+
+        systemctl --user set-environment $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+        export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+
+        wayfire
 ```
 
 ## Role Variables
@@ -40,7 +55,9 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 wayfire_dependencies:
   - polkit
 
-# Optional greetd integration config to deploy
+# Optional greetd integration config to deploy (multiline string)
+# This allows running a greetd-gtkgreet session via Wayfire, which in turn
+# spawns a proper Wayfire session after login
 wayfire_greetd_config: ''
 
 # List of wayfire related packages to install including their version
@@ -53,6 +70,12 @@ wayfire_packages:
     version: 0.7.2-1
     url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
     suffix: -x86_64.pkg.tar.zst
+
+# Optional wrapper script to deploy (multiline string)
+# It can be desired to run Wayfire via wrapper script, which takes care of
+# setting additional environment vars first (e.g. `XDG`) before starting
+# Wayfire
+wayfire_run_wrapper: ''
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

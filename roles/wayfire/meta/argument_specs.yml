@@ -14,7 +14,9 @@ argument_specs:
           - polkit
       wayfire_greetd_config:
         description:
-          - Optional greetd integration to configure (multiline string).
+          - Optional greetd integration config to deploy (multiline string).
+          - This allows running a greetd-gtkgreet session via Wayfire, which in
+            turn spawns a proper Wayfire session after login.
         type: str
         required: no
         default: ''
@@ -55,3 +57,12 @@ argument_specs:
               - Suffix of the package name.
             type: str
             required: yes
+      wayfire_run_wrapper:
+        description:
+          - Optional wrapper script to deploy (multiline string).
+          - It can be desired to run Wayfire via wrapper script, which takes
+            care of setting additional environment vars first (e.g. `XDG`)
+            before starting Wayfire.
+        type: str
+        required: no
+        default: ''

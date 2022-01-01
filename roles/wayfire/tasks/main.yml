@@ -39,3 +39,13 @@
     mode: 0644
   when: (wayfire_greetd_config is defined) and
         (wayfire_greetd_config|length > 0)
+
+- name: deploy wayfire-run wrapper script
+  ansible.builtin.template:
+    src: usr/local/bin/wayfire-run.j2
+    dest: /usr/local/bin/wayfire-run
+    owner: root
+    group: root
+    mode: 0755
+  when: (wayfire_run_wrapper is defined) and
+        (wayfire_run_wrapper|length > 0)
