@@ -1,10 +1,5 @@
 ---
 
-# List of user packages to install
-users_packages:
-  - sudo
-  - zsh
-
 # List of groups to manage
 users_group_list: []
 #  - name: clark
@@ -15,6 +10,11 @@ users_group_list: []
 #    gid: 2000
 #    system: no
 #    state: present
+
+# List of user packages to install
+users_packages:
+  - sudo
+  - zsh
 
 # List of users to manage
 users_user_list: []
