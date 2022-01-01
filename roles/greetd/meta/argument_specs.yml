@@ -1,0 +1,75 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages greetd related settings.
+    options:
+      greetd_config_command:
+        description:
+          - Command to run at start.
+        type: str
+        required: no
+        default: 'agreety --cmd $SHELL'
+      greetd_config_user:
+        description:
+          - The user to run the command as.
+        type: str
+        required: no
+        default: greeter
+      greetd_config_vt:
+        description:
+          - The VT to run the greeter on. Can be 'next', 'current' or a number
+            designating the VT (must be a string).
+        type: str
+        required: no
+        default: '1'
+      greetd_environments:
+        description:
+          - List of environments to configure for selection at login.
+        type: list
+        elements: str
+        required: no
+        default:
+          - wayfire
+      greetd_gtkgreet_css:
+        description:
+          - Custom CSS configuration for greetd-gtkgreet (multiline string).
+        type: str
+        required: no
+        default: ''
+      greetd_packages:
+        description:
+          - List of greetd related packages to install including their version.
+        type: list
+        elements: dict
+        required: no
+        default:
+          - name: greetd
+            version: 0.8.0-1
+            url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
+            suffix: -x86_64.pkg.tar.zst
+          - name: greetd-gtkgreet
+            version: 0.7-1
+            url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
+            suffix: -x86_64.pkg.tar.zst
+        options:
+          name:
+            description:
+              - Name of the package to install.
+            type: str
+            required: yes
+          version:
+            description:
+              - Version of the package to install.
+            type: str
+            required: yes
+          url:
+            description:
+              - Base URL from where the package is downloaded.
+            type: str
+            required: yes
+          suffix:
+            description:
+              - Suffix of the package name.
+            type: str
+            required: yes

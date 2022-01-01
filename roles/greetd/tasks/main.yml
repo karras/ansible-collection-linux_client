@@ -1,0 +1,53 @@
+---
+
+- name: gather package facts
+  ansible.builtin.package_facts:
+    manager: auto
+  changed_when: no
+
+- name: check and install greetd packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+  loop: '{{ greetd_packages }}'
+  loop_control:
+    label: '{{ package.name }}'
+    loop_var: package
+  when:
+    - greetd_packages is defined
+
+- name: configure greetd main config
+  ansible.builtin.template:
+    src: etc/greetd/config.toml.j2
+    dest: /etc/greetd/config.toml
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart greetd
+
+- name: configure greetd environments
+  ansible.builtin.template:
+    src: etc/greetd/environments.j2
+    dest: /etc/greetd/environments
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart greetd
+
+- name: configure greetd-gtkgreet css config
+  ansible.builtin.template:
+    src: etc/greetd/gtkgreet.css.j2
+    dest: /etc/greetd/gtkgreet.css
+    owner: root
+    group: root
+    mode: 0644
+  when: (greetd_gtkgreet_css is defined) and (greetd_gtkgreet_css|length > 0)
+  notify: restart greetd
+
+# Service related tasks do not work well in molecule idempotence tests
+- name: activate greetd
+  ansible.builtin.service:
+    name: greetd
+    enabled: yes
+    state: started
+  tags:
+    - molecule-idempotence-notest

@@ -1,0 +1,23 @@
+---
+
+galaxy_info:
+  author: Michael Hofer <@karras>
+  description: Installs and configures the greetd login manager.
+  company: none
+  role_name: greetd
+  namespace: karras
+  license: GPL-3.0-only
+  min_ansible_version: 2.12
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - workstation
+    - laptop
+    - desktop
+    - archlinux
+
+dependencies: []

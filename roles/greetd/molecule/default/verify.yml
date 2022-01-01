@@ -1,0 +1,13 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: check if greetd was successfully installed
+    ansible.builtin.command:
+      greetd -h
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0

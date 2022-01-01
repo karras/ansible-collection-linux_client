@@ -1,0 +1,6 @@
+---
+
+- name: restart greetd
+  ansible.builtin.service:
+    name: greetd
+    state: restarted
