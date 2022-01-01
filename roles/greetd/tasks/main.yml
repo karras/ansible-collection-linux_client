@@ -44,7 +44,7 @@
   notify: restart greetd
 
 # Service related tasks do not work well in molecule idempotence tests
-- name: activate greetd
+- name: enable greetd
   ansible.builtin.service:
     name: greetd
     enabled: yes
