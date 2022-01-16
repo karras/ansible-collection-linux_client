@@ -2,7 +2,7 @@
 
 A collection of roles to manage Linux-based development workstations.
 
-![GitHub](https://github.com/karras/ansible-collection-workstation/workflows/Test/badge.svg?branch=main)
+[![Test](https://github.com/karras/ansible-collection-workstation/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-workstation/actions/workflows/test.yml)
 
 ## Compatibility
 
