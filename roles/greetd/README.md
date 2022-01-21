@@ -2,8 +2,8 @@
 
 Installs and configures the greetd login manager.
 
-The role also supports configuring greetd-gtkgreet and a custom CSS config.
-Note the additional requirements described below though.
+The role also supports configuring `greetd-gtkgreet` and a custom CSS config
+for it. Note the additional requirements described below though.
 
 ## Example Playbook
 
