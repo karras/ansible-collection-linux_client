@@ -1,24 +1,22 @@
 ---
 
-- name: gather package facts
-  ansible.builtin.package_facts:
-    manager: auto
-  changed_when: no
-
-- name: install additional wayfire dependencies
-  ansible.builtin.package:
-    name: '{{ wayfire_dependencies }}'
-    state: present
-
-- name: check and install wayfire packages
+- name: configure wayfire pacman repositories
   ansible.builtin.include_tasks:
-    file: packages.yml
-  loop: '{{ wayfire_packages }}'
+    file: repositories.yml
+  loop: '{{ wayfire_repositories }}'
   loop_control:
-    label: '{{ package.name }}'
-    loop_var: package
+    label: '{{ repository.name }}'
+    loop_var: repository
   when:
-    - wayfire_packages is defined
+    - wayfire_repositories is defined
+
+- name: flush handlers to ensure pacman database is refreshed
+  meta: flush_handlers
+
+- name: install wayfire packages
+  ansible.builtin.package:
+    name: '{{ wayfire_packages }}'
+    state: present
 
 - name: create directory for greetd integration config
   ansible.builtin.file:

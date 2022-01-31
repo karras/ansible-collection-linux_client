@@ -1,24 +1,22 @@
 ---
 
-# List of additional packages to install
-wayfire_dependencies:
-  - polkit
-
 # Optional greetd integration config to deploy (multiline string)
 # This allows running a greetd-gtkgreet session via Wayfire, which in turn
 # spawns a proper Wayfire session after login
 wayfire_greetd_config: ''
 
-# List of wayfire related packages to install including their version
+# List of Wayfire related packages to install
 wayfire_packages:
-  - name: wf-config
-    version: 0.7.1-3
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
-  - name: wayfire
-    version: 0.7.2-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
+  - polkit
+  - wf-config
+  - wayfire
+
+# List of Pacman repositories to configure
+wayfire_repositories:
+  - name: karras
+    server: https://github.com/karras/aur-package-builds/releases/download/v2.0.0
+    key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
+    key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
 
 # Optional wrapper script to deploy (multiline string)
 # It can be desired to run Wayfire via wrapper script, which takes care of

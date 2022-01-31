@@ -2,10 +2,10 @@
 
 Installs and configures the Wayfire compositor.
 
-The role also supports deploying an integration into greetd and a custom
-`wayfire-run` script that can be used to inject additional environment
-variables before launching Wayfire. Note the additional requirements described
-below though.
+The role also supports deploying an integration into
+[greetd](https://git.sr.ht/~kennylevinsen/greetd) and a custom `wayfire-run`
+script that can be used to inject additional environment variables before
+launching Wayfire. Note the additional requirements described below though.
 
 ## Example Playbook
 
@@ -51,25 +51,23 @@ playbook](./molecule/default/converge.yml) as a starting point:
 The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 
 ```yaml
-# List of additional packages to install
-wayfire_dependencies:
-  - polkit
-
 # Optional greetd integration config to deploy (multiline string)
 # This allows running a greetd-gtkgreet session via Wayfire, which in turn
 # spawns a proper Wayfire session after login
 wayfire_greetd_config: ''
 
-# List of wayfire related packages to install including their version
+# List of Wayfire related packages to install
 wayfire_packages:
-  - name: wf-config
-    version: 0.7.1-3
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
-  - name: wayfire
-    version: 0.7.2-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
+  - polkit
+  - wf-config
+  - wayfire
+
+# List of Pacman repositories to configure
+wayfire_repositories:
+  - name: karras
+    server: https://github.com/karras/aur-package-builds/releases/download/v2.0.0
+    key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
+    key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
 
 # Optional wrapper script to deploy (multiline string)
 # It can be desired to run Wayfire via wrapper script, which takes care of
@@ -86,11 +84,12 @@ ansible-doc --type role -r roles -e main wayfire
 
 ## Requirements
 
-This roles has no additional role requirements but depends on the Wayfire
-package(s) being pre-built and available via HTTPS for download.
+This role has no additional role requirements but depends on the Wayfire
+package(s) being pre-built and available through a repository.
 
-By default the packages are downloaded from
-[github.com/karras/aur-package-builds](https://github.com/karras/aur-package-builds).
+Thus By default the repository
+[github.com/karras/aur-package-builds](https://github.com/karras/aur-package-builds)
+is configured and trusted.
 
 ## License
 
