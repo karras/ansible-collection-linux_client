@@ -1,0 +1,36 @@
+---
+
+- name: check if gpg key for pacman repository {{ repository.name }} is trusted
+  ansible.builtin.command:
+    pacman-key --finger {{ repository.key_id }}
+  register: greetd_register_key
+  changed_when: no
+  failed_when: no
+
+- name: download gpg key for pacman repository {{ repository.name }}
+  ansible.builtin.get_url:
+    url: '{{ repository.key }}'
+    dest: /tmp/{{ repository.key_id }}.asc
+  when: greetd_register_key.rc == 1
+
+- name: add gpg key for pacman repository {{ repository.name }}
+  ansible.builtin.command:
+    pacman-key --add /tmp/{{ repository.key_id }}.asc
+  when: greetd_register_key.rc == 1
+
+- name: trust gpg key for pacman repository {{ repository.name }}
+  ansible.builtin.command:
+    pacman-key --lsign-key {{ repository.key_id }}
+  when: greetd_register_key.rc == 1
+
+- name: add repository {{ repository.name }} to pacman.conf
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [{{ repository.name }}]
+      Server = {{ repository.server }}
+    owner: root
+    group: root
+    mode: 0644
+    state: present
+  notify: refresh pacman database

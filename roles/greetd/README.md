@@ -1,6 +1,7 @@
 # Ansible Role - greetd
 
-Installs and configures the greetd login manager.
+Installs and configures the [greetd](https://git.sr.ht/~kennylevinsen/greetd)
+login manager.
 
 The role also supports configuring `greetd-gtkgreet` and a custom CSS config
 for it. Note the additional requirements described below though.
@@ -43,16 +44,17 @@ greetd_environments:
 # Custom CSS configuration for greetd-gtkgreet (multiline string)
 greetd_gtkgreet_css: ''
 
-# List of greetd related packages to install including their version
+# List of greetd related packages to install
 greetd_packages:
-  - name: greetd
-    version: 0.8.0-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
-  - name: greetd-gtkgreet
-    version: 0.7-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
+  - greetd
+  - greetd-gtkgreet
+
+# List of Pacman repositories to configure
+greetd_repositories:
+  - name: karras
+    server: https://github.com/karras/aur-package-builds/releases/download/v2.0.0
+    key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
+    key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:
@@ -63,11 +65,12 @@ ansible-doc --type role -r roles -e main greetd
 
 ## Requirements
 
-This roles has no additional role requirements but depends on the greetd
-package being pre-built and available via HTTPS for download.
+This role has no additional role requirements but depends on the greetd
+package(s) being pre-built and available through a repository.
 
-By default the packages are downloaded from
-[github.com/karras/aur-package-builds](https://github.com/karras/aur-package-builds).
+Thus By default the repository
+[github.com/karras/aur-package-builds](https://github.com/karras/aur-package-builds)
+is configured and trusted.
 
 ## License
 

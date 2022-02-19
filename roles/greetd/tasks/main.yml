@@ -1,19 +1,22 @@
 ---
 
-- name: gather package facts
-  ansible.builtin.package_facts:
-    manager: auto
-  changed_when: no
-
-- name: check and install greetd packages
+- name: configure greetd pacman repositories
   ansible.builtin.include_tasks:
-    file: packages.yml
-  loop: '{{ greetd_packages }}'
+    file: repositories.yml
+  loop: '{{ greetd_repositories }}'
   loop_control:
-    label: '{{ package.name }}'
-    loop_var: package
+    label: '{{ repository.name }}'
+    loop_var: repository
   when:
-    - greetd_packages is defined
+    - greetd_repositories is defined
+
+- name: flush handlers to ensure pacman database is refreshed
+  meta: flush_handlers
+
+- name: install greetd packages
+  ansible.builtin.package:
+    name: '{{ greetd_packages }}'
+    state: present
 
 - name: configure greetd main config
   ansible.builtin.template:

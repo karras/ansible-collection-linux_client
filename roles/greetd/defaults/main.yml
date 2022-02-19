@@ -17,13 +17,14 @@ greetd_environments:
 # Custom CSS configuration for greetd-gtkgreet (multiline string)
 greetd_gtkgreet_css: ''
 
-# List of greetd related packages to install including their version
+# List of greetd related packages to install
 greetd_packages:
-  - name: greetd
-    version: 0.8.0-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
-  - name: greetd-gtkgreet
-    version: 0.7-1
-    url: 'https://github.com/karras/aur-package-builds/releases/download/v1.0.1'
-    suffix: -x86_64.pkg.tar.zst
+  - greetd
+  - greetd-gtkgreet
+
+# List of Pacman repositories to configure
+greetd_repositories:
+  - name: karras
+    server: https://github.com/karras/aur-package-builds/releases/download/v2.0.0
+    key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
+    key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
