@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
+{% for env in os_baseline_environment %}
+{{ env.name }}={{ env.value }}
+{% endfor %}

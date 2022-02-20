@@ -5,6 +5,14 @@
   gather_facts: no
 
   tasks:
+  - name: check if no_at_bridge is set to 1 in /etc/environment
+    ansible.builtin.lineinfile:
+      path: /etc/environment
+      line: 'NO_AT_BRIDGE=1'
+    register: this
+    failed_when:
+      - this is changed
+
   - name: check if en_gb locale is active
     ansible.builtin.command:
       localectl list-locales

@@ -13,6 +13,14 @@
     name: '{{ os_baseline_packages }}'
     state: present
 
+- name: configure global environment variables
+  ansible.builtin.template:
+    src: etc/environment.j2
+    dest: /etc/environment
+    owner: root
+    group: root
+    mode: 0644
+
 - name: read current hwclock timezone settings
   ansible.builtin.command:
     timedatectl show -p LocalRTC --value

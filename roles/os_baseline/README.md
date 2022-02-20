@@ -5,6 +5,7 @@ Manages OS related basic configs for workstations.
 The following components are managed by this role:
 
 * OS baseline packages
+* Global environment variables
 * Time zone and synchronization (`systemd-timesyncd`)
   - Including hwclock
 * Hostname and domain
@@ -54,6 +55,11 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 ```yaml
 # Domain of the system
 os_baseline_domain: local
+
+# List of global environment variables to set
+os_baseline_environment:
+  - name: NO_AT_BRIDGE
+    value: '1'
 
 # Hostname of the system
 os_baseline_hostname: '{{ ansible_hostname }}'

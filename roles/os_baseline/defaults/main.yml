@@ -3,6 +3,11 @@
 # Domain of the system
 os_baseline_domain: local
 
+# List of global environment variables to set
+os_baseline_environment:
+  - name: NO_AT_BRIDGE
+    value: '1'
+
 # Hostname of the system
 os_baseline_hostname: '{{ ansible_hostname }}'
 

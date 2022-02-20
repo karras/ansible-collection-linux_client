@@ -10,6 +10,26 @@ argument_specs:
         type: str
         required: no
         default: local
+      os_baseline_environment:
+        description:
+          - List of global environment variables to set.
+        type: list
+        elements: dict
+        required: no
+        default:
+          - name: NO_AT_BRIDGE
+            value: '1'
+        options:
+          name:
+            description:
+              - Name of the environment variable.
+            type: str
+            required: yes
+          value:
+            description:
+              - Value of the environment variable.
+            type: str
+            required: yes
       os_baseline_hostname:
         description:
           - Hostname of the system to configure.
