@@ -19,8 +19,8 @@ argument_specs:
       os_baseline_locales:
         description:
           - List of locales to activate.
-        type: 'list'
-        elements: 'str'
+        type: list
+        elements: str
         required: no
         default:
           - 'en_US.UTF-8 UTF-8'
@@ -28,7 +28,7 @@ argument_specs:
       os_baseline_locales_config:
         description:
           - Configuration of the system-wide locales.
-        type: 'dict'
+        type: dict
         required: no
         default:
           lang: en_US.UTF-8
@@ -133,16 +133,16 @@ argument_specs:
       os_baseline_mirrors:
         description:
           - List of mirrors to activate.
-        type: 'list'
-        elements: 'str'
+        type: list
+        elements: str
         required: no
         default:
           - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'
       os_baseline_packages:
         description:
           - List of baseline packages to install.
-        type: 'list'
-        elements: 'str'
+        type: list
+        elements: str
         required: no
         default:
           - base
@@ -156,7 +156,7 @@ argument_specs:
       os_baseline_timesyncd_config:
         description:
           - Configuration for systemd-timesyncd (see `man timesyncd.conf`).
-        type: 'dict'
+        type: dict
         required: no
         default:
           ntp:
