@@ -1,0 +1,62 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: check if bemenu was successfully installed
+    ansible.builtin.command:
+      bemenu -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if light was successfully installed
+    ansible.builtin.command:
+      light -V
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if neovim was successfully installed
+    ansible.builtin.command:
+      nvim -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if swaybg was successfully installed
+    ansible.builtin.command:
+      swaybg -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if swayidle was successfully installed
+    ansible.builtin.command:
+      swayidle -h
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if swaylock was successfully installed
+    ansible.builtin.command:
+      swaylock -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if terminator was successfully installed
+    ansible.builtin.command:
+      terminator -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if waybar was successfully installed
+    ansible.builtin.command:
+      waybar -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0

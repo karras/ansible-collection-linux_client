@@ -29,7 +29,8 @@ jobs:
 
       - name: Test with molecule
         run: |
-          cd ./roles/greetd && molecule test
+          cd ./roles/desktop_baseline && molecule test
+          cd ../greetd && molecule test
           cd ../os_baseline && molecule test
           cd ../hardware && molecule test
           cd ../users && molecule test

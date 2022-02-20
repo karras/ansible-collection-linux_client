@@ -1,0 +1,12 @@
+---
+
+# List of desktop packages to install
+desktop_baseline_packages:
+  - bemenu-wayland
+  - light
+  - neovim
+  - swaybg
+  - swayidle
+  - swaylock
+  - terminator
+  - waybar
