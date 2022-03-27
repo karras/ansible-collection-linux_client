@@ -38,7 +38,7 @@
       swayidle -h
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when: this.rc != 255
 
   - name: check if swaylock was successfully installed
     ansible.builtin.command:
