@@ -11,7 +11,7 @@
     - greetd_repositories is defined
 
 - name: flush handlers to ensure pacman database is refreshed
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: install greetd packages
   ansible.builtin.package:
