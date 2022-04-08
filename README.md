@@ -17,6 +17,7 @@ The following roles are part of this collection:
 | [desktop\_baseline](./roles/desktop_baseline) | Desktop baseline configuration | n/a          |
 | [greetd](./roles/greetd)                      | Login manager greetd setup     | n/a          |
 | [hardware](./roles/hardware)                  | Hardware related settings      | n/a          |
+| [networkmanager](./roles/networkmanager)      | NetworkManager setup           | n/a          |
 | [os\_baseline](./roles/os_baseline)           | OS baseline configuration      | n/a          |
 | [users](./roles/users)                        | User and group management      | n/a          |
 | [wayfire](./roles/wayfire)                    | Wayfire compositor setup       | n/a          |

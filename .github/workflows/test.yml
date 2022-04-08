@@ -31,7 +31,8 @@ jobs:
         run: |
           cd ./roles/desktop_baseline && molecule test
           cd ../greetd && molecule test
-          cd ../os_baseline && molecule test
           cd ../hardware && molecule test
+          cd ../networkmanager && molecule test
+          cd ../os_baseline && molecule test
           cd ../users && molecule test
           #cd ../wayfire && molecule test

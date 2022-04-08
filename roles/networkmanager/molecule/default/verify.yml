@@ -1,0 +1,13 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: check if networkmanager was successfully installed
+    ansible.builtin.command:
+      nmcli -v
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0

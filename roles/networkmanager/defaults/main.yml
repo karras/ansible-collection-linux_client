@@ -1,0 +1,11 @@
+---
+
+# List of networkmanager related packages to install
+networkmanager_packages:
+  - networkmanager
+  - network-manager-applet
+  - nm-connection-editor
+
+# List of networkmanager related services to activate
+networkmanager_service_activation:
+  - NetworkManager
