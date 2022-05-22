@@ -25,6 +25,6 @@ greetd_packages:
 # List of Pacman repositories to configure
 greetd_repositories:
   - name: karras
-    server: https://github.com/karras/aur-package-builds/releases/download/v2.0.0
+    server: https://github.com/karras/aur-package-builds/releases/download/v2.1.0
     key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
     key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
