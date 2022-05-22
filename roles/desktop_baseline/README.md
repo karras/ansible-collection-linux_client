@@ -1,6 +1,6 @@
 # Ansible Role - desktop\_baseline
 
-Manages desktop related basic configs for workstations.
+Manages Linux desktop related basic configs for workstations.
 
 The following components are managed by this role:
 
