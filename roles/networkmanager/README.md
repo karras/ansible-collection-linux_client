@@ -28,10 +28,6 @@ networkmanager_packages:
   - networkmanager
   - network-manager-applet
   - nm-connection-editor
-
-# List of networkmanager related services to activate
-networkmanager_service_activation:
-  - NetworkManager
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

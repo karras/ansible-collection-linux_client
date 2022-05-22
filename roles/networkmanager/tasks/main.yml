@@ -6,11 +6,10 @@
     state: present
 
 # Service related tasks do not work well in molecule idempotence tests
-- name: enable networkmanager system services
+- name: enable networkmanager
   ansible.builtin.service:
-    name: '{{ item }}'
+    name: NetworkManager
     enabled: yes
     state: started
-  loop: '{{ networkmanager_service_activation }}'
   tags:
     - molecule-idempotence-notest
