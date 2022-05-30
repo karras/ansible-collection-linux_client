@@ -35,4 +35,4 @@ jobs:
           cd ../networkmanager && molecule test
           cd ../os_baseline && molecule test
           cd ../users && molecule test
-          #cd ../wayfire && molecule test
+          cd ../wayfire && molecule test
