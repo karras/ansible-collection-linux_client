@@ -2,7 +2,7 @@
 
 A collection of roles to manage Linux-based development clients.
 
-[![Test](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml)
+[![Test](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml)[![Release](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml)
 
 ## Compatibility
 
