@@ -1,20 +1,22 @@
 ---
+
 namespace: karras
-name: workstation
+name: linux_client
 version: 0.0.0
 readme: README.md
 authors:
   - Michael Hofer <@karras>
-description: A collection of roles to manage Linux-based development workstations.
+description: A collection of roles to manage Linux-based development clients.
 license_file: LICENSE
 tags:
+  - client
   - workstation
   - laptop
   - desktop
   - archlinux
 dependencies: {}
-repository: https://github.com/karras/ansible-collection-workstation
-documentation: https://github.com/karras/ansible-collection-workstation
-homepage: https://github.com/karras/ansible-collection-workstation
-issues: https://github.com/karras/ansible-collection-workstation/issues
+repository: https://github.com/karras/ansible-collection-linux_client
+documentation: https://github.com/karras/ansible-collection-linux_client
+homepage: https://github.com/karras/ansible-collection-linux_client
+issues: https://github.com/karras/ansible-collection-linux_client/issues
 build_ignore: []

@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages greetd related settings.
+    short_description: Installs and configures the greetd login manager.
     options:
       greetd_config_command:
         description:

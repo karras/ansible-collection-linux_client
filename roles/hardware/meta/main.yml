@@ -2,12 +2,12 @@
 
 galaxy_info:
   author: Michael Hofer <@karras>
-  description: Manages hardware related settings for workstations.
+  description: Manages hardware related settings for clients.
   company: none
   role_name: hardware
   namespace: karras
   license: GPL-3.0-only
-  min_ansible_version: 2.12
+  min_ansible_version: '2.12'
 
   platforms:
     - name: ArchLinux
@@ -15,6 +15,7 @@ galaxy_info:
         - all
 
   galaxy_tags:
+    - client
     - workstation
     - laptop
     - desktop

@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages firewalld related basic configs for workstations.
+    short_description: Manages firewalld related basic configs for Linux clients.
     options:
       firewalld_packages:
         description:

@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages Wayfire related settings.
+    short_description: Installs and configures the Wayfire compositor.
     options:
       wayfire_greetd_config:
         description:

@@ -1,6 +1,6 @@
 # Ansible Role - hardware
 
-Manages hardware related settings for workstations.
+Manages hardware related settings for clients.
 
 ## Example Playbook
 

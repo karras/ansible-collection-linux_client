@@ -1,6 +1,6 @@
 # Ansible Role - networkmanager
 
-Manages NetworkManager related settings for workstations.
+Manages NetworkManager related settings for clients.
 
 ## Example Playbook
 

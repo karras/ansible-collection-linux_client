@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages Linux desktop related basic configs for workstations.
+    short_description: Manages Linux desktop related basic configs for clients.
     options:
       desktop_baseline_packages:
         description:

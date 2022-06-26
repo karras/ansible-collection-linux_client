@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages NetworkManager related settings.
+    short_description: Manages NetworkManager related settings for clients.
     options:
       networkmanager_packages:
         description:

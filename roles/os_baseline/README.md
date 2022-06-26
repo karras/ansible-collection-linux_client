@@ -1,6 +1,6 @@
 # Ansible Role - os\_baseline
 
-Manages OS related basic configs for workstations.
+Manages OS related basic configs for clients.
 
 The following components are managed by this role:
 

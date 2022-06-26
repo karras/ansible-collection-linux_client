@@ -1,8 +1,8 @@
-# Ansible Collection - karras.workstation
+# Ansible Collection - karras.linux\_client
 
-A collection of roles to manage Linux-based development workstations.
+A collection of roles to manage Linux-based development clients.
 
-[![Test](https://github.com/karras/ansible-collection-workstation/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-workstation/actions/workflows/test.yml)
+[![Test](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml)
 
 ## Compatibility
 

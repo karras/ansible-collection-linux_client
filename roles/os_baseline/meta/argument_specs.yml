@@ -2,7 +2,7 @@
 
 argument_specs:
   main:
-    short_description: Manages OS related basic configs.
+    short_description: Manages OS related basic configs for clients.
     options:
       os_baseline_domain:
         description:
