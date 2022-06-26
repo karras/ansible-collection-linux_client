@@ -2,7 +2,7 @@
 
 namespace: karras
 name: linux_client
-version: 0.0.1
+version: 0.0.2
 readme: README.md
 authors:
   - Michael Hofer <@karras>
