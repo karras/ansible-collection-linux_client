@@ -2,7 +2,7 @@
 
 A collection of roles to manage Linux-based development clients.
 
-[![Test](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml)[![Release](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml)
+[![Test](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/test.yml) [![Release](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml/badge.svg)](https://github.com/karras/ansible-collection-linux_client/actions/workflows/release.yml)
 
 ## Compatibility
 
@@ -28,7 +28,45 @@ some more complex tasks structures though.
 
 ## Usage
 
-TODO
+Follow the below steps to start using the collection:
+
+* Install the latest collection version:
+
+```sh
+ansible-galaxy collection install karras.linux_client
+```
+
+* Create a new playbook (e.g. `client.yml`) which includes the desired roles:
+
+```yaml
+---
+
+- name: deploy and manage linux clients
+  hosts: all
+  become: yes
+  roles:
+    - karras.linux_client.os_baseline
+    - karras.linux_client.hardware
+    - karras.linux_client.users
+    - karras.linux_client.greetd
+    - karras.linux_client.wayfire
+    - karras.linux_client.desktop_baseline
+    - karras.linux_client.networkmanager
+    - karras.linux_client.firewalld
+```
+
+* Define an inventory, in this case Ansible is executed against localhost:
+
+```ini
+[dev]
+testclient ansible_connection=local
+```
+
+* Finally run the playbook:
+
+```sh
+ansible-playbook client.yml -i inventory -K
+```
 
 ## License
 
