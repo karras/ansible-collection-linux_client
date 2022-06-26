@@ -1,0 +1,4 @@
+---
+
+# Default zone used if an empty zone string is used
+firewalld_default_zone: public

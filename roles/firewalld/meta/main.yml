@@ -1,0 +1,24 @@
+---
+
+galaxy_info:
+  author: Michael Hofer <@karras>
+  description: Manages firewalld related basic configs for Linux clients.
+  company: none
+  role_name: firewalld
+  namespace: karras
+  license: GPL-3.0-only
+  min_ansible_version: 2.12
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - client
+    - workstation
+    - laptop
+    - desktop
+    - archlinux
+
+dependencies: []

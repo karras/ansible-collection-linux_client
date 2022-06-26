@@ -15,6 +15,7 @@ The following roles are part of this collection:
 | Role                                          | Purpose                        | Dependencies |
 | --------------------------------------------- | ------------------------------ | ------------ |
 | [desktop\_baseline](./roles/desktop_baseline) | Desktop baseline configuration | n/a          |
+| [firewalld](./roles/firewalld)                | Firewalld setup                | n/a          |
 | [greetd](./roles/greetd)                      | Login manager greetd setup     | n/a          |
 | [hardware](./roles/hardware)                  | Hardware related settings      | n/a          |
 | [networkmanager](./roles/networkmanager)      | NetworkManager setup           | n/a          |

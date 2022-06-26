@@ -1,0 +1,22 @@
+---
+
+- name: install firewalld packages
+  ansible.builtin.package:
+    name: '{{ firewalld_packages }}'
+    state: present
+
+- name: configure default zone behavior
+  ansible.builtin.lineinfile:
+    path: /etc/firewalld/firewalld.conf
+    regexp: '^DefaultZone='
+    line: 'DefaultZone={{ firewalld_default_zone }}'
+  notify: restart firewalld
+
+# Service related tasks do not work well in molecule idempotence tests
+- name: enable firewalld
+  ansible.builtin.service:
+    name: firewalld
+    enabled: yes
+    state: started
+  tags:
+    - molecule-idempotence-notest

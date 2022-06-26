@@ -1,0 +1,21 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: check if firewalld was successfully installed
+    ansible.builtin.command:
+      firewall-cmd -h
+    register: this
+    changed_when: no
+    failed_when: this.rc != 0
+
+  - name: check if defaultzone is set to drop in /etc/firewalld/firewalld.conf
+    ansible.builtin.lineinfile:
+      path: /etc/firewalld/firewalld.conf
+      line: 'DefaultZone=drop'
+    register: this
+    failed_when:
+      - this is changed

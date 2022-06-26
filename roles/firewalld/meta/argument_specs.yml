@@ -1,0 +1,20 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages firewalld related basic configs for workstations.
+    options:
+      firewalld_packages:
+        description:
+          - List of firewalld packages to install.
+        type: list
+        elements: str
+        required: no
+        default:
+          - firewalld
+      firewalld_default_zone:
+        description:
+          - Default zone used if an empty zone string is used.
+        type: str
+        required: no
+        default: public

@@ -1,0 +1,5 @@
+---
+
+# List of firewalld packages to install
+firewalld_packages:
+  - firewalld

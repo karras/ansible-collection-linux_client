@@ -1,0 +1,9 @@
+---
+
+- name: Converge
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - role: firewalld
+      firewalld_default_zone: drop
