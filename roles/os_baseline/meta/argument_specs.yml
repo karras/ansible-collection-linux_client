@@ -216,6 +216,13 @@ argument_specs:
             type: int
             required: no
             default: 2048
+          connection_retry_sec:
+            description:
+              - Sets the minimum delay before attempting to contact a new NTP
+                server.
+            type: int
+            required: no
+            default: 30
           save_interval_sec:
             description:
               - Sets the interval at which the time is saved to disk.
