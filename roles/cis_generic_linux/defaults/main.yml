@@ -1,0 +1,9 @@
+---
+
+# List of CIS rule sections to include
+cis_generic_linux_sections:
+  - 1_1_filesystem
+
+# List of specific CIS rules to ignore
+cis_generic_linux_ignored_rules: []
+#  - 1.1.1.1

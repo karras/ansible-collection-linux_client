@@ -1,0 +1,21 @@
+---
+
+argument_specs:
+  main:
+    short_description: Manages CIS Distribution Independent Linux settings for clients.
+    options:
+      cis_generic_linux_sections:
+        description:
+          - List of CIS rule sections to include.
+        type: list
+        elements: str
+        required: no
+        default:
+          - 1.1
+      cis_generic_linux_ignored_rules:
+        description:
+          - List of specific CIS rules to ignore.
+        type: list
+        elements: str
+        required: no
+        default: []
