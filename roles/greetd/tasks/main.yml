@@ -7,8 +7,7 @@
   loop_control:
     label: '{{ repository.name }}'
     loop_var: repository
-  when:
-    - greetd_repositories is defined
+  when: greetd_repositories is defined
 
 - name: flush handlers to ensure pacman database is refreshed
   ansible.builtin.meta: flush_handlers
