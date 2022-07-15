@@ -5,8 +5,6 @@
   gather_facts: no
 
   tasks:
-  # Update the pacman cache as it's potentialy outdated in the container
-  - name: update pacman cache
-    ansible.builtin.command:
-      pacman -Sy
-    when: ansible_distribution == 'Archlinux'
+  # What actual tests would make sense?
+  - name: check if system is still alive
+    ansible.builtin.ping:
