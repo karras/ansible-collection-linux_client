@@ -107,3 +107,39 @@
   changed_when: no
   failed_when: no
   when: not '1.1.1.6' in cis_generic_linux_ignored_rules
+
+# 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
+- name: 1.1.1.7 disable udf filesystem mounting
+  ansible.builtin.template:
+    src: etc/modprobe.d/cis_udf.conf.j2
+    dest: /etc/modprobe.d/cis_udf.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.1.7' in cis_generic_linux_ignored_rules
+
+# 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
+- name: 1.1.1.7 remove loaded udf filesystem module
+  ansible.builtin.command:
+    modprobe -r udf
+  changed_when: no
+  failed_when: no
+  when: not '1.1.1.7' in cis_generic_linux_ignored_rules
+
+# 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
+- name: 1.1.1.8 disable vfat filesystem mounting
+  ansible.builtin.template:
+    src: etc/modprobe.d/cis_vfat.conf.j2
+    dest: /etc/modprobe.d/cis_vfat.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.1.8' in cis_generic_linux_ignored_rules
+
+# 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
+- name: 1.1.1.8 remove loaded vfat filesystem module
+  ansible.builtin.command:
+    modprobe -r vfat
+  changed_when: no
+  failed_when: no
+  when: not '1.1.1.8' in cis_generic_linux_ignored_rules
