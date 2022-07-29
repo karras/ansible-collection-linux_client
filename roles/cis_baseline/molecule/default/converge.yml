@@ -5,4 +5,4 @@
   gather_facts: yes
 
   roles:
-    - role: cis_generic_linux
+    - role: cis_baseline

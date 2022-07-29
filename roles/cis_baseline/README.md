@@ -1,7 +1,8 @@
-# Ansible Role - cis\_generic\_linux
+# Ansible Role - cis\_baseline
 
-Manages "CIS Distribution Independent Linux" (`v2.0.0` - `07-06-2019`) settings
-for clients.
+Manages CIS security baseline settings for clients.
+
+* Arch Linux: CIS Distribution Independent Linux" (`v2.0.0` - `07-06-2019`)
 
 ## Example Playbook
 
@@ -16,7 +17,7 @@ playbook](./molecule/default/converge.yml) as a starting point:
   gather_facts: yes
 
   roles:
-    - role: cis_generic_linux
+    - role: cis_baseline
 ```
 
 ## Role Variables
@@ -25,18 +26,18 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 
 ```yaml
 # List of CIS rule sections to include
-cis_generic_linux_sections:
+cis_baseline_sections:
   - 1_1_filesystem
 
 # List of specific CIS rules to ignore
-cis_generic_linux_ignored_rules: []
+cis_baseline_ignored_rules: []
 #  - 1.1.1.1
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:
 
 ```sh
-ansible-doc --type role -r roles -e main cis_generic_linux
+ansible-doc --type role -r roles -e main cis_baseline
 ```
 
 ## Requirements

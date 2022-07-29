@@ -2,9 +2,9 @@
 
 argument_specs:
   main:
-    short_description: Manages CIS Distribution Independent Linux settings for clients.
+    short_description: Manages CIS security baseline settings for clients.
     options:
-      cis_generic_linux_sections:
+      cis_baseline_sections:
         description:
           - List of CIS rule sections to include.
         type: list
@@ -12,7 +12,7 @@ argument_specs:
         required: no
         default:
           - 1.1
-      cis_generic_linux_ignored_rules:
+      cis_baseline_ignored_rules:
         description:
           - List of specific CIS rules to ignore.
         type: list

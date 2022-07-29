@@ -2,9 +2,9 @@
 
 galaxy_info:
   author: Michael Hofer <@karras>
-  description: Manages CIS Distribution Independent Linux settings for clients.
+  description: Manages CIS security baseline settings for clients.
   company: none
-  role_name: cis_generic_linux
+  role_name: cis_baseline
   namespace: karras
   license: GPL-3.0-only
   min_ansible_version: '2.12'

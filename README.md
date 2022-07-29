@@ -12,17 +12,17 @@ Currently only supports Arch Linux.
 
 The following roles are part of this collection:
 
-| Role                                             | Purpose                                     | Dependencies |
-| ------------------------------------------------ | ------------------------------------------- | ------------ |
-| [cis\_generic\_linux](./roles/cis_generic_linux) | CIS Distribution Independent Linux baseline | n/a          |
-| [desktop\_baseline](./roles/desktop_baseline)    | Desktop baseline configuration              | n/a          |
-| [firewalld](./roles/firewalld)                   | Firewalld setup                             | n/a          |
-| [greetd](./roles/greetd)                         | Login manager greetd setup                  | n/a          |
-| [hardware](./roles/hardware)                     | Hardware related settings                   | n/a          |
-| [networkmanager](./roles/networkmanager)         | NetworkManager setup                        | n/a          |
-| [os\_baseline](./roles/os_baseline)              | OS baseline configuration                   | n/a          |
-| [users](./roles/users)                           | User and group management                   | n/a          |
-| [wayfire](./roles/wayfire)                       | Wayfire compositor setup                    | n/a          |
+| Role                                          | Purpose                        | Dependencies |
+| --------------------------------------------- | ------------------------------ | ------------ |
+| [cis\_baseline](./roles/cis_baseline)         | CIS baseline configuration     | n/a          |
+| [desktop\_baseline](./roles/desktop_baseline) | Desktop baseline configuration | n/a          |
+| [firewalld](./roles/firewalld)                | Firewalld setup                | n/a          |
+| [greetd](./roles/greetd)                      | Login manager greetd setup     | n/a          |
+| [hardware](./roles/hardware)                  | Hardware related settings      | n/a          |
+| [networkmanager](./roles/networkmanager)      | NetworkManager setup           | n/a          |
+| [os\_baseline](./roles/os_baseline)           | OS baseline configuration      | n/a          |
+| [users](./roles/users)                        | User and group management      | n/a          |
+| [wayfire](./roles/wayfire)                    | Wayfire compositor setup       | n/a          |
 
 Whenever possible only Ansible builtin modules are leveraged, which can lead to
 some more complex tasks structures though.
@@ -54,6 +54,7 @@ ansible-galaxy collection install karras.linux_client
     - karras.linux_client.desktop_baseline
     - karras.linux_client.networkmanager
     - karras.linux_client.firewalld
+    - karras.linux_client.cis_baseline
 ```
 
 * Define an inventory, in this case Ansible is executed against localhost:

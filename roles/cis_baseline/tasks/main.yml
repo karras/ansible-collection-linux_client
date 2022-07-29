@@ -3,5 +3,5 @@
 - name: apply selected cis sections
   ansible.builtin.include_tasks:
     file: '{{ item }}.yml'
-  loop: '{{ cis_generic_linux_sections }}'
-  when: cis_generic_linux_sections is defined
+  loop: '{{ cis_baseline_sections }}'
+  when: cis_baseline_sections is defined

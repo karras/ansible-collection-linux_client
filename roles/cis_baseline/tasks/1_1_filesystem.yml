@@ -8,7 +8,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.1' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.1' in cis_baseline_ignored_rules
 
 # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Scored)
 - name: 1.1.1.1 remove loaded cramfs filesystem module
@@ -16,7 +16,7 @@
     modprobe -r cramfs
   changed_when: no
   failed_when: no
-  when: not '1.1.1.1' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.1' in cis_baseline_ignored_rules
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 disable freevxfs filesystem module
@@ -26,7 +26,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.2' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.2' in cis_baseline_ignored_rules
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 remove loaded freevxfs filesystem module
@@ -34,7 +34,7 @@
     modprobe -r freevxfs
   changed_when: no
   failed_when: no
-  when: not '1.1.1.2' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.2' in cis_baseline_ignored_rules
 
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
 - name: 1.1.1.3 disable jffs2 filesystem module
@@ -44,7 +44,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.3' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.3' in cis_baseline_ignored_rules
 
 # 1.1.1.3 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.3 remove loaded jffs2 filesystem module
@@ -52,7 +52,7 @@
     modprobe -r jffs2
   changed_when: no
   failed_when: no
-  when: not '1.1.1.3' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.3' in cis_baseline_ignored_rules
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 disable hfs filesystem module
@@ -62,7 +62,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.4' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.4' in cis_baseline_ignored_rules
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 remove loaded hfs filesystem module
@@ -70,7 +70,7 @@
     modprobe -r hfs
   changed_when: no
   failed_when: no
-  when: not '1.1.1.4' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.4' in cis_baseline_ignored_rules
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 disable hfsplus filesystem module
@@ -80,7 +80,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.5' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.5' in cis_baseline_ignored_rules
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 remove loaded hfsplus filesystem module
@@ -88,7 +88,7 @@
     modprobe -r hfsplus
   changed_when: no
   failed_when: no
-  when: not '1.1.1.5' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.5' in cis_baseline_ignored_rules
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 disable squashfs filesystem module
@@ -98,7 +98,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.6' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.6' in cis_baseline_ignored_rules
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 remove loaded squashfs filesystem module
@@ -106,7 +106,7 @@
     modprobe -r squashfs
   changed_when: no
   failed_when: no
-  when: not '1.1.1.6' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.6' in cis_baseline_ignored_rules
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 disable udf filesystem module
@@ -116,7 +116,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.7' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.7' in cis_baseline_ignored_rules
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 remove loaded udf filesystem module
@@ -124,7 +124,7 @@
     modprobe -r udf
   changed_when: no
   failed_when: no
-  when: not '1.1.1.7' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.7' in cis_baseline_ignored_rules
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 disable vfat filesystem module
@@ -134,7 +134,7 @@
     owner: root
     group: root
     mode: 0644
-  when: not '1.1.1.8' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.8' in cis_baseline_ignored_rules
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 remove loaded vfat filesystem module
@@ -142,4 +142,4 @@
     modprobe -r vfat
   changed_when: no
   failed_when: no
-  when: not '1.1.1.8' in cis_generic_linux_ignored_rules
+  when: not '1.1.1.8' in cis_baseline_ignored_rules
