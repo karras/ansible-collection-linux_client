@@ -10,7 +10,8 @@
       firewall-cmd -h
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   - name: check if defaultzone is set to drop in /etc/firewalld/firewalld.conf
     ansible.builtin.lineinfile:
