@@ -1,7 +1,7 @@
 ---
 
 # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Scored)
-- name: 1.1.1.1 disable cramfs filesystem mounting
+- name: 1.1.1.1 disable cramfs filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_cramfs.conf.j2
     dest: /etc/modprobe.d/cis_cramfs.conf
@@ -19,7 +19,7 @@
   when: not '1.1.1.1' in cis_generic_linux_ignored_rules
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
-- name: 1.1.1.2 disable freevxfs filesystem mounting
+- name: 1.1.1.2 disable freevxfs filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_freevxfs.conf.j2
     dest: /etc/modprobe.d/cis_freevxfs.conf
@@ -37,7 +37,7 @@
   when: not '1.1.1.2' in cis_generic_linux_ignored_rules
 
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
-- name: 1.1.1.3 disable jffs2 filesystem mounting
+- name: 1.1.1.3 disable jffs2 filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_jffs2.conf.j2
     dest: /etc/modprobe.d/cis_jffs2.conf
@@ -55,7 +55,7 @@
   when: not '1.1.1.3' in cis_generic_linux_ignored_rules
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
-- name: 1.1.1.4 disable hfs filesystem mounting
+- name: 1.1.1.4 disable hfs filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_hfs.conf.j2
     dest: /etc/modprobe.d/cis_hfs.conf
@@ -73,7 +73,7 @@
   when: not '1.1.1.4' in cis_generic_linux_ignored_rules
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
-- name: 1.1.1.5 disable hfsplus filesystem mounting
+- name: 1.1.1.5 disable hfsplus filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_hfsplus.conf.j2
     dest: /etc/modprobe.d/cis_hfsplus.conf
@@ -91,7 +91,7 @@
   when: not '1.1.1.5' in cis_generic_linux_ignored_rules
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
-- name: 1.1.1.6 disable squashfs filesystem mounting
+- name: 1.1.1.6 disable squashfs filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_squashfs.conf.j2
     dest: /etc/modprobe.d/cis_squashfs.conf
@@ -109,7 +109,7 @@
   when: not '1.1.1.6' in cis_generic_linux_ignored_rules
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
-- name: 1.1.1.7 disable udf filesystem mounting
+- name: 1.1.1.7 disable udf filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_udf.conf.j2
     dest: /etc/modprobe.d/cis_udf.conf
@@ -127,7 +127,7 @@
   when: not '1.1.1.7' in cis_generic_linux_ignored_rules
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
-- name: 1.1.1.8 disable vfat filesystem mounting
+- name: 1.1.1.8 disable vfat filesystem module
   ansible.builtin.template:
     src: etc/modprobe.d/cis_vfat.conf.j2
     dest: /etc/modprobe.d/cis_vfat.conf
