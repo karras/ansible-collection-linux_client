@@ -10,4 +10,5 @@
       greetd -h
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
