@@ -10,42 +10,48 @@
       bemenu -v
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   - name: check if light was successfully installed
     ansible.builtin.command:
       light -V
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   - name: check if neovim was successfully installed
     ansible.builtin.command:
       nvim -v
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   - name: check if swaybg was successfully installed
     ansible.builtin.command:
       swaybg -v
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   - name: check if swayidle was successfully installed
     ansible.builtin.command:
       swayidle -h
     register: this
     changed_when: no
-    failed_when: this.rc != 255
+    failed_when:
+      - this.rc != 255
 
   - name: check if swaylock was successfully installed
     ansible.builtin.command:
       swaylock -v
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
 
   # Terminator requires a GUI environment to print its version or help message
   # thus we assume it is okay if it fails, there should be a better way to fix
@@ -55,11 +61,13 @@
       terminator -v
     register: this
     changed_when: no
-    failed_when: this.rc != 1
+    failed_when:
+      - this.rc != 1
 
   - name: check if waybar was successfully installed
     ansible.builtin.command:
       waybar -v
     register: this
     changed_when: no
-    failed_when: this.rc != 0
+    failed_when:
+      - this.rc != 0
