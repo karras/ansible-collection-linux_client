@@ -143,3 +143,33 @@
   changed_when: no
   failed_when:
     - out.stdout_lines | length > 0
+
+# 1.1.2 Ensure /tmp is configured (Scored)
+- name: 1.1.2 test separate mount point for /tmp
+  ansible.builtin.shell:
+    cmd: mount | grep -E '\s/tmp\s'
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length < 1
+
+# 1.1.2 Ensure /tmp is configured (Scored)
+- name: 1.1.2 test if /tmp is configured via /etc/fstab
+  ansible.builtin.shell:
+    cmd: grep -E '\s/tmp\s' /etc/fstab | grep -E -v '^\s*#'
+  register: out_fstab
+  changed_when: no
+
+# 1.1.2 Ensure /tmp is configured (Scored)
+- name: 1.1.2 test if /tmp is configured via tmp.mount
+  ansible.builtin.command:
+    systemctl is-enabled tmp.mount
+  register: out_systemctl
+  changed_when: no
+
+# 1.1.2 Ensure /tmp is configured (Scored)
+- name: 1.1.2 test if /tmp is either configured via /etc/fstab or tmp.mount
+  ansible.builtin.assert:
+    that:
+      - (out_fstab.stdout_lines | length > 0) or
+        (out_systemctl.stdout in ["enabled"])

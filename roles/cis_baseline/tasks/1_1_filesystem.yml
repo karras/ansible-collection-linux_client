@@ -143,3 +143,14 @@
   changed_when: no
   failed_when: no
   when: not '1.1.1.8' in cis_baseline_ignored_rules
+
+# 1.1.2 Ensure /tmp is configured (Scored)
+# Service related tasks do not work well in molecule idempotence tests
+- name: 1.1.2 enable tmp.mount service
+  ansible.builtin.service:
+    name: tmp.mount
+    enabled: yes
+    state: started
+  tags:
+    - molecule-idempotence-notest
+  when: not '1.1.2' in cis_baseline_ignored_rules
