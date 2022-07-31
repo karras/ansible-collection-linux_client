@@ -8,6 +8,6 @@
   - name: check if /home/clark exists
     ansible.builtin.stat:
       path: /home/clark
-    register: this
+    register: out
     failed_when:
-      - not this.stat.exists
+      - not out.stat.exists

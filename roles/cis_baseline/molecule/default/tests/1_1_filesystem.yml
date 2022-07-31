@@ -4,142 +4,142 @@
 - name: 1.1.1.1 test disabled cramfs filesystem module
   ansible.builtin.command:
     modprobe -n -v cramfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Scored)
 - name: 1.1.1.1 test removed loaded cramfs filesystem module
   ansible.builtin.command:
     lsmod | grep cramfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 test disabled freevxfs filesystem module
   ansible.builtin.command:
     modprobe -n -v freevxfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 test removed loaded freevxfs filesystem module
   ansible.builtin.command:
     lsmod | grep freevxfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
 - name: 1.1.1.3 test disabled jffs2 filesystem module
   ansible.builtin.command:
     modprobe -n -v jffs2
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.3 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.3 test removed loaded jffs2 filesystem module
   ansible.builtin.command:
     lsmod | grep jffs2
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 test disabled hfs filesystem module
   ansible.builtin.command:
     modprobe -n -v hfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 test removed loaded hfs filesystem module
   ansible.builtin.command:
     lsmod | grep hfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 test disabled hfsplus filesystem module
   ansible.builtin.command:
     modprobe -n -v hfsplus
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 test removed loaded hfsplus filesystem module
   ansible.builtin.command:
     lsmod | grep hfsplus
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 test disabled squashfs filesystem module
   ansible.builtin.command:
     modprobe -n -v squashfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 test removed loaded squashfs filesystem module
   ansible.builtin.command:
     lsmod | grep squashfs
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 test disabled udf filesystem module
   ansible.builtin.command:
     modprobe -n -v udf
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 test removed loaded udf filesystem module
   ansible.builtin.command:
     lsmod | grep udf
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 test disabled vfat filesystem module
   ansible.builtin.command:
     modprobe -n -v vfat
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - '"install /bin/true" not in this.stdout'
+    - '"install /bin/true" not in out.stdout'
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 test removed loaded vfat filesystem module
   ansible.builtin.command:
     lsmod | grep vfat
-  register: this
+  register: out
   changed_when: no
   failed_when:
-    - this.stdout_lines | length > 0
+    - out.stdout_lines | length > 0

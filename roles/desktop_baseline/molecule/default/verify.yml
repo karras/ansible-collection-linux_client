@@ -8,66 +8,66 @@
   - name: check if bemenu was successfully installed
     ansible.builtin.command:
       bemenu -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
 
   - name: check if light was successfully installed
     ansible.builtin.command:
       light -V
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
 
   - name: check if neovim was successfully installed
     ansible.builtin.command:
       nvim -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
 
   - name: check if swaybg was successfully installed
     ansible.builtin.command:
       swaybg -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
 
   - name: check if swayidle was successfully installed
     ansible.builtin.command:
       swayidle -h
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 255
+      - out.rc != 255
 
   - name: check if swaylock was successfully installed
     ansible.builtin.command:
       swaylock -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
 
   # Terminator requires a GUI environment to print its version or help message
   # thus we assume it is okay if it fails, there should be a better way to fix
-  # this though
+  # out though
   - name: check if terminator was successfully installed
     ansible.builtin.command:
       terminator -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 1
+      - out.rc != 1
 
   - name: check if waybar was successfully installed
     ansible.builtin.command:
       waybar -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0

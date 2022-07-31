@@ -8,7 +8,7 @@
   - name: check if networkmanager was successfully installed
     ansible.builtin.command:
       nmcli -v
-    register: this
+    register: out
     changed_when: no
     failed_when:
-      - this.rc != 0
+      - out.rc != 0
