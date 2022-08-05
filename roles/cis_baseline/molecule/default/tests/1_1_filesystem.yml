@@ -154,11 +154,19 @@
     - out.stdout_lines | length < 1
 
 # 1.1.2 Ensure /tmp is configured (Scored)
+- name: 1.1.2 test if /etc/fstab exists
+  stat:
+    path: /etc/fstab
+  register: fstab
+
+# 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /tmp is configured via /etc/fstab
   ansible.builtin.shell:
     cmd: grep -E '\s/tmp\s' /etc/fstab | grep -E -v '^\s*#'
   register: out_fstab
   changed_when: no
+  when:
+    - fstab.stat.exists | bool
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /tmp is configured via tmp.mount
