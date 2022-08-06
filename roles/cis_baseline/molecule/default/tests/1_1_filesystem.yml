@@ -165,6 +165,7 @@
     cmd: grep -E '\s/tmp\s' /etc/fstab | grep -E -v '^\s*#'
   register: out_fstab
   changed_when: no
+  failed_when: no
   when:
     - fstab.stat.exists | bool
 
@@ -174,10 +175,11 @@
     systemctl is-enabled tmp.mount
   register: out_systemctl
   changed_when: no
+  failed_when: no
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /tmp is either configured via /etc/fstab or tmp.mount
   ansible.builtin.assert:
     that:
       - (out_fstab.stdout_lines | length > 0) or
-        (out_systemctl.stdout in ["enabled"])
+        (out_systemctl.stdout in ["enabled", "static"])
