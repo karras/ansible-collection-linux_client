@@ -154,3 +154,67 @@
   tags:
     - molecule-idempotence-notest
   when: not '1.1.2' in cis_baseline_ignored_rules
+
+# 1.1.3 Ensure nodev option set on /tmp partition (Scored)
+- name: 1.1.3 create systemd override directory for tmp.mount
+  ansible.builtin.file:
+    path: /etc/systemd/system/tmp.mount.d
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  notify: system reboot
+  when: not '1.1.3' in cis_baseline_ignored_rules
+
+# 1.1.3 Ensure nodev option set on /tmp partition (Scored)
+- name: 1.1.3 enable nodev option for /tmp mount point
+  ansible.builtin.template:
+    src: etc/systemd/system/tmp.mount.d/cis_override.conf.j2
+    dest: /etc/systemd/system/tmp.mount.d/cis_override.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.3' in cis_baseline_ignored_rules
+  notify: system reboot
+
+# 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
+- name: 1.1.4 create systemd override directory for tmp.mount
+  ansible.builtin.file:
+    path: /etc/systemd/system/tmp.mount.d
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  when: not '1.1.4' in cis_baseline_ignored_rules
+
+# 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
+- name: 1.1.4 enable nosuid option for /tmp mount point
+  ansible.builtin.template:
+    src: etc/systemd/system/tmp.mount.d/cis_override.conf.j2
+    dest: /etc/systemd/system/tmp.mount.d/cis_override.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.4' in cis_baseline_ignored_rules
+  notify: system reboot
+
+# 1.1.5 Ensure noexec option set on /tmp partition (Scored)
+- name: 1.1.5 create systemd override directory for tmp.mount
+  ansible.builtin.file:
+    path: /etc/systemd/system/tmp.mount.d
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  when: not '1.1.5' in cis_baseline_ignored_rules
+
+# 1.1.5 Ensure noexec option set on /tmp partition (Scored)
+- name: 1.1.5 enable noexec option for /tmp mount point
+  ansible.builtin.template:
+    src: etc/systemd/system/tmp.mount.d/cis_override.conf.j2
+    dest: /etc/systemd/system/tmp.mount.d/cis_override.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.5' in cis_baseline_ignored_rules
+  notify: system reboot

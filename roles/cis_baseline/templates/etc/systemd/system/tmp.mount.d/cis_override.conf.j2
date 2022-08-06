@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+# CIS Distribution Independent Linux
+[Mount]
+Options=mode=1777,strictatime,{% if not '1.1.3' in cis_baseline_ignored_rules %}nodev,{% endif %}{% if not '1.1.4' in cis_baseline_ignored_rules %}nosuid,{% endif %}{% if not '1.1.5' in cis_baseline_ignored_rules %}noexec,{% endif %}size=50%%,nr_inodes=1m
