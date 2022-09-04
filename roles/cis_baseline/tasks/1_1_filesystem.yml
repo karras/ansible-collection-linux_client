@@ -218,3 +218,14 @@
     mode: 0644
   when: not '1.1.5' in cis_baseline_ignored_rules
   notify: system reboot
+
+# 1.1.6 Ensure separate partition exists for /var (Scored)
+- name: 1.1.6 test separate mount point for /var
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/var\s'
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length < 1
+  when: not '1.1.6' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]

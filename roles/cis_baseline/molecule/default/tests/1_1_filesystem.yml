@@ -216,3 +216,14 @@
     - out.stdout_lines | length > 0
   when:
     - ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.6 Ensure separate partition exists for /var (Scored)
+- name: 1.1.6 test separate mount point for /var
+  ansible.builtin.shell:
+    cmd: mount | grep -E '\s/var\s'
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length < 1
+  when:
+    - ansible_connection not in ["container", "docker", "community.docker.docker"]
