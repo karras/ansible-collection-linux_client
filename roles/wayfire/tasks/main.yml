@@ -25,7 +25,7 @@
     mode: 0755
     state: directory
   when: (wayfire_greetd_config is defined) and
-        (wayfire_greetd_config|length > 0)
+        (wayfire_greetd_config | length > 0)
 
 - name: configure greetd integration config
   ansible.builtin.template:
@@ -35,7 +35,7 @@
     group: root
     mode: 0644
   when: (wayfire_greetd_config is defined) and
-        (wayfire_greetd_config|length > 0)
+        (wayfire_greetd_config | length > 0)
 
 - name: deploy wayfire-run wrapper script
   ansible.builtin.template:
@@ -45,4 +45,4 @@
     group: root
     mode: 0755
   when: (wayfire_run_wrapper is defined) and
-        (wayfire_run_wrapper|length > 0)
+        (wayfire_run_wrapper | length > 0)
