@@ -240,3 +240,36 @@
     - out.stdout_lines | length < 1
   when: not '1.1.7' in cis_baseline_ignored_rules and
         ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
+- name: 1.1.8 test enabled nodev option for /var/tmp mount point
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/var/tmp\s' | grep -v nodev
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when: not '1.1.8' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.9 Ensure nosuid option set on /var/tmp partition (Scored)
+- name: 1.1.9 test enabled nosuid option for /var/tmp mount point
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/var/tmp\s' | grep -v nosuid
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when: not '1.1.9' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.10 Ensure noexec option set on /var/tmp partition (Scored)
+- name: 1.1.10 test enabled noexec option for /var/tmp mount point
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/var/tmp\s' | grep -v noexec
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when: not '1.1.10' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
