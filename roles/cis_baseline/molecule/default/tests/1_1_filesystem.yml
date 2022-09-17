@@ -293,3 +293,14 @@
     - out.stdout_lines | length < 1
   when:
     - ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.13 Ensure separate partition exists for /home (Scored)
+- name: 1.1.13 test separate mount point for /home
+  ansible.builtin.shell:
+    cmd: mount | grep /home
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length < 1
+  when:
+    - ansible_connection not in ["container", "docker", "community.docker.docker"]
