@@ -306,3 +306,14 @@
     - out.stdout_lines | length < 1
   when: not '1.1.13' in cis_baseline_ignored_rules and
         ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.14 Ensure nodev option set on /home partition (Scored)
+- name: 1.1.14 test enabled nodev option for /home mount point
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/home\s' | grep -v nodev
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when: not '1.1.14' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
