@@ -351,8 +351,22 @@
 
 # 1.1.18 Ensure nodev option set on removable media partitions (Not Scored)
 - name: 1.1.18 test enabled nodev option for removable media partitions
-  ansible.builtin.shell:  # noqa: command-instead-of-module
+  ansible.builtin.shell:
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  loop: '{{ cis_baseline_removable_media_partitions }}'
+  loop_control:
+    loop_var: removable_media_partitions
+  when:
+    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.19 Ensure nosuid option set on removable media partitions (Not Scored)
+- name: 1.1.19 test enabled nosuid option for removable media partitions
+  ansible.builtin.shell:
+    cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
   register: out
   changed_when: no
   failed_when:
