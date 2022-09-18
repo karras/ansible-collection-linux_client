@@ -19,3 +19,12 @@ argument_specs:
         elements: str
         required: no
         default: []
+      cis_baseline_removable_media_partitions:
+        description:
+          - List of removable media partitions (1.1.18 - 1.1.20).
+        type: list
+        elements: str
+        required: no
+        default:
+          - /mnt/cdrom
+          - /mnt/floppy

@@ -1,0 +1,6 @@
+---
+
+# List of removable media partitions (1.1.18 - 1.1.20)
+cis_baseline_removable_media_partitions:
+  - /mnt/cdrom
+  - /mnt/floppy

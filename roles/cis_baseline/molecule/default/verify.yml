@@ -9,6 +9,10 @@
     ansible.builtin.include_vars:
       file: ../../defaults/main.yml
 
+  - name: load role vars
+    ansible.builtin.include_vars:
+      file: ../../vars/main.yml
+
   - name: test selected cis sections
     ansible.builtin.include_tasks:
       file: 'tests/{{ item }}.yml'
