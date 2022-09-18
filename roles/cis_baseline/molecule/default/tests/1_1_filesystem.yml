@@ -337,3 +337,14 @@
     - out.stdout_lines | length > 0
   when:
     - ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
+- name: 1.1.17 test enabled noexec option for /dev/shm mount point
+  ansible.builtin.shell:
+    cmd: mount | grep -E '\s/dev/shm\s' | grep -v noexec
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when:
+    - ansible_connection not in ["container", "docker", "community.docker.docker"]
