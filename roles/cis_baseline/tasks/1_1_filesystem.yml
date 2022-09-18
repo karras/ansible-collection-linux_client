@@ -317,3 +317,14 @@
     - out.stdout_lines | length > 0
   when: not '1.1.14' in cis_baseline_ignored_rules and
         ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
+- name: 1.1.15 test enabled nodev option for /dev/shm mount point
+  ansible.builtin.shell:  # noqa: command-instead-of-module
+    cmd: mount | grep -E '\s/dev/shm\s' | grep -v nodev
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
+  when: not '1.1.15' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
