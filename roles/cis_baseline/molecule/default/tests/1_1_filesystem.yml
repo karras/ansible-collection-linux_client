@@ -390,3 +390,12 @@
     loop_var: removable_media_partitions
   when:
     - ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.1.21 Ensure sticky bit is set on all world-writable directories (Scored)
+- name: 1.1.21 test sticky bit is set on all world-writable directories
+  ansible.builtin.shell:
+    cmd: df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
+  register: out
+  changed_when: no
+  failed_when:
+    - out.stdout_lines | length > 0
