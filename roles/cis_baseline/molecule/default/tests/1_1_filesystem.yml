@@ -410,3 +410,12 @@
   failed_when:
     - out is changed
   when: services.autofs is defined
+
+# 1.1.23 Disable USB Storage (Scored)
+- name: 1.1.23 test disabled usb-storage module
+  ansible.builtin.command:
+    modprobe -n -v usb-storage
+  register: out
+  changed_when: no
+  failed_when:
+    - '"install /bin/true" not in out.stdout'

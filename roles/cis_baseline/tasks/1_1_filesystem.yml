@@ -414,3 +414,13 @@
     - molecule-idempotence-notest
   when: not '1.1.22' in cis_baseline_ignored_rules and
         services.autofs is defined
+
+# 1.1.23 Disable USB Storage (Scored)
+- name: 1.1.23 disable usb-storage module
+  ansible.builtin.template:
+    src: etc/modprobe.d/cis_usb_storage.conf.j2
+    dest: /etc/modprobe.d/cis_usb_storage.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: not '1.1.23' in cis_baseline_ignored_rules
