@@ -1,6 +1,6 @@
 ---
 
-- name: check if gpg key for pacman repository {{ repository.name }} is trusted
+- name: check if gpg key is trusted for pacman repository {{ repository.name }}
   ansible.builtin.command:
     pacman-key --finger {{ repository.key_id }}
   register: wayfire_register_key
@@ -26,7 +26,7 @@
     pacman-key --lsign-key {{ repository.key_id }}
   when: wayfire_register_key.rc == 1
 
-- name: add repository {{ repository.name }} to pacman.conf
+- name: add entry to pacman.conf for {{ repository.name }}
   ansible.builtin.blockinfile:
     path: /etc/pacman.conf
     block: |
