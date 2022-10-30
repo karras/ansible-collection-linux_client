@@ -402,3 +402,15 @@
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.21' in cis_baseline_ignored_rules
+
+# 1.1.22 Disable Automounting (Scored)
+# Service related tasks do not work well in molecule idempotence tests
+- name: 1.1.22 disable autofs service
+  ansible.builtin.service:
+    name: autofs
+    enabled: no
+    state: stopped
+  tags:
+    - molecule-idempotence-notest
+  when: not '1.1.22' in cis_baseline_ignored_rules and
+        services.autofs is defined

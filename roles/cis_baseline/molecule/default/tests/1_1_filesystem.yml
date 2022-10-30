@@ -399,3 +399,14 @@
   changed_when: no
   failed_when:
     - out.stdout_lines | length > 0
+
+# 1.1.22 Disable Automounting (Scored)
+- name: 1.1.22 test disabled autofs service
+  ansible.builtin.service:
+    name: autofs
+    enabled: no
+    state: stopped
+  register: out
+  failed_when:
+    - out is changed
+  when: services.autofs is defined
