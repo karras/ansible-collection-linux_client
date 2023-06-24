@@ -3,7 +3,13 @@
 # List of CIS rule sections to include
 cis_baseline_sections:
   - 1_1_filesystem
+  - 1_2_software_updates
 
 # List of specific CIS rules to ignore
 cis_baseline_ignored_rules: []
 #  - 1.1.1.1
+
+# List of mandatory repositories to verify (1.2.1)
+cis_baseline_repositories:
+  - core
+  - extra

@@ -11,7 +11,8 @@ argument_specs:
         elements: str
         required: no
         default:
-          - 1.1
+          - 1_1_filesystem
+          - 1_2_software_updates
       cis_baseline_ignored_rules:
         description:
           - List of specific CIS rules to ignore.
@@ -19,6 +20,15 @@ argument_specs:
         elements: str
         required: no
         default: []
+      cis_baseline_repositories:
+        description:
+          - List of mandatory repositories to verify (1.2.1).
+        type: list
+        elements: str
+        required: no
+        default:
+          - core
+          - extra
       cis_baseline_removable_media_partitions:
         description:
           - List of removable media partitions (1.1.18 - 1.1.20).

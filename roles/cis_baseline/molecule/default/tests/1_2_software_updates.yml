@@ -1,0 +1,26 @@
+---
+
+# 1.2.1 Ensure package manager repositories are configured (Not Scored)
+- name: 1.2.1 test if /etc/pacman.d/mirrorlist exists
+  stat:
+    path: /etc/pacman.d/mirrorlist
+  register: out
+
+# 1.2.1 Ensure package manager repositories are configured (Not Scored)
+- name: 1.2.1 test if mirrorlist contains any repository
+  ansible.builtin.shell:
+    cmd: grep -E '^Server\s' /etc/pacman.d/mirrorlist
+  register: out
+  changed_when: no
+  failed_when: out.stdout_lines | length < 1
+  when: out.stat.exists | bool
+
+# 1.2.1 Ensure package manager repositories are configured (Not Scored)
+- name: 1.2.1 test if any pacman repositories are configured
+  ansible.builtin.shell:
+    cmd: pacman-conf -l
+  register: out
+  changed_when: no
+  failed_when:
+    - cis_baseline_repositories != out.stdout_lines
+  when: not '1.2.1' in cis_baseline_ignored_rules
