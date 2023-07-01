@@ -4,6 +4,11 @@ Manages CIS security baseline settings for clients.
 
 * Arch Linux: CIS Distribution Independent Linux" (`v2.0.0` - `07-06-2019`)
 
+Due to missing packages or capabilities related to Arch Linux, the following
+chapters and controls have not yet been implemented:
+
+* 1.3 Filesystem Integrity Checking (missing and broken AIDE packages)
+
 ## Example Playbook
 
 As this role is tested via Molecule one can use [that

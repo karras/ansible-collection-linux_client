@@ -4,6 +4,7 @@
 cis_baseline_sections:
   - 1_1_filesystem
   - 1_2_software_updates
+  - 1_3_filesystem_integrity  # Not implemented yet
 
 # List of specific CIS rules to ignore
 cis_baseline_ignored_rules: []
