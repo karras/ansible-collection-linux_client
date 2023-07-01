@@ -4,7 +4,3 @@
   ansible.builtin.service:
     name: greetd
     state: restarted
-
-- name: Refresh pacman database
-  ansible.builtin.command:
-    pacman -Sy

@@ -10,9 +10,3 @@
       ansible.builtin.command:
         pacman -Sy
       when: ansible_distribution == 'Archlinux'
-
-    # Initialize pacman-key to finally trust external repositories
-    - name: Initialize pacman-key
-      ansible.builtin.command:
-        pacman-key --init
-      when: ansible_distribution == 'Archlinux'

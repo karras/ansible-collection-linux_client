@@ -48,13 +48,6 @@ greetd_gtkgreet_css: ''
 greetd_packages:
   - greetd
   - greetd-gtkgreet
-
-# List of Pacman repositories to configure
-greetd_repositories:
-  - name: karras
-    server: https://github.com/karras/aur-package-builds/releases/download/v2.1.0
-    key: https://raw.githubusercontent.com/karras/aur-package-builds/main/builder_public_key.asc
-    key_id: 25267573FD638312C5EBE4C40C758F9503EDE7AF
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:
@@ -66,11 +59,8 @@ ansible-doc --type role -r roles -e main greetd
 ## Requirements
 
 This role has no additional role requirements but depends on the greetd
-package(s) being pre-built and available through a repository.
-
-Thus By default the repository
-[github.com/karras/aur-package-builds](https://github.com/karras/aur-package-builds)
-is configured and trusted.
+package(s) being pre-built and available through a repository (which is the
+case for Arch Linux).
 
 ## License
 

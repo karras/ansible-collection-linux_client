@@ -1,17 +1,5 @@
 ---
 
-- name: Configure greetd pacman repositories
-  ansible.builtin.include_tasks:
-    file: repositories.yml
-  loop: '{{ greetd_repositories }}'
-  loop_control:
-    label: '{{ repository.name }}'
-    loop_var: repository
-  when: greetd_repositories is defined
-
-- name: Flush handlers to ensure pacman database is refreshed
-  ansible.builtin.meta: flush_handlers
-
 - name: Install greetd packages
   ansible.builtin.package:
     name: '{{ greetd_packages }}'
