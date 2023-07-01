@@ -8,7 +8,7 @@
 
 # 1.2.1 Ensure package manager repositories are configured (Not Scored)
 - name: 1.2.1 test if mirrorlist contains any repository
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: grep -E '^Server\s' /etc/pacman.d/mirrorlist
   register: out
   changed_when: no
@@ -17,7 +17,7 @@
 
 # 1.2.1 Ensure package manager repositories are configured (Not Scored)
 - name: 1.2.1 test if any pacman repositories are configured
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: pacman-conf -l
   register: out
   changed_when: no
