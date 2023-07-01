@@ -9,6 +9,7 @@ authors:
 description: A collection of roles to manage Linux-based development clients.
 license_file: LICENSE
 tags:
+  - linux
   - client
   - workstation
   - laptop
