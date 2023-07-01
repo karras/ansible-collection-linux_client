@@ -9,10 +9,12 @@
     - name: Update pacman cache
       ansible.builtin.command:
         pacman -Sy
+      changed_when: true
       when: ansible_distribution == 'Archlinux'
 
     # Initialize pacman-key to finally trust external repositories
     - name: Initialize pacman-key
       ansible.builtin.command:
         pacman-key --init
+      changed_when: true
       when: ansible_distribution == 'Archlinux'

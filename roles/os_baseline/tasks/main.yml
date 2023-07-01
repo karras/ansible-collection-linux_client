@@ -25,11 +25,12 @@
   ansible.builtin.command:
     timedatectl show -p LocalRTC --value
   register: os_baseline_register_hwclock
-  changed_when: no
+  changed_when: false
 
 - name: Configure hwclock timezone settings
   ansible.builtin.command:
     timedatectl set-local-rtc '{{ os_baseline_timezone_hwclock }}'
+  changed_when: true
   when: (os_baseline_register_hwclock.stdout == 'no' and os_baseline_timezone_hwclock) or
         (os_baseline_register_hwclock.stdout == 'yes' and not os_baseline_timezone_hwclock)
 

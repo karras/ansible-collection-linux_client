@@ -9,6 +9,5 @@
       ansible.builtin.command:
         wayfire -v
       register: out
-      changed_when: no
-      failed_when:
-        - out.rc != 0
+      changed_when: false
+      failed_when: out.rc != 0
