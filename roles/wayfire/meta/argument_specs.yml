@@ -10,14 +10,14 @@ argument_specs:
           - This allows running a greetd-gtkgreet session via Wayfire, which in
             turn spawns a proper Wayfire session after login.
         type: str
-        required: no
+        required: false
         default: ''
       wayfire_packages:
         description:
           - List of Wayfire related packages to install.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - polkit
           - wf-config
@@ -27,7 +27,7 @@ argument_specs:
           - List of Pacman repositories to configure.
         type: list
         elements: dict
-        required: no
+        required: false
         default:
           - name: karras
             server: https://github.com/karras/aur-package-builds/releases/download/v2.1.0
@@ -38,22 +38,22 @@ argument_specs:
             description:
               - Name of the repository.
             type: str
-            required: yes
+            required: true
           server:
             description:
               - Server URL of the repository.
             type: str
-            required: yes
+            required: true
           key:
             description:
               - GPG key URL of the repository.
             type: str
-            required: yes
+            required: true
           key_id:
             description:
               - GPG key ID of the repository.
             type: str
-            required: yes
+            required: true
       wayfire_run_wrapper:
         description:
           - Optional wrapper script to deploy (multiline string).
@@ -61,5 +61,5 @@ argument_specs:
             care of setting additional environment vars first (e.g. `XDG`)
             before starting Wayfire.
         type: str
-        required: no
+        required: false
         default: ''

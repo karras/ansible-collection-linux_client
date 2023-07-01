@@ -2,7 +2,7 @@
 
 - name: Verify
   hosts: all
-  gather_facts: no
+  gather_facts: false
 
   tasks:
     - name: Check if wayfire was successfully installed

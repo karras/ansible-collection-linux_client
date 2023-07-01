@@ -9,7 +9,7 @@ argument_specs:
           - List of CIS rule sections to include.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - 1_1_filesystem
           - 1_2_software_updates
@@ -18,14 +18,14 @@ argument_specs:
           - List of specific CIS rules to ignore.
         type: list
         elements: str
-        required: no
+        required: false
         default: []
       cis_baseline_repositories:
         description:
           - List of mandatory repositories to verify (1.2.1).
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - core
           - extra
@@ -34,7 +34,7 @@ argument_specs:
           - List of removable media partitions (1.1.18 - 1.1.20).
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - /mnt/cdrom
           - /mnt/floppy

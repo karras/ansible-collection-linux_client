@@ -2,14 +2,14 @@
 
 - name: Verify
   hosts: all
-  gather_facts: no
+  gather_facts: false
 
   tasks:
     - name: Check if firewalld was successfully installed
       ansible.builtin.command:
         firewall-cmd -h
       register: out
-      changed_when: no
+      changed_when: false
       failed_when:
         - out.rc != 0
 

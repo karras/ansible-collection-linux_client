@@ -9,7 +9,7 @@
 - name: Enable networkmanager
   ansible.builtin.service:
     name: NetworkManager
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - molecule-idempotence-notest

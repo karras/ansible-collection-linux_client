@@ -8,14 +8,14 @@ argument_specs:
         description:
           - Domain of the system configure.
         type: str
-        required: no
+        required: false
         default: local
       os_baseline_environment:
         description:
           - List of global environment variables to set.
         type: list
         elements: dict
-        required: no
+        required: false
         default:
           - name: NO_AT_BRIDGE
             value: '1'
@@ -24,24 +24,24 @@ argument_specs:
             description:
               - Name of the environment variable.
             type: str
-            required: yes
+            required: true
           value:
             description:
               - Value of the environment variable.
             type: str
-            required: yes
+            required: true
       os_baseline_hostname:
         description:
           - Hostname of the system to configure.
         type: str
-        required: no
+        required: false
         default: '{{ ansible_hostname }}'
       os_baseline_locales:
         description:
           - List of locales to activate.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - 'en_US.UTF-8 UTF-8'
           - 'en_US ISO-8859-1'
@@ -49,7 +49,7 @@ argument_specs:
         description:
           - Configuration of the system-wide locales.
         type: dict
-        required: no
+        required: false
         default:
           lang: en_US.UTF-8
           language: en_US.UTF-8
@@ -70,92 +70,92 @@ argument_specs:
             description:
               - Sets the 'LANG' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           language:
             description:
               - Sets the 'LANGUAGE' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_address:
             description:
               - Sets the 'LC_ADDRESS' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_collate:
             description:
               - Sets the 'LC_COLLATE' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_ctype:
             description:
               - Sets the 'LC_CTYPE' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_identification:
             description:
               - Sets the 'LC_IDENTIFICATION' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_measurement:
             description:
               - Sets the 'LC_MEASUREMENT' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_messages:
             description:
               - Sets the 'LC_MESSAGES' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_monetary:
             description:
               - Sets the 'LC_MONETARY' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_name:
             description:
               - Sets the 'LC_NAME' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_numeric:
             description:
               - Sets the 'LC_NUMERIC' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_paper:
             description:
               - Sets the 'LC_PAPER' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_telephone:
             description:
               - Sets the 'LC_TELEPHONE' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
           lc_time:
             description:
               - Sets the 'LC_TIME' locale variable.
             type: str
-            required: no
+            required: false
             default: en_US.UTF-8
       os_baseline_mirrors:
         description:
           - List of mirrors to activate.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - 'https://pkg.adfinis.com/archlinux/$repo/os/$arch'
       os_baseline_packages:
@@ -163,7 +163,7 @@ argument_specs:
           - List of baseline packages to install.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - base
           - binutils
@@ -177,7 +177,7 @@ argument_specs:
         description:
           - Configuration for systemd-timesyncd (see `man timesyncd.conf`).
         type: dict
-        required: no
+        required: false
         default:
           ntp:
           fallback_ntp: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
@@ -190,62 +190,62 @@ argument_specs:
               - Configuration of the NTP servers to use for time
                 synchronization.
             type: str
-            required: no
+            required: false
             default:
           fallback_ntp:
             description:
               - Fallback NTP servers to configure.
             type: str
-            required: no
+            required: false
             default: '0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org'
           root_distance_max_sec:
             description:
               - Sets the maximum acceptable root distance.
             type: int
-            required: no
+            required: false
             default: 5
           poll_interval_min_sec:
             description:
               - Sets the minimum poll intervals for NTP messages.
             type: int
-            required: no
+            required: false
             default: 32
           poll_interval_max_sec:
             description:
               - Sets the maximum poll intervals for NTP messages.
             type: int
-            required: no
+            required: false
             default: 2048
           connection_retry_sec:
             description:
               - Sets the minimum delay before attempting to contact a new NTP
                 server.
             type: int
-            required: no
+            required: false
             default: 30
           save_interval_sec:
             description:
               - Sets the interval at which the time is saved to disk.
             type: int
-            required: no
+            required: false
             default: 60
       os_baseline_timezone:
         description:
           - Timezone to configure.
         type: str
-        required: no
+        required: false
         default: Etc/UTC
       os_baseline_timezone_hwclock:
         description:
           - Whether the hardware clock is in UTC or local timezone, valid
             values are 0 ('UTC') and 1 ('local')
         type: bool
-        required: no
+        required: false
         default: 0
       os_baseline_vconsole_keymap:
         description:
           - Keymap to configure for the virtual consoles (see `man
             vconsole.conf`).
         type: str
-        required: no
+        required: false
         default: us

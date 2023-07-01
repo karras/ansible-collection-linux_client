@@ -9,7 +9,7 @@
 - name: Enable hardware system services
   ansible.builtin.service:
     name: '{{ item }}'
-    enabled: yes
+    enabled: true
     state: started
   loop: '{{ hardware_service_activation }}'
   tags:

@@ -2,12 +2,11 @@
 
 - name: Verify
   hosts: all
-  gather_facts: no
+  gather_facts: false
 
   tasks:
     - name: Check if /home/clark exists
       ansible.builtin.stat:
         path: /home/clark
       register: out
-      failed_when:
-        - not out.stat.exists
+      failed_when: not out.stat.exists

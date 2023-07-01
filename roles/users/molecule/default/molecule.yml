@@ -9,9 +9,9 @@ driver:
 platforms:
   - name: instance
     image: ghcr.io/karras/archlinux-ansible-test:latest
-    pre_build_image: yes
+    pre_build_image: true
     command: /sbin/init
-    privileged: yes
+    privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 

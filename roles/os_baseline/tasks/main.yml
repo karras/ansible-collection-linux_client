@@ -57,7 +57,7 @@
 - name: Enable systemd-timesyncd
   ansible.builtin.service:
     name: systemd-timesyncd
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - molecule-idempotence-notest

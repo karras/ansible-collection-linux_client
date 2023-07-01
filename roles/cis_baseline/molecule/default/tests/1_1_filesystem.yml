@@ -5,7 +5,7 @@
   ansible.builtin.command:
     modprobe -n -v cramfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -14,7 +14,7 @@
   ansible.builtin.command:
     lsmod | grep cramfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -23,7 +23,7 @@
   ansible.builtin.command:
     modprobe -n -v freevxfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -32,7 +32,7 @@
   ansible.builtin.command:
     lsmod | grep freevxfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -41,7 +41,7 @@
   ansible.builtin.command:
     modprobe -n -v jffs2
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -50,7 +50,7 @@
   ansible.builtin.command:
     lsmod | grep jffs2
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -59,7 +59,7 @@
   ansible.builtin.command:
     modprobe -n -v hfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -68,7 +68,7 @@
   ansible.builtin.command:
     lsmod | grep hfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -77,7 +77,7 @@
   ansible.builtin.command:
     modprobe -n -v hfsplus
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -86,7 +86,7 @@
   ansible.builtin.command:
     lsmod | grep hfsplus
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -95,7 +95,7 @@
   ansible.builtin.command:
     modprobe -n -v squashfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -104,7 +104,7 @@
   ansible.builtin.command:
     lsmod | grep squashfs
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -113,7 +113,7 @@
   ansible.builtin.command:
     modprobe -n -v udf
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -122,7 +122,7 @@
   ansible.builtin.command:
     lsmod | grep udf
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -131,7 +131,7 @@
   ansible.builtin.command:
     modprobe -n -v vfat
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'
 
@@ -140,7 +140,7 @@
   ansible.builtin.command:
     lsmod | grep vfat
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -149,7 +149,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/tmp\s'
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
 
@@ -164,8 +164,8 @@
   ansible.builtin.shell:
     cmd: grep -E '\s/tmp\s' /etc/fstab | grep -E -v '^\s*#'
   register: out_fstab
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when:
     - fstab.stat.exists | bool
 
@@ -174,8 +174,8 @@
   ansible.builtin.command:
     systemctl is-enabled tmp.mount
   register: out_systemctl
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /tmp is either configured via /etc/fstab or tmp.mount
@@ -189,7 +189,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/tmp\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -200,7 +200,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/tmp\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -211,7 +211,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/tmp\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -222,7 +222,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/var\s'
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when:
@@ -233,7 +233,7 @@
   ansible.builtin.shell:
     cmd: mount | grep /var/tmp
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when:
@@ -244,7 +244,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -255,7 +255,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -266,7 +266,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -277,7 +277,7 @@
   ansible.builtin.shell:
     cmd: mount | grep /var/log
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when:
@@ -288,7 +288,7 @@
   ansible.builtin.shell:
     cmd: mount | grep /var/log/audit
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when:
@@ -299,7 +299,7 @@
   ansible.builtin.shell:
     cmd: mount | grep /home
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when:
@@ -310,7 +310,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/home\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -321,7 +321,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -332,7 +332,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -343,7 +343,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when:
@@ -354,7 +354,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -368,7 +368,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -382,7 +382,7 @@
   ansible.builtin.shell:
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -396,7 +396,7 @@
   ansible.builtin.shell:
     cmd: df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
 
@@ -404,7 +404,7 @@
 - name: 1.1.22 test disabled autofs service
   ansible.builtin.service:
     name: autofs
-    enabled: no
+    enabled: false
     state: stopped
   register: out
   failed_when:
@@ -416,6 +416,6 @@
   ansible.builtin.command:
     modprobe -n -v usb-storage
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - '"install /bin/true" not in out.stdout'

@@ -12,7 +12,7 @@ playbook](./molecule/default/converge.yml) as a starting point:
 
 - name: Converge
   hosts: all
-  gather_facts: yes
+  gather_facts: true
 
   roles:
     - role: hardware

@@ -14,8 +14,8 @@
 - name: 1.1.1.1 remove loaded cramfs filesystem module
   ansible.builtin.command:
     modprobe -r cramfs
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.1' in cis_baseline_ignored_rules
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
@@ -32,8 +32,8 @@
 - name: 1.1.1.2 remove loaded freevxfs filesystem module
   ansible.builtin.command:
     modprobe -r freevxfs
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.2' in cis_baseline_ignored_rules
 
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
@@ -50,8 +50,8 @@
 - name: 1.1.1.3 remove loaded jffs2 filesystem module
   ansible.builtin.command:
     modprobe -r jffs2
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.3' in cis_baseline_ignored_rules
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
@@ -68,8 +68,8 @@
 - name: 1.1.1.4 remove loaded hfs filesystem module
   ansible.builtin.command:
     modprobe -r hfs
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.4' in cis_baseline_ignored_rules
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
@@ -86,8 +86,8 @@
 - name: 1.1.1.5 remove loaded hfsplus filesystem module
   ansible.builtin.command:
     modprobe -r hfsplus
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.5' in cis_baseline_ignored_rules
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
@@ -104,8 +104,8 @@
 - name: 1.1.1.6 remove loaded squashfs filesystem module
   ansible.builtin.command:
     modprobe -r squashfs
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.6' in cis_baseline_ignored_rules
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
@@ -122,8 +122,8 @@
 - name: 1.1.1.7 remove loaded udf filesystem module
   ansible.builtin.command:
     modprobe -r udf
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.7' in cis_baseline_ignored_rules
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
@@ -140,8 +140,8 @@
 - name: 1.1.1.8 remove loaded vfat filesystem module
   ansible.builtin.command:
     modprobe -r vfat
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
   when: not '1.1.1.8' in cis_baseline_ignored_rules
 
 # 1.1.2 Ensure /tmp is configured (Scored)
@@ -149,7 +149,7 @@
 - name: 1.1.2 enable tmp.mount service
   ansible.builtin.service:
     name: tmp.mount
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - molecule-idempotence-notest
@@ -224,7 +224,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/var\s'
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: not '1.1.6' in cis_baseline_ignored_rules and
@@ -235,7 +235,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep /var/tmp
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: not '1.1.7' in cis_baseline_ignored_rules and
@@ -246,7 +246,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.8' in cis_baseline_ignored_rules and
@@ -257,7 +257,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.9' in cis_baseline_ignored_rules and
@@ -268,7 +268,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.10' in cis_baseline_ignored_rules and
@@ -279,7 +279,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep /var/log
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: not '1.1.11' in cis_baseline_ignored_rules and
@@ -290,7 +290,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep /var/log/audit
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: not '1.1.12' in cis_baseline_ignored_rules and
@@ -301,7 +301,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep /home
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: not '1.1.13' in cis_baseline_ignored_rules and
@@ -312,7 +312,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/home\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.14' in cis_baseline_ignored_rules and
@@ -323,7 +323,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.15' in cis_baseline_ignored_rules and
@@ -334,7 +334,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.16' in cis_baseline_ignored_rules and
@@ -345,7 +345,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.17' in cis_baseline_ignored_rules and
@@ -356,7 +356,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -370,7 +370,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -384,7 +384,7 @@
   ansible.builtin.shell:  # noqa: command-instead-of-module
     cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v noexec
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
@@ -398,7 +398,7 @@
   ansible.builtin.shell:
     cmd: set -o pipefail && df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length > 0
   when: not '1.1.21' in cis_baseline_ignored_rules
@@ -408,7 +408,7 @@
 - name: 1.1.22 disable autofs service
   ansible.builtin.service:
     name: autofs
-    enabled: no
+    enabled: false
     state: stopped
   tags:
     - molecule-idempotence-notest

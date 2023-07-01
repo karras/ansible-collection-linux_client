@@ -38,7 +38,7 @@
 - name: Enable greetd
   ansible.builtin.service:
     name: greetd
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - molecule-idempotence-notest

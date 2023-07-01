@@ -12,7 +12,7 @@
   ansible.builtin.command:
     cmd: grep -E '^Server\s' /etc/pacman.d/mirrorlist
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - out.stdout_lines | length < 1
   when: (not '1.2.1' in cis_baseline_ignored_rules) and
@@ -23,7 +23,7 @@
   ansible.builtin.command:
     cmd: pacman-conf -l
   register: out
-  changed_when: no
+  changed_when: false
   failed_when:
     - cis_baseline_repositories != out.stdout_lines
   when: not '1.2.1' in cis_baseline_ignored_rules

@@ -9,7 +9,7 @@ argument_specs:
           - List of hardware related packages to install.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - intel-ucode
           - sof-firmware
@@ -18,6 +18,6 @@ argument_specs:
           - List of hardware related services to activate.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - fstrim.timer

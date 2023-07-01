@@ -16,7 +16,7 @@
 - name: Enable firewalld
   ansible.builtin.service:
     name: firewalld
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - molecule-idempotence-notest

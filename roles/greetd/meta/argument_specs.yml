@@ -8,41 +8,41 @@ argument_specs:
         description:
           - Command to run at start.
         type: str
-        required: no
+        required: false
         default: 'agreety --cmd $SHELL'
       greetd_config_user:
         description:
           - The user to run the command as.
         type: str
-        required: no
+        required: false
         default: greeter
       greetd_config_vt:
         description:
           - The VT to run the greeter on. Can be 'next', 'current' or a number
             designating the VT (must be a string).
         type: str
-        required: no
+        required: false
         default: '1'
       greetd_environments:
         description:
           - List of environments to configure for selection at login.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - wayfire
       greetd_gtkgreet_css:
         description:
           - Custom CSS configuration for greetd-gtkgreet (multiline string).
         type: str
-        required: no
+        required: false
         default: ''
       greetd_packages:
         description:
           - List of greetd related packages to install.
         type: list
         elements: str
-        required: no
+        required: false
         default:
           - greetd
           - greetd-gtkgreet
