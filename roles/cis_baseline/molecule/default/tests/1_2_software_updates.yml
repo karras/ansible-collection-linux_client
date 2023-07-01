@@ -21,6 +21,5 @@
     cmd: pacman-conf -l
   register: out
   changed_when: false
-  failed_when:
-    - cis_baseline_repositories != out.stdout_lines
+  failed_when: cis_baseline_repositories != out.stdout_lines
   when: not '1.2.1' in cis_baseline_ignored_rules

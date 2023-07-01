@@ -6,8 +6,7 @@
     modprobe -n -v cramfs
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Scored)
 - name: 1.1.1.1 test removed loaded cramfs filesystem module
@@ -15,8 +14,7 @@
     lsmod | grep cramfs
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 test disabled freevxfs filesystem module
@@ -24,8 +22,7 @@
     modprobe -n -v freevxfs
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.2 test removed loaded freevxfs filesystem module
@@ -33,8 +30,7 @@
     lsmod | grep freevxfs
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled (Scored)
 - name: 1.1.1.3 test disabled jffs2 filesystem module
@@ -42,8 +38,7 @@
     modprobe -n -v jffs2
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.3 Ensure mounting of freevxfs filesystems is disabled (Scored)
 - name: 1.1.1.3 test removed loaded jffs2 filesystem module
@@ -51,8 +46,7 @@
     lsmod | grep jffs2
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 test disabled hfs filesystem module
@@ -60,8 +54,7 @@
     modprobe -n -v hfs
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.4 Ensure mounting of hfs filesystems is disabled (Scored)
 - name: 1.1.1.4 test removed loaded hfs filesystem module
@@ -69,8 +62,7 @@
     lsmod | grep hfs
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 test disabled hfsplus filesystem module
@@ -78,8 +70,7 @@
     modprobe -n -v hfsplus
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled (Scored)
 - name: 1.1.1.5 test removed loaded hfsplus filesystem module
@@ -87,8 +78,7 @@
     lsmod | grep hfsplus
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 test disabled squashfs filesystem module
@@ -96,8 +86,7 @@
     modprobe -n -v squashfs
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Scored)
 - name: 1.1.1.6 test removed loaded squashfs filesystem module
@@ -105,8 +94,7 @@
     lsmod | grep squashfs
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 test disabled udf filesystem module
@@ -114,8 +102,7 @@
     modprobe -n -v udf
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled (Scored)
 - name: 1.1.1.7 test removed loaded udf filesystem module
@@ -123,8 +110,7 @@
     lsmod | grep udf
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 test disabled vfat filesystem module
@@ -132,8 +118,7 @@
     modprobe -n -v vfat
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'
 
 # 1.1.1.8 Ensure mounting of vfat filesystems is disabled (Scored)
 - name: 1.1.1.8 test removed loaded vfat filesystem module
@@ -141,8 +126,7 @@
     lsmod | grep vfat
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test separate mount point for /tmp
@@ -150,8 +134,7 @@
     cmd: mount | grep -E '\s/tmp\s'
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
+  failed_when: out.stdout_lines | length < 1
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /etc/fstab exists
@@ -166,8 +149,7 @@
   register: out_fstab
   changed_when: false
   failed_when: false
-  when:
-    - fstab.stat.exists | bool
+  when: fstab.stat.exists | bool
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /tmp is configured via tmp.mount
@@ -190,10 +172,8 @@
     cmd: mount | grep -E '\s/tmp\s' | grep -v nodev
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
 - name: 1.1.4 test enabled nosuid option for /tmp mount point
@@ -201,10 +181,8 @@
     cmd: mount | grep -E '\s/tmp\s' | grep -v nosuid
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.5 Ensure noexec option set on /tmp partition (Scored)
 - name: 1.1.5 test enabled noexec option for /tmp mount point
@@ -212,10 +190,8 @@
     cmd: mount | grep -E '\s/tmp\s' | grep -v noexec
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.6 Ensure separate partition exists for /var (Scored)
 - name: 1.1.6 test separate mount point for /var
@@ -223,10 +199,8 @@
     cmd: mount | grep -E '\s/var\s'
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length < 1
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.7 Ensure separate partition exists for /var/tmp (Scored)
 - name: 1.1.7 test separate mount point for /var/tmp
@@ -234,10 +208,8 @@
     cmd: mount | grep /var/tmp
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length < 1
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
 - name: 1.1.8 test enabled nodev option for /var/tmp mount point
@@ -245,10 +217,8 @@
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v nodev
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.9 Ensure nosuid option set on /var/tmp partition (Scored)
 - name: 1.1.9 test enabled nosuid option for /var/tmp mount point
@@ -256,10 +226,8 @@
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v nosuid
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.10 Ensure noexec option set on /var/tmp partition (Scored)
 - name: 1.1.10 test enabled noexec option for /var/tmp mount point
@@ -267,10 +235,8 @@
     cmd: mount | grep -E '\s/var/tmp\s' | grep -v noexec
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.11 Ensure separate partition exists for /var/log (Scored)
 - name: 1.1.11 test separate mount point for /var/log
@@ -278,10 +244,8 @@
     cmd: mount | grep /var/log
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length < 1
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.12 Ensure separate partition exists for /var/log/audit (Scored)
 - name: 1.1.12 test separate mount point for /var/log/audit
@@ -289,10 +253,8 @@
     cmd: mount | grep /var/log/audit
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length < 1
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.13 Ensure separate partition exists for /home (Scored)
 - name: 1.1.13 test separate mount point for /home
@@ -300,10 +262,8 @@
     cmd: mount | grep /home
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length < 1
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length < 1
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.14 Ensure nodev option set on /home partition (Scored)
 - name: 1.1.14 test enabled nodev option for /home mount point
@@ -311,10 +271,8 @@
     cmd: mount | grep -E '\s/home\s' | grep -v nodev
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
 - name: 1.1.15 test enabled nodev option for /dev/shm mount point
@@ -322,10 +280,8 @@
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v nodev
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.16 Ensure nosuid option set on /dev/shm partition (Scored)
 - name: 1.1.16 test enabled nosuid option for /dev/shm mount point
@@ -333,10 +289,8 @@
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v nosuid
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
 - name: 1.1.17 test enabled noexec option for /dev/shm mount point
@@ -344,10 +298,8 @@
     cmd: mount | grep -E '\s/dev/shm\s' | grep -v noexec
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  failed_when: out.stdout_lines | length > 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.18 Ensure nodev option set on removable media partitions (Not Scored)
 - name: 1.1.18 test enabled nodev option for removable media partitions
@@ -355,13 +307,11 @@
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.19 Ensure nosuid option set on removable media partitions (Not Scored)
 - name: 1.1.19 test enabled nosuid option for removable media partitions
@@ -369,13 +319,11 @@
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.20 Ensure noexec option set on removable media partitions (Not Scored)
 - name: 1.1.20 test enabled noexec option for removable media partitions
@@ -383,13 +331,11 @@
     cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v noexec
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when:
-    - ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.1.21 Ensure sticky bit is set on all world-writable directories (Scored)
 - name: 1.1.21 test sticky bit is set on all world-writable directories
@@ -397,8 +343,7 @@
     cmd: df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
   register: out
   changed_when: false
-  failed_when:
-    - out.stdout_lines | length > 0
+  failed_when: out.stdout_lines | length > 0
 
 # 1.1.22 Disable Automounting (Scored)
 - name: 1.1.22 test disabled autofs service
@@ -407,8 +352,7 @@
     enabled: false
     state: stopped
   register: out
-  failed_when:
-    - out is changed
+  failed_when: out is changed
   when: services.autofs is defined
 
 # 1.1.23 Disable USB Storage (Scored)
@@ -417,5 +361,4 @@
     modprobe -n -v usb-storage
   register: out
   changed_when: false
-  failed_when:
-    - '"install /bin/true" not in out.stdout'
+  failed_when: '"install /bin/true" not in out.stdout'

@@ -10,5 +10,4 @@
         nmcli -v
       register: out
       changed_when: false
-      failed_when:
-        - out.rc != 0
+      failed_when: out.rc != 0
