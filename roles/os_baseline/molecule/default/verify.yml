@@ -5,50 +5,50 @@
   gather_facts: no
 
   tasks:
-  - name: Check if no_at_bridge is set to 1 in /etc/environment
-    ansible.builtin.lineinfile:
-      path: /etc/environment
-      line: 'NO_AT_BRIDGE=1'
-    register: out
-    failed_when:
-      - out is changed
+    - name: Check if no_at_bridge is set to 1 in /etc/environment
+      ansible.builtin.lineinfile:
+        path: /etc/environment
+        line: 'NO_AT_BRIDGE=1'
+      register: out
+      failed_when:
+        - out is changed
 
-  - name: Check if en_gb locale is active
-    ansible.builtin.command:
-      localectl list-locales
-    register: out
-    changed_when: no
-    failed_when:
-      - '"en_GB.UTF-8" not in out.stdout'
+    - name: Check if en_gb locale is active
+      ansible.builtin.command:
+        localectl list-locales
+      register: out
+      changed_when: no
+      failed_when:
+        - '"en_GB.UTF-8" not in out.stdout'
 
-  - name: Check if locale lc_paper is set to en_gb
-    ansible.builtin.lineinfile:
-      path: /etc/locale.conf
-      line: 'LC_PAPER=en_GB.UTF-8'
-    register: out
-    failed_when:
-      - out is changed
+    - name: Check if locale lc_paper is set to en_gb
+      ansible.builtin.lineinfile:
+        path: /etc/locale.conf
+        line: 'LC_PAPER=en_GB.UTF-8'
+      register: out
+      failed_when:
+        - out is changed
 
-  - name: Check if hwclock is set to utc
-    ansible.builtin.command:
-      timedatectl show -p LocalRTC --value
-    register: out
-    changed_when: no
-    failed_when:
-      - '"no" not in out.stdout'
+    - name: Check if hwclock is set to utc
+      ansible.builtin.command:
+        timedatectl show -p LocalRTC --value
+      register: out
+      changed_when: no
+      failed_when:
+        - '"no" not in out.stdout'
 
-  - name: Check if timezone is set to utc
-    ansible.builtin.command:
-      timedatectl show -p Timezone --value
-    register: out
-    changed_when: no
-    failed_when:
-      - '"UTC" not in out.stdout'
+    - name: Check if timezone is set to utc
+      ansible.builtin.command:
+        timedatectl show -p Timezone --value
+      register: out
+      changed_when: no
+      failed_when:
+        - '"UTC" not in out.stdout'
 
-  - name: Check if vconsole keymap is set to de
-    ansible.builtin.lineinfile:
-      path: /etc/vconsole.conf
-      line: 'KEYMAP=de'
-    register: out
-    failed_when:
-      - out is changed
+    - name: Check if vconsole keymap is set to de
+      ansible.builtin.lineinfile:
+        path: /etc/vconsole.conf
+        line: 'KEYMAP=de'
+      register: out
+      failed_when:
+        - out is changed

@@ -5,9 +5,9 @@
   gather_facts: no
 
   tasks:
-  - name: Check if /home/clark exists
-    ansible.builtin.stat:
-      path: /home/clark
-    register: out
-    failed_when:
-      - not out.stat.exists
+    - name: Check if /home/clark exists
+      ansible.builtin.stat:
+        path: /home/clark
+      register: out
+      failed_when:
+        - not out.stat.exists

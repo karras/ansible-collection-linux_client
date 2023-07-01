@@ -5,69 +5,69 @@
   gather_facts: no
 
   tasks:
-  - name: Check if bemenu was successfully installed
-    ansible.builtin.command:
-      bemenu -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if bemenu was successfully installed
+      ansible.builtin.command:
+        bemenu -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
 
-  - name: Check if light was successfully installed
-    ansible.builtin.command:
-      light -V
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if light was successfully installed
+      ansible.builtin.command:
+        light -V
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
 
-  - name: Check if neovim was successfully installed
-    ansible.builtin.command:
-      nvim -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if neovim was successfully installed
+      ansible.builtin.command:
+        nvim -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
 
-  - name: Check if swaybg was successfully installed
-    ansible.builtin.command:
-      swaybg -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if swaybg was successfully installed
+      ansible.builtin.command:
+        swaybg -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
 
-  - name: Check if swayidle was successfully installed
-    ansible.builtin.command:
-      swayidle -h
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 255
+    - name: Check if swayidle was successfully installed
+      ansible.builtin.command:
+        swayidle -h
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 255
 
-  - name: Check if swaylock was successfully installed
-    ansible.builtin.command:
-      swaylock -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if swaylock was successfully installed
+      ansible.builtin.command:
+        swaylock -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
 
-  # Terminator requires a GUI environment to print its version or help message
-  # thus we assume it is okay if it fails, there should be a better way to fix
-  # out though
-  - name: Check if terminator was successfully installed
-    ansible.builtin.command:
-      terminator -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 1
+    # Terminator requires a GUI environment to print its version or help message
+    # thus we assume it is okay if it fails, there should be a better way to fix
+    # out though
+    - name: Check if terminator was successfully installed
+      ansible.builtin.command:
+        terminator -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 1
 
-  - name: Check if waybar was successfully installed
-    ansible.builtin.command:
-      waybar -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if waybar was successfully installed
+      ansible.builtin.command:
+        waybar -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0

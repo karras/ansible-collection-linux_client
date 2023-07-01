@@ -5,10 +5,10 @@
   gather_facts: no
 
   tasks:
-  - name: Check if greetd was successfully installed
-    ansible.builtin.command:
-      greetd -h
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if greetd was successfully installed
+      ansible.builtin.command:
+        greetd -h
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0

@@ -5,16 +5,16 @@
   gather_facts: yes
 
   tasks:
-  # Required because /etc/locale.gen in the Arch Linux container only contains
-  # en_US.UTF-8
-  - name: Ensure test en_gb locale is available in /etc/locale.gen
-    ansible.builtin.lineinfile:
-      path: /etc/locale.gen
-      line: '#en_GB.UTF-8 UTF-8'
-      state: present
+    # Required because /etc/locale.gen in the Arch Linux container only contains
+    # en_US.UTF-8
+    - name: Ensure test en_gb locale is available in /etc/locale.gen
+      ansible.builtin.lineinfile:
+        path: /etc/locale.gen
+        line: '#en_GB.UTF-8 UTF-8'
+        state: present
 
-  # Update the pacman cache as it's potentialy outdated in the container
-  - name: Update pacman cache
-    ansible.builtin.command:
-      pacman -Sy
-    when: ansible_distribution == 'Archlinux'
+    # Update the pacman cache as it's potentialy outdated in the container
+    - name: Update pacman cache
+      ansible.builtin.command:
+        pacman -Sy
+      when: ansible_distribution == 'Archlinux'

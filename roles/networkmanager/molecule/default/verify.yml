@@ -5,10 +5,10 @@
   gather_facts: no
 
   tasks:
-  - name: Check if networkmanager was successfully installed
-    ansible.builtin.command:
-      nmcli -v
-    register: out
-    changed_when: no
-    failed_when:
-      - out.rc != 0
+    - name: Check if networkmanager was successfully installed
+      ansible.builtin.command:
+        nmcli -v
+      register: out
+      changed_when: no
+      failed_when:
+        - out.rc != 0
