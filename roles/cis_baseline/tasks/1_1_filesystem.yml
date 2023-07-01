@@ -222,7 +222,7 @@
 # 1.1.6 Ensure separate partition exists for /var (Scored)
 - name: 1.1.6 test separate mount point for /var
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/var\s'
+    cmd: set -o pipefail && mount | grep -E '\s/var\s'
   register: out
   changed_when: no
   failed_when:
@@ -233,7 +233,7 @@
 # 1.1.7 Ensure separate partition exists for /var/tmp (Scored)
 - name: 1.1.7 test separate mount point for /var/tmp
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep /var/tmp
+    cmd: set -o pipefail && mount | grep /var/tmp
   register: out
   changed_when: no
   failed_when:
@@ -244,7 +244,7 @@
 # 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
 - name: 1.1.8 test enabled nodev option for /var/tmp mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/var/tmp\s' | grep -v nodev
+    cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v nodev
   register: out
   changed_when: no
   failed_when:
@@ -255,7 +255,7 @@
 # 1.1.9 Ensure nosuid option set on /var/tmp partition (Scored)
 - name: 1.1.9 test enabled nosuid option for /var/tmp mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/var/tmp\s' | grep -v nosuid
+    cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v nosuid
   register: out
   changed_when: no
   failed_when:
@@ -266,7 +266,7 @@
 # 1.1.10 Ensure noexec option set on /var/tmp partition (Scored)
 - name: 1.1.10 test enabled noexec option for /var/tmp mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/var/tmp\s' | grep -v noexec
+    cmd: set -o pipefail && mount | grep -E '\s/var/tmp\s' | grep -v noexec
   register: out
   changed_when: no
   failed_when:
@@ -277,7 +277,7 @@
 # 1.1.11 Ensure separate partition exists for /var/log (Scored)
 - name: 1.1.11 test separate mount point for /var/log
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep /var/log
+    cmd: set -o pipefail && mount | grep /var/log
   register: out
   changed_when: no
   failed_when:
@@ -288,7 +288,7 @@
 # 1.1.12 Ensure separate partition exists for /var/log/audit (Scored)
 - name: 1.1.12 test separate mount point for /var/log/audit
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep /var/log/audit
+    cmd: set -o pipefail && mount | grep /var/log/audit
   register: out
   changed_when: no
   failed_when:
@@ -299,7 +299,7 @@
 # 1.1.13 Ensure separate partition exists for /home (Scored)
 - name: 1.1.13 test separate mount point for /home
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep /home
+    cmd: set -o pipefail && mount | grep /home
   register: out
   changed_when: no
   failed_when:
@@ -310,7 +310,7 @@
 # 1.1.14 Ensure nodev option set on /home partition (Scored)
 - name: 1.1.14 test enabled nodev option for /home mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/home\s' | grep -v nodev
+    cmd: set -o pipefail && mount | grep -E '\s/home\s' | grep -v nodev
   register: out
   changed_when: no
   failed_when:
@@ -321,7 +321,7 @@
 # 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
 - name: 1.1.15 test enabled nodev option for /dev/shm mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/dev/shm\s' | grep -v nodev
+    cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v nodev
   register: out
   changed_when: no
   failed_when:
@@ -332,7 +332,7 @@
 # 1.1.16 Ensure nosuid option set on /dev/shm partition (Scored)
 - name: 1.1.16 test enabled nosuid option for /dev/shm mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/dev/shm\s' | grep -v nosuid
+    cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v nosuid
   register: out
   changed_when: no
   failed_when:
@@ -343,7 +343,7 @@
 # 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
 - name: 1.1.17 test enabled noexec option for /dev/shm mount point
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s/dev/shm\s' | grep -v noexec
+    cmd: set -o pipefail && mount | grep -E '\s/dev/shm\s' | grep -v noexec
   register: out
   changed_when: no
   failed_when:
@@ -354,7 +354,7 @@
 # 1.1.18 Ensure nodev option set on removable media partitions (Not Scored)
 - name: 1.1.18 test enabled nodev option for removable media partitions
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
+    cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nodev
   register: out
   changed_when: no
   failed_when:
@@ -368,7 +368,7 @@
 # 1.1.19 Ensure nosuid option set on removable media partitions (Not Scored)
 - name: 1.1.19 test enabled nosuid option for removable media partitions
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
+    cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v nosuid
   register: out
   changed_when: no
   failed_when:
@@ -382,7 +382,7 @@
 # 1.1.20 Ensure noexec option set on removable media partitions (Not Scored)
 - name: 1.1.20 test enabled noexec option for removable media partitions
   ansible.builtin.shell:  # noqa: command-instead-of-module
-    cmd: mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v noexec
+    cmd: set -o pipefail && mount | grep -E '\s{{ removable_media_partitions }}\s' | grep -v noexec
   register: out
   changed_when: no
   failed_when:
@@ -396,7 +396,7 @@
 # 1.1.21 Ensure sticky bit is set on all world-writable directories (Scored)
 - name: 1.1.21 test sticky bit is set on all world-writable directories
   ansible.builtin.shell:
-    cmd: df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
+    cmd: set -o pipefail && df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null
   register: out
   changed_when: no
   failed_when:
