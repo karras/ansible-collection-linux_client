@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: check if networkmanager was successfully installed
+  - name: Check if networkmanager was successfully installed
     ansible.builtin.command:
       nmcli -v
     register: out

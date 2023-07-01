@@ -1,12 +1,12 @@
 ---
 
-- name: install networkmanager packages
+- name: Install networkmanager packages
   ansible.builtin.package:
     name: '{{ networkmanager_packages }}'
     state: present
 
 # Service related tasks do not work well in molecule idempotence tests
-- name: enable networkmanager
+- name: Enable networkmanager
   ansible.builtin.service:
     name: NetworkManager
     enabled: yes

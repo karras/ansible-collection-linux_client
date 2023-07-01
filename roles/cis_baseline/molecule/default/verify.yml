@@ -5,15 +5,15 @@
   gather_facts: no
 
   tasks:
-  - name: load role defaults
+  - name: Load role defaults
     ansible.builtin.include_vars:
       file: ../../defaults/main.yml
 
-  - name: load role vars
+  - name: Load role vars
     ansible.builtin.include_vars:
       file: ../../vars/main.yml
 
-  - name: test selected cis sections
+  - name: Test selected cis sections
     ansible.builtin.include_tasks:
       file: 'tests/{{ item }}.yml'
     loop: '{{ cis_baseline_sections }}'

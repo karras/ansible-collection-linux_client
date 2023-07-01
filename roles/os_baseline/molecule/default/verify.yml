@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: check if no_at_bridge is set to 1 in /etc/environment
+  - name: Check if no_at_bridge is set to 1 in /etc/environment
     ansible.builtin.lineinfile:
       path: /etc/environment
       line: 'NO_AT_BRIDGE=1'
@@ -13,7 +13,7 @@
     failed_when:
       - out is changed
 
-  - name: check if en_gb locale is active
+  - name: Check if en_gb locale is active
     ansible.builtin.command:
       localectl list-locales
     register: out
@@ -21,7 +21,7 @@
     failed_when:
       - '"en_GB.UTF-8" not in out.stdout'
 
-  - name: check if locale lc_paper is set to en_gb
+  - name: Check if locale lc_paper is set to en_gb
     ansible.builtin.lineinfile:
       path: /etc/locale.conf
       line: 'LC_PAPER=en_GB.UTF-8'
@@ -29,7 +29,7 @@
     failed_when:
       - out is changed
 
-  - name: check if hwclock is set to utc
+  - name: Check if hwclock is set to utc
     ansible.builtin.command:
       timedatectl show -p LocalRTC --value
     register: out
@@ -37,7 +37,7 @@
     failed_when:
       - '"no" not in out.stdout'
 
-  - name: check if timezone is set to utc
+  - name: Check if timezone is set to utc
     ansible.builtin.command:
       timedatectl show -p Timezone --value
     register: out
@@ -45,7 +45,7 @@
     failed_when:
       - '"UTC" not in out.stdout'
 
-  - name: check if vconsole keymap is set to de
+  - name: Check if vconsole keymap is set to de
     ansible.builtin.lineinfile:
       path: /etc/vconsole.conf
       line: 'KEYMAP=de'

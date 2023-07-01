@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: check if wayfire was successfully installed
+  - name: Check if wayfire was successfully installed
     ansible.builtin.command:
       wayfire -v
     register: out

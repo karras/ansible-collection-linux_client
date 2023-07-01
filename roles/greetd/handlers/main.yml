@@ -1,10 +1,10 @@
 ---
 
-- name: restart greetd
+- name: Restart greetd
   ansible.builtin.service:
     name: greetd
     state: restarted
 
-- name: refresh pacman database
+- name: Refresh pacman database
   ansible.builtin.command:
     pacman -Sy

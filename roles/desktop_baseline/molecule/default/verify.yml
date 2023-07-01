@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: check if bemenu was successfully installed
+  - name: Check if bemenu was successfully installed
     ansible.builtin.command:
       bemenu -v
     register: out
@@ -13,7 +13,7 @@
     failed_when:
       - out.rc != 0
 
-  - name: check if light was successfully installed
+  - name: Check if light was successfully installed
     ansible.builtin.command:
       light -V
     register: out
@@ -21,7 +21,7 @@
     failed_when:
       - out.rc != 0
 
-  - name: check if neovim was successfully installed
+  - name: Check if neovim was successfully installed
     ansible.builtin.command:
       nvim -v
     register: out
@@ -29,7 +29,7 @@
     failed_when:
       - out.rc != 0
 
-  - name: check if swaybg was successfully installed
+  - name: Check if swaybg was successfully installed
     ansible.builtin.command:
       swaybg -v
     register: out
@@ -37,7 +37,7 @@
     failed_when:
       - out.rc != 0
 
-  - name: check if swayidle was successfully installed
+  - name: Check if swayidle was successfully installed
     ansible.builtin.command:
       swayidle -h
     register: out
@@ -45,7 +45,7 @@
     failed_when:
       - out.rc != 255
 
-  - name: check if swaylock was successfully installed
+  - name: Check if swaylock was successfully installed
     ansible.builtin.command:
       swaylock -v
     register: out
@@ -56,7 +56,7 @@
   # Terminator requires a GUI environment to print its version or help message
   # thus we assume it is okay if it fails, there should be a better way to fix
   # out though
-  - name: check if terminator was successfully installed
+  - name: Check if terminator was successfully installed
     ansible.builtin.command:
       terminator -v
     register: out
@@ -64,7 +64,7 @@
     failed_when:
       - out.rc != 1
 
-  - name: check if waybar was successfully installed
+  - name: Check if waybar was successfully installed
     ansible.builtin.command:
       waybar -v
     register: out

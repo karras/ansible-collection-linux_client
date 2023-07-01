@@ -6,13 +6,13 @@
 
   tasks:
   # Update the pacman cache as it's potentialy outdated in the container
-  - name: update pacman cache
+  - name: Update pacman cache
     ansible.builtin.command:
       pacman -Sy
     when: ansible_distribution == 'Archlinux'
 
   # Initialize pacman-key to finally trust external repositories
-  - name: initialize pacman-key
+  - name: Initialize pacman-key
     ansible.builtin.command:
       pacman-key --init
     when: ansible_distribution == 'Archlinux'

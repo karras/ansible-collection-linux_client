@@ -1,12 +1,12 @@
 ---
 
-- name: install hardware packages
+- name: Install hardware packages
   ansible.builtin.package:
     name: '{{ hardware_packages }}'
     state: present
 
 # Service related tasks do not work well in molecule idempotence tests
-- name: enable hardware system services
+- name: Enable hardware system services
   ansible.builtin.service:
     name: '{{ item }}'
     enabled: yes

@@ -1,5 +1,5 @@
 ---
 
-- name: refresh pacman database
+- name: Refresh pacman database
   ansible.builtin.command:
     pacman -Sy

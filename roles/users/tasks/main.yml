@@ -1,11 +1,11 @@
 ---
 
-- name: install user packages
+- name: Install user packages
   ansible.builtin.package:
     name: '{{ users_packages }}'
     state: present
 
-- name: manage groups
+- name: Manage groups
   ansible.builtin.group:
     name: '{{ item.name }}'
     gid: '{{ item.gid | default(omit) }}'
@@ -13,7 +13,7 @@
     state: '{{ item.state | default("present") }}'
   loop: '{{ users_group_list }}'
 
-- name: manage users
+- name: Manage users
   ansible.builtin.user:
     name: '{{ item.name }}'
     append: '{{ item.append | default(omit) }}'

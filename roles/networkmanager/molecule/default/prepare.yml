@@ -6,7 +6,7 @@
 
   tasks:
   # Update the pacman cache as it's potentialy outdated in the container
-  - name: update pacman cache
+  - name: Update pacman cache
     ansible.builtin.command:
       pacman -Sy
     when: ansible_distribution == 'Archlinux'
