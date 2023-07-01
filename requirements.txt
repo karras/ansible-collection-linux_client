@@ -4,4 +4,5 @@ ansible>=2.12
 
 # Required for testing
 ansible-lint[yamllint]
-molecule[docker, lint]
+molecule
+molecule-plugins[docker]
