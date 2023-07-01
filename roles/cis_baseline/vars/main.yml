@@ -4,3 +4,7 @@
 cis_baseline_removable_media_partitions:
   - /mnt/cdrom
   - /mnt/floppy
+
+# List of gpg key packages to install (1.2.2)
+cis_baseline_gpg_key_packages:
+  - archlinux-keyring

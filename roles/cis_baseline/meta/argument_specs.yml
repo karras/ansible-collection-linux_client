@@ -13,6 +13,14 @@ argument_specs:
         default:
           - 1_1_filesystem
           - 1_2_software_updates
+      cis_baseline_gpg_key_packages:
+        description:
+          - List of gpg key packages to install (1.2.2).
+        type: list
+        elements: str
+        required: false
+        default:
+          - archlinux-keyring
       cis_baseline_ignored_rules:
         description:
           - List of specific CIS rules to ignore.
@@ -29,6 +37,18 @@ argument_specs:
         default:
           - core
           - extra
+      cis_baseline_repository_siglevel:
+        description:
+          - List of mandatory repository signature trust levels to verify
+            (1.2.2).
+        type: list
+        elements: str
+        required: false
+        default:
+          - PackageRequired
+          - PackageTrustedOnly
+          - DatabaseOptional
+          - DatabaseTrustedOnly
       cis_baseline_removable_media_partitions:
         description:
           - List of removable media partitions (1.1.18 - 1.1.20).

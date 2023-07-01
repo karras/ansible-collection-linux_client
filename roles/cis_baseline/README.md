@@ -38,6 +38,13 @@ cis_baseline_ignored_rules: []
 cis_baseline_repositories:
   - core
   - extra
+
+# List of mandatory repository signature trust levels to verify (1.2.2)
+cis_baseline_repository_siglevel:
+  - PackageRequired
+  - PackageTrustedOnly
+  - DatabaseOptional
+  - DatabaseTrustedOnly
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

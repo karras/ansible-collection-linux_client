@@ -25,3 +25,19 @@
   changed_when: false
   failed_when: cis_baseline_repositories != out.stdout_lines
   when: not '1.2.1' in cis_baseline_ignored_rules
+
+# 1.2.2 Ensure GPG keys are configured (Not Scored)
+- name: 1.2.2 ensure gpg keys are configured
+  ansible.builtin.package:
+    name: '{{ cis_baseline_gpg_key_packages }}'
+    state: present
+  when: not '1.2.2' in cis_baseline_ignored_rules
+
+# 1.2.2 Ensure GPG keys are configured (Not Scored)
+- name: 1.2.2 ensure repository signature trust levels are configured
+  ansible.builtin.command:
+    cmd: pacman-conf SigLevel
+  register: out
+  changed_when: false
+  failed_when: cis_baseline_repository_siglevel != out.stdout_lines
+  when: not '1.2.2' in cis_baseline_ignored_rules
