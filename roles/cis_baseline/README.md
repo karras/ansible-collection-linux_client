@@ -30,14 +30,24 @@ playbook](./molecule/default/converge.yml) as a starting point:
 The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 
 ```yaml
-# List of CIS rule sections to include
-cis_baseline_sections:
-  - 1_1_filesystem
-  - 1_2_software_updates
+# List of bootloader configs for which to verify their permissions (1.4.1)
+cis_baseline_bootloader_configs:
+  - /boot/loader/loader.conf
+  - /boot/loader/entries/arch.conf
+
+# Main systemd boot loader config to disable editor (1.4.2)
+cis_baseline_bootloader_loader_config: /boot/loader/loader.conf
 
 # List of specific CIS rules to ignore
 cis_baseline_ignored_rules: []
 #  - 1.1.1.1
+
+# List of CIS rule sections to include
+cis_baseline_sections:
+  - 1_1_filesystem
+  - 1_2_software_updates
+  - 1_3_filesystem_integrity  # Not implemented yet
+  - 1_4_boot_settings
 
 # List of mandatory repositories to verify (1.2.1)
 cis_baseline_repositories:

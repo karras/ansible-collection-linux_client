@@ -1,0 +1,29 @@
+---
+
+# 1.4.1 Ensure permissions on bootloader config are configured (Scored)
+- name: 1.4.1 ensure bootloader config file permissions
+  ansible.builtin.file:
+    path: '{{ bootloader_configs }}'
+    owner: root
+    group: root
+    mode: '0700'
+    state: file
+  loop: '{{ cis_baseline_bootloader_configs }}'
+  loop_control:
+    loop_var: bootloader_configs
+  when: not '1.4.1' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.4.2 Ensure bootloader password is set (Scored)
+- name: 1.4.2 disable bootloader editor
+  ansible.builtin.lineinfile:
+    path: '{{ cis_baseline_bootloader_loader_config }}'
+    regexp: '^editor ='
+    line: 'editor = no'
+  when: not '1.4.2' in cis_baseline_ignored_rules and
+        ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.4.3 Ensure authentication required for single user mode (Scored)
+
+# 1.4.4 Ensure interactive boot is not enabled (Not Scored)
+# Not available for systemd-boot

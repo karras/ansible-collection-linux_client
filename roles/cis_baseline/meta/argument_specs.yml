@@ -4,15 +4,22 @@ argument_specs:
   main:
     short_description: Manages CIS security baseline settings for clients.
     options:
-      cis_baseline_sections:
+      cis_baseline_bootloader_configs:
         description:
-          - List of CIS rule sections to include.
+          - List of bootloader configs for which to verify their permissions
+            (1.4.1).
         type: list
         elements: str
         required: false
         default:
-          - 1_1_filesystem
-          - 1_2_software_updates
+          - /boot/loader/loader.conf
+          - /boot/loader/entries/arch.conf
+      cis_baseline_bootloader_loader_config:
+        description:
+          - Main systemd boot loader config to disable editor (1.4.2).
+        type: str
+        required: false
+        default: /boot/loader/loader.conf
       cis_baseline_gpg_key_packages:
         description:
           - List of gpg key packages to install (1.2.2).
@@ -28,6 +35,15 @@ argument_specs:
         elements: str
         required: false
         default: []
+      cis_baseline_removable_media_partitions:
+        description:
+          - List of removable media partitions (1.1.18 - 1.1.20).
+        type: list
+        elements: str
+        required: false
+        default:
+          - /mnt/cdrom
+          - /mnt/floppy
       cis_baseline_repositories:
         description:
           - List of mandatory repositories to verify (1.2.1).
@@ -49,12 +65,12 @@ argument_specs:
           - PackageTrustedOnly
           - DatabaseOptional
           - DatabaseTrustedOnly
-      cis_baseline_removable_media_partitions:
+      cis_baseline_sections:
         description:
-          - List of removable media partitions (1.1.18 - 1.1.20).
+          - List of CIS rule sections to include.
         type: list
         elements: str
         required: false
         default:
-          - /mnt/cdrom
-          - /mnt/floppy
+          - 1_1_filesystem
+          - 1_2_software_updates
