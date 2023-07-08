@@ -13,7 +13,7 @@
     dest: /tmp/{{ repository.key_id }}.asc
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   when: wayfire_register_key.rc == 1
 
 - name: Add gpg key for pacman repository {{ repository.name }}
@@ -36,6 +36,6 @@
       Server = {{ repository.server }}
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
     state: present
   notify: Refresh pacman database

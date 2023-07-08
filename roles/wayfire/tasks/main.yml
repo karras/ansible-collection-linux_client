@@ -22,7 +22,7 @@
     path: /etc/greetd
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
     state: directory
   when: (wayfire_greetd_config is defined) and
         (wayfire_greetd_config | length > 0)
@@ -33,7 +33,7 @@
     dest: /etc/greetd/wayfire.ini
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   when: (wayfire_greetd_config is defined) and
         (wayfire_greetd_config | length > 0)
 
@@ -43,6 +43,6 @@
     dest: /usr/local/bin/wayfire-run
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
   when: (wayfire_run_wrapper is defined) and
         (wayfire_run_wrapper | length > 0)

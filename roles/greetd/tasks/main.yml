@@ -11,7 +11,7 @@
     dest: /etc/greetd/config.toml
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   notify: Restart greetd
 
 - name: Configure greetd environments
@@ -20,7 +20,7 @@
     dest: /etc/greetd/environments
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   notify: Restart greetd
 
 - name: Configure greetd-gtkgreet css config
@@ -29,7 +29,7 @@
     dest: /etc/greetd/gtkgreet.css
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   when: (greetd_gtkgreet_css is defined) and
         (greetd_gtkgreet_css | length > 0)
   notify: Restart greetd

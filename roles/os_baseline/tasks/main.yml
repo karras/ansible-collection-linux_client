@@ -6,7 +6,7 @@
     dest: /etc/pacman.d/mirrorlist
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
 
 - name: Install baseline packages
   ansible.builtin.package:
@@ -19,7 +19,7 @@
     dest: /etc/environment
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
 
 - name: Read current hwclock timezone settings
   ansible.builtin.command:
@@ -48,7 +48,7 @@
     dest: /etc/systemd/timesyncd.conf
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   notify: Restart systemd-timesyncd
 
 # timesyncd does not like to be run in a container
@@ -69,7 +69,7 @@
     replace: '{{ item }}'
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   loop: '{{ os_baseline_locales }}'
   notify: Generate locales
 
@@ -79,7 +79,7 @@
     dest: /etc/locale.conf
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
 
 - name: Configure vconsole settings
   ansible.builtin.template:
@@ -87,7 +87,7 @@
     dest: /etc/vconsole.conf
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
 
 # Configuring the hostname does not work well in container-based molecule runs
 - name: Configure system hostname
@@ -96,6 +96,6 @@
     dest: /etc/hosts
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   tags:
     - molecule-notest
