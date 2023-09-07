@@ -11,3 +11,9 @@
         pacman -Sy
       changed_when: true
       when: ansible_distribution == 'Archlinux'
+
+    # Set a dummy root password to verify the CIS control 1.4.3
+    - name: Set root password
+      ansible.builtin.user:
+        name: root
+        password: '$6$33uqTG271GD.YD4k$jX4trpVVMah/5vvAf7b8hpkZjSFsMhjol9bjpn/MjjafZd7peBtPXEfo/GedO3a5uckeFUu/NiFoUalMSGLRN0'

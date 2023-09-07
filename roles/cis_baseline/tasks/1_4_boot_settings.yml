@@ -24,6 +24,14 @@
         ansible_connection not in ["container", "docker", "community.docker.docker"]
 
 # 1.4.3 Ensure authentication required for single user mode (Scored)
+- name: 1.4.3 ensure root password is set
+  ansible.builtin.command:
+    cmd: grep '^root:[*\!]:' /etc/shadow
+  register: out
+  changed_when: false
+  failed_when: out.stdout_lines | length > 0
+  when: not '1.4.3' in cis_baseline_ignored_rules
 
 # 1.4.4 Ensure interactive boot is not enabled (Not Scored)
+#
 # Not available for systemd-boot

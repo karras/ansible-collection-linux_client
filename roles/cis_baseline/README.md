@@ -8,6 +8,7 @@ Due to missing packages or capabilities related to Arch Linux, the following
 chapters and controls have not yet been implemented:
 
 * 1.3 Filesystem Integrity Checking (missing and broken AIDE packages)
+* 1.4.4 Interactive Boot Disabling (not supported for systemd-boot)
 
 ## Example Playbook
 
