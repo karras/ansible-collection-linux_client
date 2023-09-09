@@ -23,3 +23,12 @@
   stat:
     path: /etc/systemd/coredump.conf.d/cis_override.conf
   failed_when: false
+
+# 1.5.2 Ensure XD/NX support is enabled (Scored)
+- name: 1.5.2 test if xd/nx support is enabled
+  ansible.builtin.command:
+    grep -E -i ' (pae|nx) ' /proc/cpuinfo
+  register: out
+  changed_when: false
+  failed_when: out.stdout_lines | length < 0
+  when: not '1.5.2' in cis_baseline_ignored_rules
