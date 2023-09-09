@@ -32,3 +32,12 @@
   changed_when: false
   failed_when: out.stdout_lines | length < 0
   when: not '1.5.2' in cis_baseline_ignored_rules
+
+# 1.5.3 Ensure address space layout randomization (ASLR) is enabled (Scored)
+- name: 1.5.3 test enabled address space layout randomization via sysctl
+  ansible.builtin.command:
+    sysctl kernel.randomize_va_space
+  register: out
+  changed_when: false
+  failed_when: '"kernel.randomize_va_space = 2" not in out.stdout'
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]

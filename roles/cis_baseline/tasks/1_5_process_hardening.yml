@@ -59,3 +59,13 @@
   changed_when: false
   failed_when: out.stdout_lines | length < 0
   when: not '1.5.2' in cis_baseline_ignored_rules
+
+# 1.5.3 Ensure address space layout randomization (ASLR) is enabled (Scored)
+- name: 1.5.3 enable address space layout randomization via sysctl
+  ansible.builtin.template:
+    src: etc/sysctl.d/cis_aslr.conf.j2
+    dest: /etc/sysctl.d/cis_aslr.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: not '1.5.3' in cis_baseline_ignored_rules
