@@ -18,6 +18,7 @@ cis_baseline_sections:
   - 1_2_software_updates
   - 1_3_filesystem_integrity  # Not implemented yet
   - 1_4_boot_settings
+  - 1_5_process_hardening
 
 # List of mandatory repositories to verify (1.2.1)
 cis_baseline_repositories:

@@ -1,0 +1,52 @@
+---
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 create security limits.d directory
+  ansible.builtin.file:
+    path: /etc/security/limits.d
+    owner: root
+    group: root
+    mode: '0755'
+    state: directory
+  when: not '1.5.1' in cis_baseline_ignored_rules
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 disable core dumps via hard limits
+  ansible.builtin.template:
+    src: etc/security/limits.d/cis_coredumps.conf.j2
+    dest: /etc/security/limits.d/cis_coredumps.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: not '1.5.1' in cis_baseline_ignored_rules
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 disable core dumps via sysctl
+  ansible.builtin.template:
+    src: etc/sysctl.d/cis_coredumps.conf.j2
+    dest: /etc/sysctl.d/cis_coredumps.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: not '1.5.1' in cis_baseline_ignored_rules
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 create systemd override directory for systemd-coredump
+  ansible.builtin.file:
+    path: /etc/systemd/coredump.conf.d
+    owner: root
+    group: root
+    mode: '0755'
+    state: directory
+  when: not '1.5.1' in cis_baseline_ignored_rules
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 disable core dumps of system-coredump
+  ansible.builtin.template:
+    src: etc/systemd/coredump.conf.d/cis_override.conf.j2
+    dest: /etc/systemd/coredump.conf.d/cis_override.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: not '1.5.1' in cis_baseline_ignored_rules
+  notify: Reload daemons

@@ -1,0 +1,25 @@
+---
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 test disabled core dumps via hard limits
+  ansible.builtin.command:
+    ulimit -c
+  register: out
+  changed_when: false
+  failed_when: out.stdout != 0
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 test disabled core dumps via sysctl
+  ansible.builtin.command:
+    sysctl fs.suid_dumpable
+  register: out
+  changed_when: false
+  failed_when: '"fs.suid_dumpable = 0" not in out.stdout'
+  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.5.1 Ensure core dumps are restricted (Scored)
+- name: 1.5.1 test disabled core dumps of system-coredump
+  stat:
+    path: /etc/systemd/coredump.conf.d/cis_override.conf
+  failed_when: false
