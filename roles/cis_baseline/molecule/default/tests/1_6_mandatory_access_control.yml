@@ -1,0 +1,38 @@
+---
+
+# 1.6.1.1 Ensure SELinux or AppArmor are installed (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.1 Ensure SELinux is not disabled in bootloader configuration (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.2 Ensure the SELinux state is enforcing (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.3 Ensure SELinux policy is configured (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.4 Ensure SETroubleshoot is not installed (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.5 Ensure the MCS Translation Service (mcstrans) is not installed
+# (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.2.6 Ensure no unconfined daemons exist (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.3.1 Ensure AppArmor is not disabled in bootloader configuration (Scored)
+#
+# Not available for Arch Linux.
+
+# 1.6.3.2 Ensure all AppArmor Profiles are enforcing (Scored)
+#
+# Not available for Arch Linux.

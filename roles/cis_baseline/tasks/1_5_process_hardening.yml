@@ -69,3 +69,7 @@
     group: root
     mode: '0644'
   when: not '1.5.3' in cis_baseline_ignored_rules
+
+# 1.5.4 Ensure prelink is disabled (Scored)
+#
+# Not available for Arch Linux.

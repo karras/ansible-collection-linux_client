@@ -8,7 +8,9 @@ Due to missing packages or capabilities related to Arch Linux, the following
 chapters and controls have not yet been implemented:
 
 * 1.3 Filesystem Integrity Checking (missing and broken AIDE packages)
-* 1.4.4 Interactive Boot Disabling (not supported for systemd-boot)
+* 1.4.4 Interactive Boot Deactivation (not supported for systemd-boot)
+* 1.5.4 Prelink Deactivation (not available for Arch Linux)
+* 1.6 Mandatory Access Control (not available for Arch Linux)
 
 ## Example Playbook
 
@@ -47,9 +49,10 @@ cis_baseline_ignored_rules: []
 cis_baseline_sections:
   - 1_1_filesystem
   - 1_2_software_updates
-  - 1_3_filesystem_integrity  # Not implemented yet
+  - 1_3_filesystem_integrity     # Not implemented yet
   - 1_4_boot_settings
   - 1_5_process_hardening
+  - 1_6_mandatory_access_control
 
 # List of mandatory repositories to verify (1.2.1)
 cis_baseline_repositories:

@@ -74,3 +74,7 @@ argument_specs:
         default:
           - 1_1_filesystem
           - 1_2_software_updates
+          - 1_3_filesystem_integrity
+          - 1_4_boot_settings
+          - 1_5_process_hardening
+          - 1_6_mandatory_access_control

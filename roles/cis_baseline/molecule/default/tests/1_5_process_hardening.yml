@@ -41,3 +41,7 @@
   changed_when: false
   failed_when: '"kernel.randomize_va_space = 2" not in out.stdout'
   when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+
+# 1.5.4 Ensure prelink is disabled (Scored)
+#
+# Not available for Arch Linux.

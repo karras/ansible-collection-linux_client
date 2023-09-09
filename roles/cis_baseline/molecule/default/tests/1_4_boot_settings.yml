@@ -31,4 +31,4 @@
 
 # 1.4.4 Ensure interactive boot is not enabled (Not Scored)
 #
-# Not available for systemd-boot
+# Not available for systemd-boot.
