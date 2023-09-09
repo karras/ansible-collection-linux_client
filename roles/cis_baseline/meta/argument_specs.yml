@@ -35,6 +35,24 @@ argument_specs:
         elements: str
         required: false
         default: []
+      cis_baseline_login_banner_local:
+        description:
+          - Content of the local login banner (1.7.1.2).
+        type: str
+        required: false
+        default: 'Authorized uses only. All activity may be monitored and reported.'
+      cis_baseline_login_banner_remote:
+        description:
+          - Content of the remote login banner (1.7.1.3).
+        type: str
+        required: false
+        default: 'Authorized uses only. All activity may be monitored and reported.'
+      cis_baseline_motd:
+        description:
+          - Content of the message of the day (1.7.1.1).
+        type: str
+        required: false
+        default: 'Authorized uses only. All activity may be monitored and reported.'
       cis_baseline_removable_media_partitions:
         description:
           - List of removable media partitions (1.1.18 - 1.1.20).
@@ -78,3 +96,4 @@ argument_specs:
           - 1_4_boot_settings
           - 1_5_process_hardening
           - 1_6_mandatory_access_control
+          - 1_7_warning_banners

@@ -53,6 +53,7 @@ cis_baseline_sections:
   - 1_4_boot_settings
   - 1_5_process_hardening
   - 1_6_mandatory_access_control
+  - 1_7_warning_banners
 
 # List of mandatory repositories to verify (1.2.1)
 cis_baseline_repositories:
