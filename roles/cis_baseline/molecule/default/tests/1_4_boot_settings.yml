@@ -2,7 +2,7 @@
 
 # 1.4.1 Ensure permissions on bootloader config are configured (Scored)
 - name: 1.4.1 test if bootloader config file permissions are correct
-  stat:
+  ansible.builtin.stat:
     path: '{{ bootloader_configs }}'
   register: out
   changed_when: false

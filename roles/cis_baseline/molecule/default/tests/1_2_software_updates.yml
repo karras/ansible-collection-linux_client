@@ -2,7 +2,7 @@
 
 # 1.2.1 Ensure package manager repositories are configured (Not Scored)
 - name: 1.2.1 test if /etc/pacman.d/mirrorlist exists
-  stat:
+  ansible.builtin.stat:
     path: /etc/pacman.d/mirrorlist
   register: out
 

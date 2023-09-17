@@ -20,7 +20,7 @@
 
 # 1.5.1 Ensure core dumps are restricted (Scored)
 - name: 1.5.1 test disabled core dumps of system-coredump
-  stat:
+  ansible.builtin.stat:
     path: /etc/systemd/coredump.conf.d/cis_override.conf
   failed_when: false
 

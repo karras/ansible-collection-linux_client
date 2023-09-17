@@ -138,7 +138,7 @@
 
 # 1.1.2 Ensure /tmp is configured (Scored)
 - name: 1.1.2 test if /etc/fstab exists
-  stat:
+  ansible.builtin.stat:
     path: /etc/fstab
   register: fstab
 
