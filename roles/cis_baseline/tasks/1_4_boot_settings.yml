@@ -12,7 +12,7 @@
   loop_control:
     loop_var: bootloader_configs
   when: not '1.4.1' in cis_baseline_ignored_rules and
-        ansible_connection not in ["container", "docker", "community.docker.docker"]
+        ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.4.2 Ensure bootloader password is set (Scored)
 - name: 1.4.2 disable bootloader editor
@@ -21,7 +21,7 @@
     regexp: '^editor ='
     line: 'editor = no'
   when: not '1.4.2' in cis_baseline_ignored_rules and
-        ansible_connection not in ["container", "docker", "community.docker.docker"]
+        ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.4.3 Ensure authentication required for single user mode (Scored)
 - name: 1.4.3 ensure root password is set

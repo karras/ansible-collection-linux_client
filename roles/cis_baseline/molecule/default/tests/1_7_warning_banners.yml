@@ -3,7 +3,7 @@
 # 1.7.1.1 Ensure message of the day is configured properly (Scored)
 - name: 1.7.1.1 test configured motd banner content
   ansible.builtin.command:
-    grep "Authorized uses"
+    grep 'Authorized uses'
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 0
@@ -11,7 +11,7 @@
 # 1.7.1.2 Ensure local login warning banner is configured properly (Scored)
 - name: 1.7.1.2 test configured local login banner content
   ansible.builtin.command:
-    grep "Authorized uses"
+    grep 'Authorized uses'
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 0
@@ -19,7 +19,7 @@
 # 1.7.1.3 Ensure remote login warning banner is configured properly (Scored)
 - name: 1.7.1.3 test configured remote login banner content
   ansible.builtin.command:
-    grep "Authorized uses"
+    grep 'Authorized uses'
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 0

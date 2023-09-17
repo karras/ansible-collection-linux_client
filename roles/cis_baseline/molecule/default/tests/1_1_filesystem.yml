@@ -164,7 +164,7 @@
   ansible.builtin.assert:
     that:
       - (out_fstab.stdout_lines | length > 0) or
-        (out_systemctl.stdout in ["enabled", "static"])
+        (out_systemctl.stdout in ['enabled', 'static'])
 
 # 1.1.3 Ensure nodev option set on /tmp partition (Scored)
 - name: 1.1.3 test enabled nodev option for /tmp mount point
@@ -173,7 +173,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
 - name: 1.1.4 test enabled nosuid option for /tmp mount point
@@ -182,7 +182,8 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
+
 
 # 1.1.5 Ensure noexec option set on /tmp partition (Scored)
 - name: 1.1.5 test enabled noexec option for /tmp mount point
@@ -191,7 +192,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.6 Ensure separate partition exists for /var (Scored)
 - name: 1.1.6 test separate mount point for /var
@@ -200,7 +201,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.7 Ensure separate partition exists for /var/tmp (Scored)
 - name: 1.1.7 test separate mount point for /var/tmp
@@ -209,7 +210,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
 - name: 1.1.8 test enabled nodev option for /var/tmp mount point
@@ -218,7 +219,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.9 Ensure nosuid option set on /var/tmp partition (Scored)
 - name: 1.1.9 test enabled nosuid option for /var/tmp mount point
@@ -227,7 +228,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.10 Ensure noexec option set on /var/tmp partition (Scored)
 - name: 1.1.10 test enabled noexec option for /var/tmp mount point
@@ -236,7 +237,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.11 Ensure separate partition exists for /var/log (Scored)
 - name: 1.1.11 test separate mount point for /var/log
@@ -245,7 +246,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.12 Ensure separate partition exists for /var/log/audit (Scored)
 - name: 1.1.12 test separate mount point for /var/log/audit
@@ -254,7 +255,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.13 Ensure separate partition exists for /home (Scored)
 - name: 1.1.13 test separate mount point for /home
@@ -263,7 +264,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.14 Ensure nodev option set on /home partition (Scored)
 - name: 1.1.14 test enabled nodev option for /home mount point
@@ -272,7 +273,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
 - name: 1.1.15 test enabled nodev option for /dev/shm mount point
@@ -281,7 +282,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.16 Ensure nosuid option set on /dev/shm partition (Scored)
 - name: 1.1.16 test enabled nosuid option for /dev/shm mount point
@@ -290,7 +291,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
 - name: 1.1.17 test enabled noexec option for /dev/shm mount point
@@ -299,7 +300,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length > 0
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.18 Ensure nodev option set on removable media partitions (Not Scored)
 - name: 1.1.18 test enabled nodev option for removable media partitions
@@ -311,7 +312,7 @@
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.19 Ensure nosuid option set on removable media partitions (Not Scored)
 - name: 1.1.19 test enabled nosuid option for removable media partitions
@@ -323,7 +324,7 @@
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.20 Ensure noexec option set on removable media partitions (Not Scored)
 - name: 1.1.20 test enabled noexec option for removable media partitions
@@ -335,7 +336,7 @@
   loop: '{{ cis_baseline_removable_media_partitions }}'
   loop_control:
     loop_var: removable_media_partitions
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.1.21 Ensure sticky bit is set on all world-writable directories (Scored)
 - name: 1.1.21 test sticky bit is set on all world-writable directories

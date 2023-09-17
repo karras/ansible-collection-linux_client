@@ -10,7 +10,7 @@
   loop: '{{ cis_baseline_bootloader_configs }}'
   loop_control:
     loop_var: bootloader_configs
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.4.2 Ensure bootloader password is set (Scored)
 - name: 1.4.2 test if bootloader editor is disabled
@@ -19,7 +19,7 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1
-  when: ansible_connection not in ["container", "docker", "community.docker.docker"]
+  when: ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
 # 1.4.3 Ensure authentication required for single user mode (Scored)
 - name: 1.4.3 test if root password is set
