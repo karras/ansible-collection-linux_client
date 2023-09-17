@@ -23,3 +23,36 @@
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 0
+
+# 1.7.1.4 Ensure permissions on /etc/motd are configured (Scored)
+- name: 1.7.1.4 test if motd banner permissions are correct
+  ansible.builtin.stat:
+    path: /etc/motd
+  register: out
+  changed_when: false
+  failed_when: (not out.stat.exists) or
+               (out.stat.pw_name != 'root') or
+               (out.stat.gr_name != 'root') or
+               (out.stat.mode != '0644')
+
+# 1.7.1.5 Ensure permissions on /etc/issue are configured (Scored)
+- name: 1.7.1.5 test if local login banner permissions are correct
+  ansible.builtin.stat:
+    path: /etc/motd
+  register: out
+  changed_when: false
+  failed_when: (not out.stat.exists) or
+               (out.stat.pw_name != 'root') or
+               (out.stat.gr_name != 'root') or
+               (out.stat.mode != '0644')
+
+# 1.7.1.6 Ensure permissions on /etc/issue.net are configured (Scored)
+- name: 1.7.1.6 test if remote login banner permissions are correct
+  ansible.builtin.stat:
+    path: /etc/motd
+  register: out
+  changed_when: false
+  failed_when: (not out.stat.exists) or
+               (out.stat.pw_name != 'root') or
+               (out.stat.gr_name != 'root') or
+               (out.stat.mode != '0644')
