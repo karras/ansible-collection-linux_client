@@ -28,6 +28,7 @@ hardware_packages:
   - fwupd
   - intel-ucode
   - sof-firmware
+  - udisks2
 
 # List of hardware related services to activate
 hardware_service_activation:
