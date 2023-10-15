@@ -25,6 +25,7 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 ```yaml
 # List of hardware related packages to install
 hardware_packages:
+  - fwupd
   - intel-ucode
   - sof-firmware
 

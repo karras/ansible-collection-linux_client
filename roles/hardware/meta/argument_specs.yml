@@ -11,6 +11,7 @@ argument_specs:
         elements: str
         required: false
         default:
+          - fwupd
           - intel-ucode
           - sof-firmware
       hardware_service_activation:

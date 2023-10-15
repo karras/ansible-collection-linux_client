@@ -2,6 +2,7 @@
 
 # List of hardware related packages to install
 hardware_packages:
+  - fwupd
   - intel-ucode
   - sof-firmware
 
