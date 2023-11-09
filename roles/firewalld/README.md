@@ -29,6 +29,9 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 ```yaml
 # Default zone used if an empty zone string is used
 firewalld_default_zone: public
+
+# Built-in services to enable for the default zone
+firewalld_services: []
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

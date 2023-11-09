@@ -12,6 +12,26 @@
     line: 'DefaultZone={{ firewalld_default_zone }}'
   notify: Restart firewalld
 
+- name: Create default zone overwrite file
+  ansible.builtin.copy:
+    src: /usr/lib/firewalld/zones/{{ firewalld_default_zone }}.xml
+    dest: /etc/firewalld/zones/{{ firewalld_default_zone }}.xml
+    remote_src: true
+    force: false
+    owner: root
+    group: root
+    mode: '0644'
+  when: firewalld_services is defined
+  notify: Restart firewalld
+
+- name: Configure services for default zone
+  ansible.builtin.lineinfile:
+    path: /etc/firewalld/zones/{{ firewalld_default_zone }}.xml
+    line: '  <service name="{{ item }}"/>'
+    insertafter: '  <description>*'
+  loop: '{{ firewalld_services }}'
+  notify: Restart firewalld
+
 # Service related tasks do not work well in molecule idempotence tests
 - name: Enable firewalld
   ansible.builtin.service:

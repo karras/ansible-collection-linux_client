@@ -18,3 +18,10 @@
         line: 'DefaultZone=drop'
       register: out
       failed_when: out is changed
+
+    - name: Check if ssh service is configured in /etc/firewalld/zones/drop.xml
+      ansible.builtin.lineinfile:
+        path: /etc/firewalld/zones/drop.xml
+        line: '  <service name="ssh"/>'
+      register: out
+      failed_when: out is changed

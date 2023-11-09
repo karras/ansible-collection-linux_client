@@ -2,3 +2,6 @@
 
 # Default zone used if an empty zone string is used
 firewalld_default_zone: public
+
+# Built-in services to enable for the default zone
+firewalld_services: []

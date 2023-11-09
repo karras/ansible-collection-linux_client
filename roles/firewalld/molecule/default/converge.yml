@@ -7,3 +7,5 @@
   roles:
     - role: firewalld
       firewalld_default_zone: drop
+      firewalld_services:
+        - ssh
