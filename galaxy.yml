@@ -6,7 +6,7 @@ version: 1.0.0
 readme: README.md
 authors:
   - Michael Hofer <@karras>
-description: A collection of roles to manage Linux-based development clients.
+description: Ansible collection to manage Linux-based development clients.
 license_file: LICENSE
 tags:
   - linux
