@@ -14,3 +14,9 @@ argument_specs:
           - networkmanager
           - network-manager-applet
           - nm-connection-editor
+      networkmanager_systemd_resolved:
+        description:
+          - Whether to use systemd-resolved or not.
+        type: str
+        required: false
+        default: 'false'

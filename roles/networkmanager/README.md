@@ -28,6 +28,9 @@ networkmanager_packages:
   - networkmanager
   - network-manager-applet
   - nm-connection-editor
+
+# Whether to use systemd-resolved or not
+networkmanager_systemd_resolved: 'false'
 ```
 
 Another option is to use `ansible-doc` to read the argument specification:

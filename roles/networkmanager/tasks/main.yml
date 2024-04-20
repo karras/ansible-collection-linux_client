@@ -5,6 +5,15 @@
     name: '{{ networkmanager_packages }}'
     state: present
 
+- name: Configure networkmanager dns config
+  ansible.builtin.template:
+    src: etc/NetworkManager/conf.d/30-systemd-resolved.conf.j2
+    dest: /etc/NetworkManager/conf.d/30-systemd-resolved.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart NetworkManager
+
 # Service related tasks do not work well in molecule idempotence tests
 - name: Enable networkmanager
   ansible.builtin.service:
