@@ -29,8 +29,8 @@ The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 ```yaml
 # List of desktop packages to install
 desktop_baseline_packages:
+  - acpilight
   - bemenu-wayland
-  - light
   - neovim
   - swaybg
   - swayidle

@@ -12,9 +12,9 @@
       changed_when: false
       failed_when: out.rc != 0
 
-    - name: Check if light was successfully installed
+    - name: Check if acpilight was successfully installed
       ansible.builtin.command:
-        light -V
+        xbacklight -h
       register: out
       changed_when: false
       failed_when: out.rc != 0

@@ -11,8 +11,8 @@ argument_specs:
         elements: str
         required: false
         default:
+          - acpilight
           - bemenu-wayland
-          - light
           - neovim
           - swaybg
           - swayidle
