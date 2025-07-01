@@ -15,7 +15,7 @@
 # 1.4.2 Ensure bootloader password is set (Scored)
 - name: 1.4.2 test if bootloader editor is disabled
   ansible.builtin.command:
-    cmd: grep 'editor = no' '{{ cis_baseline_bootloader_loader_config }}'
+    cmd: grep 'editor no' '{{ cis_baseline_bootloader_loader_config }}'
   register: out
   changed_when: false
   failed_when: out.stdout_lines | length < 1

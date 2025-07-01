@@ -18,8 +18,8 @@
 - name: 1.4.2 disable bootloader editor
   ansible.builtin.lineinfile:
     path: '{{ cis_baseline_bootloader_loader_config }}'
-    regexp: '^editor ='
-    line: 'editor = no'
+    regexp: '^editor '
+    line: 'editor no'
   when: not '1.4.2' in cis_baseline_ignored_rules and
         ansible_connection not in ['container', 'docker', 'community.docker.docker']
 
