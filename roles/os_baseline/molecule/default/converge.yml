@@ -7,7 +7,7 @@
   tasks:
     - name: Include role os_baseline
       ansible.builtin.include_role:
-        name: os_baseline
+        name: karras.linux_client.os_baseline
       vars:
         os_baseline_locales:
           - 'en_GB.UTF-8 UTF-8'

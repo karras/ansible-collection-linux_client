@@ -7,7 +7,7 @@
   tasks:
     - name: Include role users
       ansible.builtin.include_role:
-        name: users
+        name: karras.linux_client.users
       vars:
         users_group_list:
           - name: clark

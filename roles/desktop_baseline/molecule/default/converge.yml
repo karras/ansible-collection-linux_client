@@ -7,4 +7,4 @@
   tasks:
     - name: Include role desktop_baseline
       ansible.builtin.include_role:
-        name: desktop_baseline
+        name: karras.linux_client.desktop_baseline

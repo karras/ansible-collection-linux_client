@@ -7,7 +7,7 @@
   tasks:
     - name: Include role firewalld
       ansible.builtin.include_role:
-        name: firewalld
+        name: karras.linux_client.firewalld
       vars:
         firewalld_default_zone: drop
         firewalld_services:

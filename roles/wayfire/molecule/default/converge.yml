@@ -7,7 +7,7 @@
   tasks:
     - name: Include role wayfire
       ansible.builtin.include_role:
-        name: wayfire
+        name: karras.linux_client.wayfire
       vars:
         wayfire_greetd_config: |
           [autostart]

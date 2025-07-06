@@ -7,4 +7,4 @@
   tasks:
     - name: Include role networkmanager
       ansible.builtin.include_role:
-        name: networkmanager
+        name: karras.linux_client.networkmanager

@@ -7,7 +7,7 @@
   tasks:
     - name: Include role greetd
       ansible.builtin.include_role:
-        name: greetd
+        name: karras.linux_client.greetd
       vars:
         greetd_gtkgreet_css: |
           box#body {

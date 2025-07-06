@@ -7,4 +7,4 @@
   tasks:
     - name: Include role cis_baseline
       ansible.builtin.include_role:
-        name: cis_baseline
+        name: karras.linux_client.cis_baseline
