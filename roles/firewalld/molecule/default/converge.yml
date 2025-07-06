@@ -4,8 +4,11 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: firewalld
-      firewalld_default_zone: drop
-      firewalld_services:
-        - ssh
+  tasks:
+    - name: Include role firewalld
+      ansible.builtin.include_role:
+        name: firewalld
+      vars:
+        firewalld_default_zone: drop
+        firewalld_services:
+          - ssh

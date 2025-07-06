@@ -4,25 +4,28 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: os_baseline
-      os_baseline_locales:
-        - 'en_GB.UTF-8 UTF-8'
-      os_baseline_locales_config:
-        lang: en_US.UTF-8
-        language: en_US.UTF-8
-        lc_address: en_US.UTF-8
-        lc_collate: en_US.UTF-8
-        lc_ctype: en_US.UTF-8
-        lc_identification: en_US.UTF-8
-        lc_measurement: en_US.UTF-8
-        lc_messages: en_US.UTF-8
-        lc_monetary: en_US.UTF-8
-        lc_name: en_US.UTF-8
-        lc_numeric: en_US.UTF-8
-        lc_paper: en_GB.UTF-8
-        lc_telephone: en_US.UTF-8
-        lc_time: en_US.UTF-8
-      os_baseline_timezone_hwclock: 0
-      os_baseline_timezone: Etc/UTC
-      os_baseline_vconsole_keymap: de
+  tasks:
+    - name: Include role os_baseline
+      ansible.builtin.include_role:
+        name: os_baseline
+      vars:
+        os_baseline_locales:
+          - 'en_GB.UTF-8 UTF-8'
+        os_baseline_locales_config:
+          lang: en_US.UTF-8
+          language: en_US.UTF-8
+          lc_address: en_US.UTF-8
+          lc_collate: en_US.UTF-8
+          lc_ctype: en_US.UTF-8
+          lc_identification: en_US.UTF-8
+          lc_measurement: en_US.UTF-8
+          lc_messages: en_US.UTF-8
+          lc_monetary: en_US.UTF-8
+          lc_name: en_US.UTF-8
+          lc_numeric: en_US.UTF-8
+          lc_paper: en_GB.UTF-8
+          lc_telephone: en_US.UTF-8
+          lc_time: en_US.UTF-8
+        os_baseline_timezone_hwclock: 0
+        os_baseline_timezone: Etc/UTC
+        os_baseline_vconsole_keymap: de

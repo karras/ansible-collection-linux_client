@@ -4,31 +4,34 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: users
-      users_group_list:
-        - name: clark
-          gid: 1000
-          system: false
-          state: present
-        - name: superheroes
-          gid: 2000
-          system: false
-          state: present
-      users_user_list:
-        - name: clark
-          append: false
-          comment: ''
-          create_home: true
-          expires: -1
-          group: clark
-          groups:
-            - superheroes
-          home: '/home/clark'
-          password: 'schmetterling12'
-          remove: false
-          shell: /bin/zsh
-          system: false
-          uid: 1000
-          update_password: on_create
-          state: present
+  tasks:
+    - name: Include role users
+      ansible.builtin.include_role:
+        name: users
+      vars:
+        users_group_list:
+          - name: clark
+            gid: 1000
+            system: false
+            state: present
+          - name: superheroes
+            gid: 2000
+            system: false
+            state: present
+        users_user_list:
+          - name: clark
+            append: false
+            comment: ''
+            create_home: true
+            expires: -1
+            group: clark
+            groups:
+              - superheroes
+            home: '/home/clark'
+            password: 'schmetterling12'
+            remove: false
+            shell: /bin/zsh
+            system: false
+            uid: 1000
+            update_password: on_create
+            state: present

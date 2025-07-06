@@ -4,28 +4,31 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: wayfire
-      wayfire_greetd_config: |
-        [autostart]
-        autostart_wf_shell = false
-        dm = gtkgreet -l -s /etc/greetd/gtkgreet.css && wayland-logout
+  tasks:
+    - name: Include role wayfire
+      ansible.builtin.include_role:
+        name: wayfire
+      vars:
+        wayfire_greetd_config: |
+          [autostart]
+          autostart_wf_shell = false
+          dm = gtkgreet -l -s /etc/greetd/gtkgreet.css && wayland-logout
 
-        [core]
-        plugins  = autostart
-        vheight  = 1
-        vwidth   = 1
-        xwayland = false
-      wayfire_run_wrapper: |
-        export XDG_CONFIG_HOME="$HOME/.local/etc"
-        export XDG_CACHE_HOME="$HOME/.local/var/cache"
-        export XDG_DATA_HOME="$HOME/.local/share"
-        export XDG_STATE_HOME="$HOME/.local/var/lib"
+          [core]
+          plugins  = autostart
+          vheight  = 1
+          vwidth   = 1
+          xwayland = false
+        wayfire_run_wrapper: |
+          export XDG_CONFIG_HOME="$HOME/.local/etc"
+          export XDG_CACHE_HOME="$HOME/.local/var/cache"
+          export XDG_DATA_HOME="$HOME/.local/share"
+          export XDG_STATE_HOME="$HOME/.local/var/lib"
 
-        systemctl --user set-environment XDG_CONFIG_HOME="$HOME/.local/etc"
-        systemctl --user set-environment WAYLAND_DISPLAY=wayland-1
+          systemctl --user set-environment XDG_CONFIG_HOME="$HOME/.local/etc"
+          systemctl --user set-environment WAYLAND_DISPLAY=wayland-1
 
-        systemctl --user set-environment $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
-        export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+          systemctl --user set-environment $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+          export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
 
-        wayfire
+          wayfire

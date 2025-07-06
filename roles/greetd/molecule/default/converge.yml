@@ -4,12 +4,15 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: greetd
-      greetd_gtkgreet_css: |
-        box#body {
-            background-color: #2e3440;
-            color: #88c0d0;
-            border-radius: 8px;
-            padding: 50px;
-        }
+  tasks:
+    - name: Include role greetd
+      ansible.builtin.include_role:
+        name: greetd
+      vars:
+        greetd_gtkgreet_css: |
+          box#body {
+              background-color: #2e3440;
+              color: #88c0d0;
+              border-radius: 8px;
+              padding: 50px;
+          }

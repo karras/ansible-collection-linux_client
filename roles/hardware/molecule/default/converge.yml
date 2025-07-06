@@ -4,5 +4,7 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: hardware
+  tasks:
+    - name: Include role hardware
+      ansible.builtin.include_role:
+        name: hardware

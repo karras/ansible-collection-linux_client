@@ -4,5 +4,7 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: networkmanager
+  tasks:
+    - name: Include role networkmanager
+      ansible.builtin.include_role:
+        name: networkmanager

@@ -4,5 +4,7 @@
   hosts: all
   gather_facts: true
 
-  roles:
-    - role: cis_baseline
+  tasks:
+    - name: Include role cis_baseline
+      ansible.builtin.include_role:
+        name: cis_baseline
