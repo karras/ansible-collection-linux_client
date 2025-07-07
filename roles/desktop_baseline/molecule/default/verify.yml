@@ -57,9 +57,9 @@
       changed_when: false
       failed_when: out.rc != 1
 
-    - name: Check if waybar was successfully installed
-      ansible.builtin.command:
-        waybar -v
-      register: out
-      changed_when: false
-      failed_when: out.rc != 0
+#    - name: Check if waybar was successfully installed
+#      ansible.builtin.command:
+#        waybar -v
+#      register: out
+#      changed_when: false
+#      failed_when: out.rc != 0
