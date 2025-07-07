@@ -2,8 +2,8 @@
 
 # List of desktop packages to install
 desktop_baseline_packages:
-  - acpilight
   - bemenu-wayland
+  - brightnessctl
   - neovim
   - swaybg
   - swayidle

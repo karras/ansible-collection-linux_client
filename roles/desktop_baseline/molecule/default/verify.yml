@@ -12,9 +12,9 @@
       changed_when: false
       failed_when: out.rc != 0
 
-    - name: Check if acpilight was successfully installed
+    - name: Check if brightnessctl was successfully installed
       ansible.builtin.command:
-        xbacklight -h
+        brightnessctl -h
       register: out
       changed_when: false
       failed_when: out.rc != 0
