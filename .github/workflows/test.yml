@@ -37,5 +37,4 @@ jobs:
           cd ../networkmanager && molecule test
           cd ../os_baseline && molecule test
           cd ../users && molecule test
-          # Temporarily deactivated until wayfire package is fixed
-          #cd ../wayfire && molecule test
+          cd ../wayfire && molecule test
