@@ -39,6 +39,7 @@ playbook](./molecule/default/converge.yml) as a starting point:
 
         systemctl --user set-environment XDG_CONFIG_HOME="$HOME/.local/etc"
         systemctl --user set-environment WAYLAND_DISPLAY=wayland-1
+        systemctl --user set-environment WAYFIRE_SOCKET=/tmp/wayfire-wayland-1.socket
 
         systemctl --user set-environment $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
         export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
