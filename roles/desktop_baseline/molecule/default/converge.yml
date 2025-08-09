@@ -8,3 +8,5 @@
     - name: Include role desktop_baseline
       ansible.builtin.include_role:
         name: karras.linux_client.desktop_baseline
+      vars:
+        desktop_baseline_multilib: yes

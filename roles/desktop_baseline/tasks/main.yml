@@ -1,5 +1,21 @@
 ---
 
+- name: Enable multilib support
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
+    prepend_newline: true
+    marker_begin: 'BEGIN DESKTOP_BASELINE'
+    marker_end: 'END DESKTOP_BASELINE'
+    owner: root
+    group: root
+    mode: '0644'
+    state: present
+  when: desktop_baseline_multilib
+  notify: Refresh pacman database
+
 - name: Install desktop packages
   ansible.builtin.package:
     name: '{{ desktop_baseline_packages }}'

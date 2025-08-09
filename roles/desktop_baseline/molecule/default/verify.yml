@@ -5,6 +5,13 @@
   gather_facts: false
 
   tasks:
+    - name: Check if multilib repository was successfully configured
+      ansible.builtin.command:
+        cmd: pacman-conf -l
+      register: out
+      changed_when: false
+      failed_when: '"multilib" not in out.stdout_lines'
+
     - name: Check if bemenu was successfully installed
       ansible.builtin.command:
         bemenu -v

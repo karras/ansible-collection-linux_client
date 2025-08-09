@@ -4,6 +4,12 @@ argument_specs:
   main:
     short_description: Manages Linux desktop related basic configs for clients.
     options:
+      desktop_baseline_multilib:
+        description:
+          - Whether to enable multilib support or not.
+        type: bool
+        required: false
+        default: no
       desktop_baseline_packages:
         description:
           - List of desktop packages to install.
@@ -11,8 +17,8 @@ argument_specs:
         elements: str
         required: false
         default:
-          - acpilight
           - bemenu-wayland
+          - brightnessctl
           - neovim
           - swaybg
           - swayidle

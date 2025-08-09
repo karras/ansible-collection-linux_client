@@ -27,10 +27,13 @@ playbook](./molecule/default/converge.yml) as a starting point:
 The default variables are defined in [defaults/main.yml](./defaults/main.yml):
 
 ```yaml
+# Whether to enable multilib support or not
+desktop_baseline_multilib: no
+
 # List of desktop packages to install
 desktop_baseline_packages:
-  - acpilight
   - bemenu-wayland
+  - brightnessctl
   - neovim
   - swaybg
   - swayidle
